@@ -1,0 +1,10 @@
+{
+  "name": "Perforaciones Ortiz",
+  "short_name": "P. Ortiz",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f5f6",
+  "theme_color": "#214f5e",
+  "description": "Gestión de trabajos, bombas, clientes y operarios de Perforaciones Ortiz.",
+  "icons": []
+}
