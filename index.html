@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f4c5c">
 <title>Perforaciones Ortiz</title>
+<meta name="application-name" content="Perforaciones Ortiz">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="P. Ortiz">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="180x180" href="icono-apple-180.png">
 <style>
 :root{--p:#0f4c5c;--bg:#f3f6f7;--txt:#183038;--muted:#6b7c82}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}header{position:sticky;top:0;z-index:5;background:var(--p);color:white;padding:14px 16px}header h1{font-size:20px;margin:0}.sub{font-size:12px;opacity:.8}.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px}main{max-width:900px;margin:auto;padding:12px 12px 86px}.card{background:white;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px #18303812}h2{font-size:19px;margin:0 0 12px}label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5d8;border-radius:11px;background:white;font-size:16px}textarea{min-height:90px}.grid{display:grid;gap:10px}.grid2{grid-template-columns:1fr 1fr}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1;min-width:125px}button{border:0;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:750}.primary{background:var(--p);color:white}.secondary{background:#dcebed;color:var(--p)}.hidden{display:none!important}.item{padding:14px 0;border-bottom:1px solid #e7edef}
 .listcard{padding:15px;border:1px solid #e1e9eb;border-radius:14px;margin:10px 0;background:#fff}
@@ -192,14 +198,115 @@ button:disabled{opacity:.45;cursor:not-allowed}
   grid-template-columns:1fr 1fr;
   gap:10px 12px;
 }
+.pump-test-grid-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pump-test-grid label{margin-top:0}
 .pump-test-results{display:grid;gap:5px;margin-top:8px}
 @media(max-width:420px){
   .pump-test-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .pump-test-grid-three{grid-template-columns:1fr}
 }
 @media print{
   .pump-test-grid{grid-template-columns:1fr 1fr}
 }
+
+
+.pdf-actions-inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pdf-actions-inline button{flex:1;min-width:140px}
+@media print{.pdf-actions-inline{display:none!important}}
+
+.vertical-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+.vertical-actions button{width:100%!important;min-width:0!important}
+.work-filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.work-compact{padding:12px 14px;border:1px solid #e1e9eb;border-radius:12px;margin:8px 0;background:#fff;cursor:pointer}
+.work-compact strong{font-size:15px}
+.works-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:14px;align-items:start;margin-top:12px}
+.works-actions-panel{position:sticky;top:82px;margin:0!important}
+.work-select-row{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:10px;align-items:center}
+.work-select-label{display:flex!important;align-items:center;justify-content:flex-end;gap:7px;margin:0!important;white-space:nowrap}
+.work-select-label input{width:auto}
+.supply-selected-row{grid-template-columns:minmax(0,1fr) 150px 90px!important;align-items:end!important}
+.multi-pump-card{border:1px solid #dbe5e8;border-radius:14px;padding:14px;margin:12px 0;background:#f9fbfb}
+.multi-pump-card h3{margin:0 0 8px}
+.multi-pump-components{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:760px){.works-layout{grid-template-columns:1fr}.works-actions-panel{position:static;grid-row:1}.work-select-row{grid-template-columns:1fr}.work-select-label{justify-content:flex-start}.supply-selected-row{grid-template-columns:1fr!important}.supply-selected-row button{width:100%}}
+@media(max-width:560px){.work-filter-grid,.multi-pump-components{grid-template-columns:1fr}}
+@media print{
+  .letterhead-print-spacer{height:36mm}
+  .no-print{display:none!important}
+}
+
+@media print{
+  body.print-work-one-page #detalle .card{
+    padding:3mm 7mm!important;
+    margin-top:-20mm!important;
+    margin-bottom:-20mm!important;
+    font-size:9px!important;
+    line-height:1.12!important;
+  }
+  body.print-work-one-page .letterhead-print-spacer{height:8mm!important}
+  body.print-work-one-page .print-logo{
+    margin-bottom:4px!important;
+    padding-bottom:4px!important;
+  }
+  body.print-work-one-page #detailBody p{margin:3px 0!important;line-height:1.12!important}
+  body.print-work-one-page .mapbox,
+  body.print-work-one-page .listcard{
+    margin:4px 0!important;
+    padding:6px!important;
+    border-radius:8px!important;
+  }
+  body.print-work-one-page .listrows{gap:2px!important;margin-top:4px!important}
+  body.print-work-one-page .listrow{
+    grid-template-columns:37mm 1fr!important;
+    gap:4px!important;
+    font-size:9px!important;
+    line-height:1.1!important;
+  }
+  body.print-work-one-page .print-signatures{display:none!important}
+  body.print-work-one-page .signature-line{display:none!important}
+  body.print-work-one-page .photo-gallery{gap:4px!important;margin-top:4px!important}
+  body.print-work-one-page .photo-gallery img{max-height:90px!important}
+  @page{size:A4 portrait;margin:0}
+}
+
+/* Portada con identidad visual - Prueba 45 */
+:root{--navy:#073d62;--orange:#c96528}
+header{background:linear-gradient(105deg,#073d62,#0f5b68);padding:10px 16px;box-shadow:0 3px 16px #062c3d30}
+.header-brand{display:flex;align-items:center;gap:12px;min-width:0}
+.header-logo{width:150px;height:48px;position:relative;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 2px 9px #001d2e35;flex:0 0 auto}
+.header-logo img{position:absolute;width:390px;max-width:none;left:-12px;top:-12px}
+.header-copy{min-width:0}
+.home-hero{overflow:hidden;padding:0!important;background:linear-gradient(125deg,#fff 0%,#f1f7f8 58%,#dcecef 100%);border:1px solid #dce8eb}
+.home-hero-inner{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:center;padding:22px 24px}
+.home-logo{width:290px;height:98px;position:relative;overflow:hidden;border-radius:14px;background:#fff}
+.home-logo img{position:absolute;width:680px;max-width:none;left:-18px;top:-23px}
+.home-welcome h2{font-size:25px;color:var(--navy);margin:0 0 6px}
+.home-welcome p{margin:0;color:#567079;line-height:1.45}
+.home-kicker{display:inline-block;color:#8a4e20;background:#fff0df;border-radius:999px;padding:5px 10px;margin-bottom:9px;font-size:12px;font-weight:800}
+.home-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 24px 22px}
+.home-action{min-height:126px;text-align:center;padding:12px;border:1px solid #d9e6e9;background:#fff;color:var(--navy);box-shadow:0 3px 10px #1736400e;transition:transform .15s ease,box-shadow .15s ease}
+.home-action:hover{transform:translateY(-2px);box-shadow:0 7px 18px #17364018}
+.home-action.primary-action{background:linear-gradient(135deg,#0d5969,#073d62);color:#fff;border-color:transparent}
+.home-action-logo{display:block;width:58px;height:58px;object-fit:contain;margin:0 auto 7px;border-radius:8px;background:#fff}
+.home-action-symbol{display:flex;align-items:center;justify-content:center;width:58px;height:58px;margin:0 auto 7px;border-radius:50%;font-size:29px;background:#edf4f5;color:var(--orange)}
+.primary-action .home-action-symbol{background:#fff url("icono-nuevo-trabajo.png") center/contain no-repeat;color:transparent;font-size:0;border-radius:8px}
+.home-action.admin .home-action-symbol{background:#fff url("icono-clientes.png") center/contain no-repeat;color:transparent;font-size:0;border-radius:8px}
+.home-action-title{display:block;font-size:14px;font-weight:850}
+.home-action-desc{display:block;font-size:11px;font-weight:500;opacity:.72;margin-top:3px;line-height:1.25}
+.dashboard-card h2{color:var(--navy)}
+@media(max-width:720px){.home-hero-inner{grid-template-columns:1fr}.home-logo{margin:auto}.home-welcome{text-align:center}.home-actions{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.header-logo{width:108px;height:40px}.header-logo img{width:320px;top:-10px}.header-copy h1{font-size:16px}.header-copy .sub{font-size:10px}.home-hero-inner{padding:18px 14px}.home-logo{width:255px;height:86px}.home-logo img{width:600px}.home-actions{grid-template-columns:1fr 1fr;padding:0 14px 16px}.home-action{min-height:116px;padding:10px}.role{font-size:11px;padding:7px 8px}}
+
+/* Colores e íconos de navegación - Prueba 48 */
+.notice{background:#e4f2f5!important;color:#315f70!important}
+.home-kicker{background:#e4f2f5!important;color:#315f70!important}
+.works-actions-panel{background:#e4f2f5!important;color:#315f70!important}
+nav{min-height:76px;box-shadow:0 -3px 14px #17364014}
+nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 5px 8px;font-size:12px;font-weight:800}
+.bottom-nav-icon{display:block;width:46px;height:42px;object-fit:contain;border-radius:7px;background:#fff}
+.bottom-nav-home{display:block;width:54px;height:42px;border-radius:7px;background:#073d62 url("icono-inicio-invertido.png") center/contain no-repeat}
+@media(max-width:500px){nav{min-height:72px}.bottom-nav-icon{width:42px;height:38px}.bottom-nav-home{width:48px;height:38px;background-size:contain}}
+.auth-screen{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#0f4c5c,#173b53);display:flex;align-items:center;justify-content:center;padding:22px}.auth-card{width:min(430px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 20px 60px #00182055}.auth-brand{display:flex;align-items:center;gap:14px;margin-bottom:20px}.auth-brand img{width:74px;height:74px;object-fit:contain;border-radius:16px}.auth-brand h1{font-size:22px;margin:0}.auth-card .primary{width:100%;margin-top:16px}.auth-error{color:#a62d2d;font-size:13px;margin-top:10px}.sync-state{font-size:11px;opacity:.82;margin-top:3px}body:not(.cloud-locked) .auth-screen{display:none}body.cloud-locked>header,body.cloud-locked>main,body.cloud-locked>nav{display:none}
 
 </style>
   <link rel="manifest" href="manifest.webmanifest">
@@ -208,11 +315,12 @@ button:disabled{opacity:.45;cursor:not-allowed}
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Perforaciones Ortiz">
 </head>
-<body>
-<header><div class="toprow"><div><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 26</div></div><button id="roleBtn" class="role" onclick="toggleRole()">Modo: Administración</button></div></header>
+<body class="cloud-locked">
+<section id="authScreen" class="auth-screen"><form class="auth-card" onsubmit="cloudLogin(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Perforaciones Ortiz</h1><div class="small">Sistema conectado</div></div></div><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="username" required><label>Contraseña</label><input id="loginPassword" type="password" autocomplete="current-password" required><button id="loginButton" class="primary" type="submit">Ingresar</button><div id="loginError" class="auth-error"></div></form></section>
+<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 61</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
 <main>
-<section id="inicio" class="screen"><div class="card"><h2>Inicio</h2><div class="grid grid2"><button class="primary" onclick="go('nuevo')">＋ Nuevo trabajo</button><button class="secondary" onclick="go('bombas')">⚙ Buscar bomba</button><button class="secondary admin" onclick="go('clientes')">👥 Clientes</button><button class="secondary" onclick="go('trabajos')">📋 Trabajos</button></div></div><div class="card admin"><h2>Administración</h2><div id="stats" class="grid grid2"></div><div class="actions"><button class="primary" onclick="exportExcel()">Descargar Excel</button><button class="secondary" onclick="window.print()">Generar PDF</button></div></div><div class="card"><h2>Últimos trabajos</h2><div id="latest"></div></div></section>
-<section id="nuevo" class="screen hidden"><div class="card"><h2>Nuevo trabajo</h2><label>Tipo de trabajo</label><div class="worktype" id="types"></div><div class="grid grid2"><div><label>Fecha</label><input id="wDate" type="date" onchange="if($('wEventDate')) $('wEventDate').value=this.value"></div><div><label>Técnico</label><select id="wTech"></select></div></div><label>Cliente</label><select id="wClient" onchange="refreshLocationOptions()" onchange="clientChanged()"></select>
+<section id="inicio" class="screen"><div class="card home-hero"><div class="home-hero-inner"><div class="home-logo"><img src="hoja-membretada.jpeg" alt="Perforaciones Ortiz"></div><div class="home-welcome"><span class="home-kicker">Panel de gestión</span><h2>Bienvenido</h2><p>Trabajos, clientes y bombas organizados en un solo lugar.</p></div></div><div class="home-actions"><button class="home-action primary-action" onclick="go('nuevo')"><span class="home-action-symbol">＋</span><span class="home-action-title">Nuevo trabajo</span><span class="home-action-desc">Registrar una nueva tarea</span></button><button class="home-action" onclick="go('bombas')"><img class="home-action-logo" src="icono-bombas.png" alt="Bombas"><span class="home-action-title">Bombas</span><span class="home-action-desc">Consultar historial y ubicación</span></button><button class="home-action admin" onclick="go('clientes')"><span class="home-action-symbol">👥</span><span class="home-action-title">Clientes</span><span class="home-action-desc">Ver y administrar clientes</span></button><button class="home-action" onclick="go('trabajos')"><img class="home-action-logo" src="icono-trabajos.png" alt="Trabajos"><span class="home-action-title">Trabajos</span><span class="home-action-desc">Filtrar, imprimir y exportar</span></button></div></div><div class="card admin dashboard-card"><h2>Resumen de administración</h2><div id="stats" class="grid grid2"></div><div class="actions"><button class="primary" onclick="exportExcel()">Descargar Excel</button><button class="secondary" onclick="window.print()">Generar PDF</button></div><div class="notice" style="margin-top:16px"><strong>Copia de seguridad y traslado</strong><div class="small" style="margin-top:6px">Guardá todos los datos para usarlos en otra computadora o restaurarlos después de instalar una versión nueva.</div><div class="actions"><button class="primary" onclick="downloadBackup()">Guardar copia de seguridad</button><button class="secondary" onclick="$('backupFileInput').click()">Restaurar copia de seguridad</button></div><input id="backupFileInput" class="hidden" type="file" accept=".json,application/json" onchange="restoreBackup(event)"><div id="backupStatus" class="small"></div></div></div><div class="card"><h2>Últimos trabajos</h2><div id="latest"></div></div></section>
+<section id="nuevo" class="screen hidden"><div class="card"><h2>Nuevo trabajo</h2><label>Tipo de trabajo</label><div class="worktype" id="types"></div><div class="grid grid2"><div><label>Fecha</label><input id="wDate" type="date" onchange="if($('wEventDate')) $('wEventDate').value=this.value"></div><div><label>Técnico</label><select id="wTech"></select></div></div><label>Cliente</label><select id="wClient" onchange="clientChanged()"></select>
         <button type="button" class="secondary" style="width:100%;margin-top:8px" onclick="toggleQuickClient(true)">+ Crear cliente nuevo</button>
         
 <div id="newClientFromWorkBox" class="hidden">
@@ -237,62 +345,65 @@ button:disabled{opacity:.45;cursor:not-allowed}
 </div>
 <div id="occasional" class="hidden"><label>Referencia del cliente ocasional</label><input id="wOcc" placeholder="Persona, empresa, campo o ubicación"></div><label>Lugar / establecimiento</label>
 <select id="wLocation" onchange="toggleNewLocation();refreshPumpOptionsForWork()"><option value="">Seleccionar lugar existente</option><option value="new">+ Crear nuevo lugar</option></select>
+<div class="mapbox" id="workGpsBox">
+  <strong>Ubicación del trabajo</strong>
+  <label>GPS</label>
+  <input id="wGps" placeholder="Latitud, longitud">
+  <div class="actions" style="margin-top:8px">
+    <button type="button" class="secondary" onclick="captureWorkGps()">Usar ubicación actual</button>
+    <button type="button" class="secondary" onclick="openWorkGoogleMaps()">Abrir Google Maps</button>
+  </div>
+  <div id="workGpsStatus" class="small">Podés usar la ubicación actual o abrir Google Maps y copiar las coordenadas.</div>
+</div>
 <div id="newLocationBox" class="hidden"><div class="notice"><strong>Nuevo lugar de trabajo</strong></div><label>Nombre del lugar o establecimiento</label><input id="newLocName"><label>Localidad</label><input id="newLocLocality"><label>Dirección o indicaciones</label><input id="newLocAddress"><label>Ubicación GPS</label>
     <div class="actions" style="grid-template-columns:1fr auto">
       <input id="newLocGps" placeholder="Latitud, longitud" readonly>
       <button type="button" class="secondary" onclick="captureGps()">Usar ubicación actual</button>
     </div>
     <div id="gpsStatus" class="small"></div><label>Observaciones del lugar</label><textarea id="newLocObs"></textarea></div>
-<input id="wEst" type="hidden"><div id="pumpArea"><label>Número de bomba</label><select id="wPump" onchange="toggleInstallPumpMode();loadExistingPumpForInstallation()"></select>
-        <div class="small" style="margin-top:6px">
-          Seleccioná únicamente el número de la bomba. El lugar de instalación o desmontaje se indica arriba.
-        </div>
-        
-<div id="existingPumpUpdateBox" class="hidden">
-  <div class="notice" style="margin:12px 0">
-    <strong>Actualizar datos de la bomba para esta instalación</strong>
-    <div class="small">Podés modificar los componentes porque pueden haber cambiado desde la última instalación.</div>
+<input id="wEst" type="hidden">
+<div id="pumpArea" class="hidden">
+  <div class="notice" style="margin-top:12px">
+    <strong>Bombas del trabajo</strong>
+    <div class="small">Indicá cuántas bombas intervienen. Cada una puede ser existente o nueva.</div>
   </div>
-  <label>Cabezal</label>
-  <input id="updPumpHead" placeholder="Cabezal">
-  <label>Soporte</label>
-  <input id="updPumpSupport" placeholder="Soporte">
-  <label>Caños</label>
-  <input id="updPumpPipes" placeholder="Cantidad y características">
-  <label>Manguito</label>
-  <input id="updPumpSleeve" placeholder="Manguito">
-  <label>Cámaras</label>
-  <input id="updPumpChambers" placeholder="Cámaras">
-  <label>Observaciones de la bomba</label>
-  <textarea id="updPumpObs" placeholder="Observaciones técnicas"></textarea>
+  <label>Cantidad de bombas</label>
+  <input id="wPumpQty" type="number" min="1" max="12" value="1" oninput="renderMultiPumpBlocks()">
+  <div id="multiPumpBlocks"></div>
 </div>
-
-<div id="newPumpInstallBox" class="hidden">
-          <div class="notice" style="margin:12px 0"><strong>Nueva bomba para esta instalación</strong><br><span class="small">El técnico carga la ficha completa y el sistema crea la bomba junto con el trabajo.</span></div>
-          <label>Número de bomba del cliente</label>
-          <input id="newPumpNumber" placeholder="Ej.: 1, Bomba Norte, Pozo 4">
-          <label>Cabezal</label>
-          <input id="newPumpHead" placeholder="Cabezal">
-          <label>Soporte</label>
-          <input id="newPumpSupport" placeholder="Soporte">
-          <label>Caños</label>
-          <input id="newPumpPipes" placeholder="Cantidad y características">
-          <label>Manguito</label>
-          <input id="newPumpSleeve" placeholder="Manguito">
-          <label>Cámaras</label>
-          <input id="newPumpChambers" placeholder="Cámaras">
-          <label>Estado inicial</label>
-          <select id="newPumpStatus"><option>Funcionando</option><option>En revisión</option><option>Fuera de servicio</option></select>
-          <label>Observaciones de la bomba</label>
-          <textarea id="newPumpObs" placeholder="Observaciones técnicas"></textarea>
-        </div>
-</div><input id="wEventDate" type="hidden"><div id="technicalFields"></div><label>Observaciones del trabajo</label><textarea id="wObs"></textarea><label>Prioridad</label><select id="wPriority"><option>Informativa</option><option>Revisar</option><option>Urgente</option></select><label>Fotos</label>
+<input id="wEventDate" type="hidden"><div id="technicalFields"></div><div id="workSuppliesBox"><label>Insumos utilizados</label><div class="mapbox"><select id="wSupplySelect" onchange="addSelectedSupply()"><option value="">Seleccionar insumo</option></select><div id="supplyCatalogStatus" class="small" style="margin-top:6px"></div><div class="actions"><button type="button" class="secondary" onclick="createSupply()">＋ Crear insumo</button><button type="button" class="secondary admin" onclick="deleteSupplyFromCatalog()" style="color:#a62d2d">Eliminar insumo</button><button type="button" class="secondary admin" onclick="$('supplyExcelInput').click()">Importar Excel</button></div><input id="supplyExcelInput" class="hidden" type="file" accept=".xlsx,.xls,.csv" onchange="importSuppliesFromExcel(event)"><div id="selectedSupplies" class="listrows" style="margin-top:10px"></div></div></div><label>Observaciones del trabajo</label><textarea id="wObs"></textarea><label>Prioridad</label><select id="wPriority"><option value="">Seleccionar prioridad</option><option>Informativa</option><option>Revisar</option><option>Urgente</option></select><label>Fotos</label>
     <input id="wPhotos" type="file" accept="image/*" multiple onchange="preparePhotos(event)">
     <div class="small" style="margin-top:6px">Podés elegir imágenes de la fototeca o sacar una foto.</div>
     <div id="photoSelection"></div><div class="actions"><button class="primary" onclick="saveWork()">Guardar trabajo</button><button class="secondary" onclick="go('inicio')">Cancelar</button></div></div></section>
-<section id="bombas" class="screen hidden"><div class="card"><div class="toprow"><h2>Bombas</h2><button class="primary admin" onclick="pumpForm.classList.remove('hidden')">＋ Nueva bomba</button></div><input id="pumpSearch" placeholder="Buscar por número, cliente o establecimiento" oninput="renderPumps()"><div id="pumpForm" class="hidden"><div class="grid grid2"><div><label>Número bomba</label><input id="pNumber"></div><div><label>Cliente</label><select id="pClient"></select></div><div><label>Establecimiento</label><input id="pEst"></div><div><label>Estado</label><select id="pStatus"><option>Funcionando</option><option>En reparación</option><option>Fuera de servicio</option><option>Desmontada</option></select></div><div><label>Cabezal</label><input id="pHead"></div><div><label>Soporte</label><input id="pSupport"></div><div><label>Caños</label><input id="pPipes"></div><div><label>Manguito</label><input id="pSleeve"></div><div><label>Cámaras</label><input id="pChambers"></div><div><label>Fecha instalación / desmontaje</label><input id="pDate" type="date"></div></div><label>Observaciones</label><textarea id="pObs"></textarea><div class="actions"><button class="primary" onclick="savePump()">Guardar</button><button class="secondary" onclick="pumpForm.classList.add('hidden')">Cancelar</button></div></div><div id="pumpList"></div></div></section>
-<section id="clientes" class="screen hidden"><div class="card admin"><div class="toprow"><h2>Clientes</h2><button class="primary" onclick="clientForm.classList.remove('hidden')">＋ Nuevo cliente</button></div><div id="clientForm" class="hidden"><label>Nombre</label><input id="cName"><label>Observaciones</label><textarea id="cObs"></textarea><div class="actions"><button class="primary" onclick="saveClient()">Guardar</button><button class="secondary" onclick="clientForm.classList.add('hidden')">Cancelar</button></div></div><div id="clientList"></div></div></section>
-<section id="trabajos" class="screen hidden"><div class="card"><h2>Trabajos</h2><input id="workSearch" placeholder="Buscar por cliente, bomba, técnico o tipo" oninput="renderWorks()"><div id="workList"></div></div></section>
+<section id="bombas" class="screen hidden"><div class="card"><div class="toprow"><h2>Bombas</h2><button class="primary admin" onclick="pumpForm.classList.remove('hidden')">＋ Nueva bomba</button></div><input id="pumpSearch" placeholder="Buscar por número, cliente o establecimiento" oninput="renderPumps()"><div id="pumpForm" class="hidden"><div class="grid grid2"><div><label>Número bomba</label><input id="pNumber"></div><div><label>Cliente</label><select id="pClient"></select></div><div><label>Establecimiento</label><input id="pEst"></div>
+<div><label>Ubicación GPS</label>
+  <input id="pGps" placeholder="Latitud, longitud">
+  <div class="actions" style="margin-top:6px">
+    <button type="button" class="secondary" onclick="capturePumpGps()">Usar ubicación actual</button>
+    <button type="button" class="secondary" onclick="openPumpGoogleMaps()">Abrir Google Maps</button>
+  </div>
+  <div id="pumpGpsStatus" class="small"></div>
+</div>
+<div><label>Estado</label><select id="pStatus"><option>Funcionando</option><option>En reparación</option><option>Fuera de servicio</option><option>Desmontada</option></select></div><div><label>Cabezal</label><input id="pHead"></div><div><label>Soporte</label><input id="pSupport"></div><div><label>Caños</label><input id="pPipes"></div><div><label>Manguito</label><input id="pSleeve"></div><div><label>Cámaras</label><input id="pChambers"></div><div><label>Campaña</label><input id="pCampaign"></div><div><label>Varilla sup.</label><input id="pTopRod"></div><div><label>Otros</label><input id="pOthers"></div><div><label>Fecha instalación / desmontaje</label><input id="pDate" type="date"></div></div><label>Observaciones</label><textarea id="pObs"></textarea><div class="actions"><button class="primary" onclick="savePump()">Guardar</button><button class="secondary" onclick="pumpForm.classList.add('hidden')">Cancelar</button></div></div><div id="pumpList"></div></div></section>
+<section id="clientes" class="screen hidden"><div class="card admin"><div class="toprow"><h2>Clientes</h2><div class="actions" style="margin-top:0"><button class="secondary" onclick="$('clientExcelInput').click()">Importar Excel</button><button class="primary" onclick="clientForm.classList.remove('hidden')">＋ Nuevo cliente</button></div></div><input id="clientExcelInput" class="hidden" type="file" accept=".xlsx,.xls,.csv" onchange="importClientsFromExcel(event)"><div id="clientForm" class="hidden">
+<label>Nombre / razón social</label><input id="cName">
+<div class="grid grid2">
+  <div><label>CUIT / DNI</label><input id="cDoc"></div>
+  <div><label>Teléfono</label><input id="cPhone"></div>
+  <div><label>Correo electrónico</label><input id="cEmail" type="email"></div>
+  <div><label>Localidad</label><input id="cLocality"></div>
+</div>
+<label>Dirección</label><input id="cAddress">
+<label>Observaciones</label><textarea id="cObs"></textarea>
+<div class="actions"><button class="primary" onclick="saveClient()">Guardar</button><button class="secondary" onclick="clientForm.classList.add('hidden')">Cancelar</button></div>
+</div><div id="clientList"></div></div></section>
+<section id="trabajos" class="screen hidden"><div class="card"><h2>Trabajos</h2>
+<div class="work-filter-grid">
+  <div><label>Filtrar por cliente</label><select id="workClientFilter" onchange="renderWorks()"><option value="">Todos los clientes</option></select></div>
+  <div><label>Filtrar por mes</label><select id="workMonthFilter" onchange="renderWorks()"><option value="">Todos los meses</option></select></div>
+</div>
+<input id="workSearch" placeholder="Buscar trabajos" oninput="renderWorks()">
+<div id="workList"></div></div></section>
 
 <section id="operarios" class="screen hidden"><div class="card"><h2>Operarios</h2><div id="operatorList"></div></div></section>
 <section id="detalle" class="screen hidden"><div class="card"><div class="toprow"><h2 id="detailTitle">Detalle</h2><button class="secondary" onclick="go('inicio')">Cerrar</button></div><div class="print-logo">
@@ -304,15 +415,98 @@ button:disabled{opacity:.45;cursor:not-allowed}
 <div id="editPumpBox" class="hidden admin"></div>
 <div id="printPhotoControls" class="admin"></div>
     <div class="actions admin">
-      <button class="primary" onclick="window.print()">Crear PDF / Imprimir</button>
+      <button class="primary" onclick="createDetailPdf()">Crear PDF</button><button class="secondary" onclick="createDetailLetterheadPdf()">Crear PDF en hoja membretada</button><button class="secondary" onclick="window.print()">Imprimir</button>
     </div></div></section>
 </main>
-<nav><button data-go="inicio" class="active" onclick="go('inicio')">🏠<br>Inicio</button><button data-go="nuevo" onclick="go('nuevo')">＋<br>Nuevo</button><button data-go="bombas" onclick="go('bombas')">⚙<br>Bombas</button><button data-go="trabajos" onclick="go('trabajos')">📋<br>Trabajos</button></nav>
+<nav><button data-go="inicio" class="active" onclick="go('inicio')"><span class="bottom-nav-home" aria-hidden="true"></span><span>Inicio</span></button><button data-go="nuevo" onclick="go('nuevo')"><img class="bottom-nav-icon" src="icono-nuevo-trabajo.png" alt=""><span>Nuevo</span></button><button data-go="bombas" onclick="go('bombas')"><img class="bottom-nav-icon" src="icono-bombas.png" alt=""><span>Bombas</span></button><button data-go="trabajos" onclick="go('trabajos')"><img class="bottom-nav-icon" src="icono-trabajos.png" alt=""><span>Trabajos</span></button></nav>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const TYPES=["Instalación de bomba","Desmontaje de bomba","Reparación de bomba","Ensayo de bombeo","Perforación de riego","Perforación de riego con aforo","Perforación encamisada","Base de hormigón","Caño de camisa"];const USERS=[{name:"Diego",role:"owner"},{name:"Lucas",role:"owner"},{name:"Raúl",role:"tech"},{name:"Juan Carlos",role:"tech"},{name:"Carolina",role:"admin"}];const TECHS=USERS.map(u=>u.name);let role=localStorage.po_role||"admin",selectedType="";let db=JSON.parse(localStorage.po_db||"null")||{clients:[{id:1,name:"Cliente Ocasional",obs:""}],pumps:[],works:[]};const $=id=>document.getElementById(id);function save(){localStorage.po_db=JSON.stringify(db)}function esc(s){return String(s??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]))}function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.go===id));renderAll()}function toggleRole(){role=role==='admin'?'tech':'admin';localStorage.po_role=role;applyRole();renderAll()}function applyRole(){document.querySelectorAll('.admin').forEach(x=>x.classList.toggle('hidden',role!=='admin'));$('roleBtn').textContent='Modo: '+(role==='admin'?'Administración':'Técnico')}function clientName(id){return db.clients.find(c=>c.id==id)?.name||'Sin cliente'}function init(){$('wDate').value=new Date().toISOString().slice(0,10);$('wEventDate').value=$('wDate').value;$('wTech').innerHTML=TECHS.map(x=>`<option>${x}</option>`).join('');$('types').innerHTML=TYPES.map(t=>`<button data-type="${t}" onclick="chooseType('${t}')">${t}</button>`).join('');applyRole();renderAll()}function chooseType(t){selectedType=t;refreshPumpOptionsForWork();document.querySelectorAll('#types button').forEach(b=>b.classList.toggle('sel',b.dataset.type===t));let pump=["Instalación de bomba","Desmontaje de bomba","Reparación de bomba","Ensayo de bombeo"].includes(t);$('pumpArea').classList.toggle('hidden',!pump);if($('wEventDate')) $('wEventDate').value=$('wDate').value;let h='';if(t.includes('Perforación')||t==='Caño de camisa')h+='<div class="grid grid2"><div><label>Profundidad</label><input id="fDepth"></div><div><label>Diámetro</label><input id="fDiameter"></div></div>';if(t==='Perforación de riego con aforo'||t==='Ensayo de bombeo')h+='<div class="grid grid2"><div><label>Caudal</label><input id="fFlow"></div><div><label>Nivel dinámico</label><input id="fDynamic"></div></div>';if(t==='Perforación encamisada'||t==='Caño de camisa')h+='<label>Tipo y cantidad de caño de camisa</label><input id="fCasing">';if(t==='Base de hormigón')h+='<div class="grid grid2"><div><label>Medidas de la base</label><input id="fBaseSize"></div><div><label>Ubicación</label><input id="fBaseLocation"></div></div>';$('technicalFields').innerHTML=h}function refreshSelects(){
-  $("wClient").innerHTML=db.clients.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join("");
-  $("pClient").innerHTML=db.clients.filter(c=>c.name!=="Cliente Ocasional").map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join("");
+const SUPABASE_URL="https://feegfzldvepfgpybvdxu.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_GaDc2rtzpOMp6f_xpVa_yQ_YsXElZ58";
+const poCloud=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+let currentUser=null,currentProfile=null,cloudReady=false,cloudSaveTimer=null,cloudSubscription=null,appStarted=false;
+const TYPES=["Instalación de bomba","Desmontaje de bomba","Reparación de bomba","Ensayo de bombeo","Perforación de riego","Perforación de riego con aforo","Perforación encamisada"];let USERS=[];let TECHS=[];let role="tech",selectedType="";let db=JSON.parse(localStorage.po_db||"null")||{clients:[{id:1,name:"Cliente Ocasional",obs:""}],pumps:[],works:[]};const $=id=>document.getElementById(id);function save(){localStorage.po_db=JSON.stringify(db);scheduleCloudSave()}function esc(s){return String(s??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]))}function go(id){
+  document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));
+  $(id).classList.remove('hidden');
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.go===id));
+  renderAll();
+  if(id==='nuevo') resetNewWorkForm();
+}function toggleRole(){alert("El modo se asigna según el usuario conectado.")}function applyRole(){document.querySelectorAll('.admin').forEach(x=>x.classList.toggle('hidden',role!=='admin'));if($('roleBtn')) $('roleBtn').textContent=(role==='admin'?'Administración':'Técnico')+' · Salir';refreshTechnicianField()}function clientName(id){return db.clients.find(c=>c.id==id)?.name||'Sin cliente'}
+function refreshTechnicianField(){
+  const select=$('wTech');if(!select)return;
+  if(role==='admin'){
+    const previous=select.value;
+    select.disabled=false;select.innerHTML='<option value="">Seleccionar técnico</option>'+TECHS.map(x=>`<option>${esc(x)}</option>`).join('');
+    if(TECHS.includes(previous)) select.value=previous;
+  }else{
+    const ownName=String(currentProfile?.nombre||currentUser?.email?.split('@')[0]||'Técnico').trim();
+    select.innerHTML=`<option value="${esc(ownName)}">${esc(ownName)}</option>`;select.value=ownName;select.disabled=true;
+  }
+}
+function init(){
+  refreshTechnicianField();
+  renderWorkTypeButtons();
+  ensureAutomaticCodes();applyRole();renderAll();
+}
+function availableWorkTypes(){
+  if(!Array.isArray(db.customWorkTypes)) db.customWorkTypes=[];
+  return [...new Set([...TYPES,...db.customWorkTypes].map(x=>String(x||"").trim()).filter(Boolean))];
+}
+function renderWorkTypeButtons(){
+  const box=$("types");
+  if(!box) return;
+  box.innerHTML=availableWorkTypes().map(t=>{
+    const encoded=encodeURIComponent(t);
+    return `<button type="button" data-type="${esc(t)}" onclick="chooseType(decodeURIComponent('${encoded}'))">${esc(t)}</button>`;
+  }).join("")+`<button type="button" class="secondary" style="grid-column:1/-1" onclick="createNewWorkType()">＋ Crear nuevo tipo de trabajo</button>`;
+}
+function createNewWorkType(){
+  const name=String(prompt("Nombre del nuevo tipo de trabajo:")||"").trim();
+  if(!name) return;
+  if(availableWorkTypes().some(t=>t.toLowerCase()===name.toLowerCase())) return alert("Ese tipo de trabajo ya existe.");
+  db.customWorkTypes.push(name);
+  save();renderWorkTypeButtons();chooseType(name);
+}
+function chooseType(t){
+  selectedType=t;
+  document.querySelectorAll('#types button').forEach(b=>b.classList.toggle('sel',b.dataset.type===t));
+  const pump=isPumpWorkType(t);
+  $('pumpArea').classList.toggle('hidden',!pump);
+  if(pump){
+    if($("wPumpQty")) $("wPumpQty").value=1;
+    renderMultiPumpBlocks();
+  }else if($("multiPumpBlocks")) $("multiPumpBlocks").innerHTML="";
+  if($('wEventDate')) $('wEventDate').value=$('wDate').value;
+  let h='';
+  if(t.includes('Perforación')||t==='Caño de camisa') h+='<div class="grid grid2"><div><label>Profundidad</label><input id="fDepth"></div><div><label>Diámetro</label><input id="fDiameter"></div></div>';
+  if(t==='Perforación de riego con aforo') h+='<div class="grid grid2"><div><label>Caudal</label><input id="fFlow"></div><div><label>Nivel dinámico</label><input id="fDynamic"></div></div>';
+  if(t==='Ensayo de bombeo'){
+    h+='<div class="notice"><strong>Datos para la planilla membretada</strong><div class="small">Estos datos se ubicarán automáticamente en la plantilla Excel del ensayo.</div></div>';
+    h+='<div class="pump-test-grid pump-test-grid-three"><div><label>Número de bomba / pozo</label><input id="fPumpNumber"></div><div><label>Profundidad de perforación</label><input id="fDrillingDepth"></div><div><label>Diámetro</label><input id="fDiameter"></div></div>';
+    h+='<div class="pump-test-grid pump-test-grid-three"><div><label>Nivel estático</label><input id="fStaticLevel"></div><div><label>Profundidad</label><input id="fDepth"></div><div><label>Tipo de camisa</label><input id="fCasing"></div></div>';
+    h+='<div class="pump-test-grid pump-test-grid-three"><div><label>Largo de transmisión</label><input id="fTransmissionLength"></div><div><label>Ubicación de la perforación</label><input id="fDrillingLocation"></div><div><label>Método de medición</label><input id="fMeasurementMethod" value="Caudal variable y constante"></div></div>';
+    h+='<div class="notice"><strong>Resultados del ensayo</strong><div class="small">Completá hasta cinco mediciones de caudal, nivel dinámico y observaciones.</div></div>';
+    for(let i=1;i<=5;i++) h+=`<div class="pump-test-grid pump-test-grid-three"><div><label>Caudal ${i}</label><input id="fFlow${i}" inputmode="decimal"></div><div><label>Nivel dinámico ${i}</label><input id="fDynamic${i}" inputmode="decimal"></div><div><label>Observaciones ${i}</label><input id="fTestObs${i}"></div></div>`;
+  }
+  if(t==='Perforación encamisada'||t==='Caño de camisa') h+='<label>Tipo y cantidad de caño de camisa</label><input id="fCasing">';
+  if(t==='Base de hormigón') h+='<div class="grid grid2"><div><label>Medidas de la base</label><input id="fBaseSize"></div><div><label>Ubicación</label><input id="fBaseLocation"></div></div>';
+  $('technicalFields').innerHTML=h;
+  positionSupplyBox(pump);
+}
+function positionSupplyBox(isPump){
+  const box=$("workSuppliesBox");
+  if(!box) return;
+  box.classList.toggle("hidden",isPump);
+  if(!isPump && $("technicalFields")) $("technicalFields").insertAdjacentElement("afterend",box);
+}
+function refreshSelects(){
+  $("wClient").innerHTML=`<option value="">Seleccionar cliente</option>`+db.clients.map(c=>`<option value="${c.id}">${esc(c.code||'-')} · ${esc(c.name)}</option>`).join("");
+  $("pClient").innerHTML=db.clients.filter(c=>c.name!=="Cliente Ocasional").map(c=>`<option value="${c.id}">${esc(c.code||'-')} · ${esc(c.name)}</option>`).join("");
+  refreshSupplyOptions();
   clientChanged();
 }
 function toggleQuickClient(show){
@@ -324,10 +518,10 @@ function toggleQuickClient(show){
 function nextClientCode(){
   let max=0;
   for(const c of db.clients){
-    const m=String(c.code||"").match(/^CLI-(\d{6})$/);
+    const m=String(c.code||"").match(/(\d+)$/);
     if(m) max=Math.max(max,Number(m[1]));
   }
-  return "CLI-"+String(max+1).padStart(6,"0");
+  return max+1;
 }
 function saveQuickClient(){
   const name=$("quickClientName")?.value.trim();
@@ -360,9 +554,26 @@ function saveQuickClient(){
 function clientChanged(){
   let c=db.clients.find(x=>String(x.id)===String($("wClient")?.value||""));
   if($("occasional")) $("occasional").classList.toggle("hidden",c?.name!=="Cliente Ocasional");
+  if(c?.name!=="Cliente Ocasional" && $("wOcc")) $("wOcc").value="";
   refreshLocationOptions();
   refreshPumpOptionsForWork();
-}function saveClient(){let n=$('cName').value.trim();if(!n)return alert('Ingresá el nombre.');db.clients.push({id:Date.now(),name:n,obs:$('cObs').value.trim()});save();$('cName').value='';$('cObs').value='';$('clientForm').classList.add('hidden');renderAll()}
+  if(isPumpWorkType(selectedType)) renderMultiPumpBlocks();
+}function saveClient(){
+  let n=$('cName').value.trim(); if(!n) return alert('Ingresá el nombre.');
+  if(db.clients.some(c=>String(c.name||'').trim().toLowerCase()===n.toLowerCase())) return alert('Ya existe un cliente con ese nombre.');
+  db.clients.push({
+    id:Date.now(),code:nextClientCode(),name:n,
+    doc:$('cDoc')?.value.trim()||'',
+    phone:$('cPhone')?.value.trim()||'',
+    email:$('cEmail')?.value.trim()||'',
+    locality:$('cLocality')?.value.trim()||'',
+    address:$('cAddress')?.value.trim()||'',
+    obs:$('cObs')?.value.trim()||''
+  });
+  save();
+  ['cName','cDoc','cPhone','cEmail','cLocality','cAddress','cObs'].forEach(id=>{if($(id))$(id).value='';});
+  $('clientForm').classList.add('hidden'); renderAll();
+}
 
 function formatCode(prefix,n){return prefix+"-"+String(n).padStart(6,"0")}
 function maxCodeNumber(prefix,items){
@@ -377,6 +588,21 @@ function nextPumpCode(){return formatCode("BO",maxCodeNumber("BO",db.pumps)+1)}
 function nextWorkCode(){return formatCode("PO",maxCodeNumber("PO",db.works)+1)}
 function ensureAutomaticCodes(){
   let changed=false;
+  let clientNext=nextClientCode();
+  const usedClientCodes=new Set();
+  const orderedClients=[...db.clients].sort((a,b)=>(a.id||0)-(b.id||0));
+  for(const c of orderedClients){
+    const parsed=Number(String(c.code||'').match(/(\d+)$/)?.[1]||0);
+    if(parsed>0 && !usedClientCodes.has(parsed)){
+      if(c.code!==parsed){c.code=parsed;changed=true;}
+      usedClientCodes.add(parsed);
+    }else{
+      while(usedClientCodes.has(clientNext)) clientNext++;
+      c.code=clientNext;
+      usedClientCodes.add(clientNext++);
+      changed=true;
+    }
+  }
   let pumpNext=maxCodeNumber("BO",db.pumps)+1;
   for(const p of db.pumps){
     if(!/^BO-\d{6}$/.test(String(p.code||""))){
@@ -492,14 +718,287 @@ function createLocationFromWork(clientId){
 }
 
 
+function backupFileName(){
+  const now=new Date(),pad=n=>String(n).padStart(2,"0");
+  return `Perforaciones_Ortiz_copia_${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}_${pad(now.getHours())}-${pad(now.getMinutes())}.json`;
+}
+function downloadBackup(){
+  if(role!=="admin") return;
+  try{
+    save();
+    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 61",exportedAt:new Date().toISOString(),data:db};
+    const blob=new Blob([JSON.stringify(packageData,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob),link=document.createElement("a");
+    link.href=url;link.download=backupFileName();document.body.appendChild(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    if($("backupStatus")) $("backupStatus").textContent="Copia descargada correctamente. Guardala en un lugar seguro.";
+  }catch(err){console.error(err);alert("No se pudo crear la copia de seguridad.");}
+}
+async function restoreBackup(event){
+  const input=event.target,file=input.files?.[0];if(!file)return;
+  try{
+    const parsed=JSON.parse(await file.text());
+    const restored=parsed?.data||parsed;
+    if(!restored||!Array.isArray(restored.clients)||!Array.isArray(restored.pumps)||!Array.isArray(restored.works)) throw new Error("Formato no válido");
+    const summary=`Clientes: ${Math.max(0,restored.clients.length-1)}\nBombas: ${restored.pumps.length}\nTrabajos: ${restored.works.length}`;
+    if(!confirm(`Se reemplazarán los datos actuales por los de esta copia.\n\n${summary}\n\n¿Continuar?`)) return;
+    db=restored;save();ensureAutomaticCodes();renderAll();
+    if($("backupStatus")) $("backupStatus").textContent=`Copia restaurada: ${summary.replace(/\n/g," · ")}`;
+    alert("La copia de seguridad se restauró correctamente.");
+  }catch(err){console.error(err);alert("El archivo no es una copia de seguridad válida de Perforaciones Ortiz.");}
+  finally{input.value="";}
+}
 function formatDateAR(value){
   if(!value) return "-";
   const p=String(value).split("-");
   if(p.length!==3) return value;
-  return `${Number(p[2])}/${Number(p[1])}/${String(p[0]).slice(-2)}`;
+  return `${String(p[2]).padStart(2,"0")}/${String(p[1]).padStart(2,"0")}/${p[0]}`;
+}
+function worksPdfFilename(entries){
+  const clients=[...new Set((entries||[]).map(entry=>String(entry?.w?.client||"").trim()).filter(Boolean))];
+  const clientName=clients.length===1?clients[0]:(clients.length>1?"Varios clientes":"Sin cliente");
+  const now=new Date();
+  const generationDate=`${String(now.getDate()).padStart(2,"0")}-${String(now.getMonth()+1).padStart(2,"0")}-${now.getFullYear()}`;
+  const safeClient=clientName.replace(/[\\/:*?"<>|]/g,"-").replace(/\s+/g," ").trim();
+  return `Trabajos ${safeClient} ${generationDate}.pdf`;
 }
 
-function renderClients(){$('clientList').innerHTML=db.clients.filter(c=>c.name!=='Cliente Ocasional').map(c=>`<div class="item"><strong>${esc(c.name)}</strong><div class="small">${esc(c.obs||'Sin observaciones')}</div></div>`).join('')||'<div class="small">Sin clientes.</div>'}function savePump(){
+function renderClients(){
+  $('clientList').innerHTML=db.clients.filter(c=>c.name!=='Cliente Ocasional').sort((a,b)=>Number(a.code||0)-Number(b.code||0)).map(c=>`
+    <details class="listcard">
+      <summary style="cursor:pointer;font-weight:850"><span class="pill">Código ${esc(c.code||'-')}</span> ${esc(c.name)} <span class="viewhint">Ver datos ›</span></summary>
+      <div class="listrows" style="margin-top:10px">
+        <div class="listrow"><div class="listlabel">Código</div><div class="listvalue">${esc(c.code||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">CUIT / DNI</div><div class="listvalue">${esc(c.doc||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">Teléfono</div><div class="listvalue">${esc(c.phone||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">Correo</div><div class="listvalue">${esc(c.email||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">Localidad</div><div class="listvalue">${esc(c.locality||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">Dirección</div><div class="listvalue">${esc(c.address||'-')}</div></div>
+        <div class="listrow"><div class="listlabel">Observaciones</div><div class="listvalue">${esc(c.obs||'Sin observaciones')}</div></div>
+      </div>
+      <button class="secondary admin" style="width:100%;margin-top:12px;color:#a62d2d" onclick="deleteClient(${c.id})">Eliminar cliente</button>
+    </details>`).join('')||'<div class="small">Sin clientes.</div>';
+}
+function deleteClient(id){
+  if(role!=="admin") return;
+  const c=db.clients.find(x=>String(x.id)===String(id));
+  if(!c || c.name==="Cliente Ocasional") return;
+  const pumps=db.pumps.filter(p=>String(p.clientId)===String(id)).length;
+  const works=db.works.filter(w=>String(w.clientId)===String(id)||normalizedExcelKey(w.client)===normalizedExcelKey(c.name)).length;
+  if(pumps||works) return alert(`No se puede eliminar ${c.name}: tiene ${pumps} bomba(s) y ${works} trabajo(s) asociados.`);
+  if(!confirm(`¿Eliminar definitivamente al cliente Código ${c.code} · ${c.name}?`)) return;
+  db.clients=db.clients.filter(x=>String(x.id)!==String(id));
+  if(Array.isArray(db.locations)) db.locations=db.locations.filter(l=>String(l.clientId)!==String(id));
+  save();renderAll();
+}
+function normalizedExcelKey(value){
+  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase();
+}
+function excelValue(row,aliases){
+  const wanted=aliases.map(normalizedExcelKey);
+  for(const [key,value] of Object.entries(row||{})) if(wanted.includes(normalizedExcelKey(key))) return String(value??"").trim();
+  return "";
+}
+async function importClientsFromExcel(event){
+  const input=event.target;
+  const file=input.files?.[0];
+  if(!file) return;
+  if(!window.XLSX){input.value="";return alert("No se pudo cargar el lector de Excel.");}
+  try{
+    const data=await file.arrayBuffer();
+    const workbook=XLSX.read(data,{type:"array"});
+    const sheet=workbook.Sheets[workbook.SheetNames[0]];
+    const rows=XLSX.utils.sheet_to_json(sheet,{defval:"",raw:false});
+    let added=0,updated=0,skipped=0;
+    for(const row of rows){
+      const name=excelValue(row,["Cliente","Nombre","Nombre / razón social","Razon social"]);
+      if(!name){skipped++;continue;}
+      const rawCode=excelValue(row,["Cod","Código","Codigo","Código cliente","Codigo cliente"]);
+      const parsedCode=Number(String(rawCode).match(/\d+/)?.[0]||0);
+      let client=db.clients.find(c=>normalizedExcelKey(c.name)===normalizedExcelKey(name))||(parsedCode>0?db.clients.find(c=>Number(c.code)===parsedCode):null);
+      const values={
+        name,
+        doc:excelValue(row,["CUIT / DNI","CUIT","DNI","Documento"]),
+        phone:excelValue(row,["Teléfono","Telefono","Tel","Celular"]),
+        email:excelValue(row,["Correo electrónico","Correo","Email","E-mail"]),
+        locality:excelValue(row,["Localidad","Ciudad"]),
+        address:excelValue(row,["Dirección","Direccion","Domicilio"]),
+        obs:excelValue(row,["Observaciones","Observacion","Notas"])
+      };
+      if(parsedCode>0){
+        const previousHolder=db.clients.find(c=>Number(c.code)===parsedCode && c!==client);
+        if(previousHolder) previousHolder.code=null;
+      }
+      if(client){
+        Object.assign(client,values);
+        if(parsedCode>0) client.code=parsedCode;
+        updated++;
+      }else{
+        db.clients.push({id:Date.now()+Math.floor(Math.random()*1000000),code:parsedCode||nextClientCode(),...values});
+        added++;
+      }
+    }
+    ensureAutomaticCodes();save();renderAll();
+    alert(`Importación terminada. Nuevos: ${added}. Actualizados: ${updated}. Omitidos: ${skipped}.`);
+  }catch(err){
+    console.error(err);alert("No se pudo importar el archivo de clientes.");
+  }finally{input.value="";}
+}
+const DEFAULT_SUPPLIES=["Base de hormigon","Estrella de bronce","Levantar bomba colocar palos nivelar y bajar","Buje deflector","Guardapolvo arenero","Varilla de bomba","Juego de amianto","Cupla de varilla","Reparacion de cuerpo de bombeo","Chaveta de cabezal","Juego de fijacion de bomba","Junta de salida de bomba","Varilla Superior","Caño de camisa","Recambio de caja de prenza","Kit de Refrigeracion","Pernos para la Base","Filtro Nuevo","Aceite Cabezal","Caño de 1,50 nuevo","Cardan","Buje goma estrella"];
+let selectedWorkSupplies=[];
+let pumpSupplySelections={};
+function ensureSupplyCatalog(){
+  if(!Array.isArray(db.supplies)) db.supplies=[];
+  if(!Array.isArray(db.deletedSupplyNames)) db.deletedSupplyNames=[];
+  db.supplies=db.supplies.map((item,index)=>typeof item==="string"?{id:Date.now()+index,code:index+1,name:item,unit:""}:item).filter(item=>item?.name);
+  let nextCode=db.supplies.reduce((max,item)=>Math.max(max,Number(item.code)||0),0)+1;
+  DEFAULT_SUPPLIES.forEach((name,index)=>{
+    if(!db.supplies.some(item=>normalizedExcelKey(item.name)===normalizedExcelKey(name))&&!db.deletedSupplyNames.includes(normalizedExcelKey(name))){
+      db.supplies.push({id:-(index+1),code:nextCode++,name,unit:""});
+    }
+  });
+  save();
+}
+function nextSupplyCode(){
+  ensureSupplyCatalog();
+  return db.supplies.reduce((max,item)=>Math.max(max,Number(item.code)||0),0)+1;
+}
+function refreshSupplyOptions(){
+  ensureSupplyCatalog();
+  const select=$("wSupplySelect");
+  if(!select) return;
+  const current=select.value;
+  select.innerHTML='<option value="">Seleccionar insumo</option>'+db.supplies.slice().sort((a,b)=>Number(a.code||0)-Number(b.code||0)).map(item=>`<option value="${item.id}">${esc(item.code||'-')} · ${esc(item.name)}${item.unit?` · ${esc(item.unit)}`:""}</option>`).join("");
+  select.value=current;
+  document.querySelectorAll('select[id^="mpSupplySelect"]').forEach(mp=>{const value=mp.value;mp.innerHTML=pumpSupplyOptionsHtml();mp.value=value;});
+  if($("supplyCatalogStatus")) $("supplyCatalogStatus").textContent=`${db.supplies.length} insumo${db.supplies.length===1?"":"s"} disponible${db.supplies.length===1?"":"s"}. Al elegir uno aparecerá debajo con su cantidad.`;
+  renderSelectedSupplies();
+}
+function addSelectedSupply(){
+  const id=String($("wSupplySelect")?.value||"");
+  if(!id) return;
+  if(!selectedWorkSupplies.some(entry=>String(entry.id)===id)) selectedWorkSupplies.push({id,quantity:"1"});
+  $("wSupplySelect").value="";
+  renderSelectedSupplies();
+}
+function removeSelectedSupply(id){
+  selectedWorkSupplies=selectedWorkSupplies.filter(entry=>String(entry.id)!==String(id));
+  renderSelectedSupplies();
+}
+function updateSupplyQuantity(id,value){
+  const entry=selectedWorkSupplies.find(item=>String(item.id)===String(id));
+  if(entry) entry.quantity=String(value||"").trim();
+}
+function renderSelectedSupplies(){
+  const box=$("selectedSupplies");
+  if(!box) return;
+  const items=selectedWorkSupplies.map(entry=>({entry,item:db.supplies.find(item=>String(item.id)===String(entry.id))})).filter(x=>x.item);
+  box.innerHTML=items.map(({entry,item})=>`<div class="listrow supply-selected-row"><div class="listvalue"><strong>${esc(item.code||'-')} · ${esc(item.name)}</strong>${item.unit?`<div class="small">Unidad: ${esc(item.unit)}</div>`:""}</div><div><label style="margin:0 0 4px">Cantidad</label><input type="number" min="0" step="any" value="${esc(entry.quantity||'1')}" oninput="updateSupplyQuantity(${Number(item.id)},this.value)"></div><button type="button" class="secondary" onclick="removeSelectedSupply(${Number(item.id)})">Quitar</button></div>`).join("")||'<div class="small">Todavía no seleccionaste insumos.</div>';
+}
+function pumpSupplyOptionsHtml(){
+  return '<option value="">Seleccionar insumo</option>'+db.supplies.slice().sort((a,b)=>Number(a.code||0)-Number(b.code||0)).map(item=>`<option value="${item.id}">${esc(item.code||'-')} · ${esc(item.name)}</option>`).join("");
+}
+function addPumpSupply(index){
+  const id=String($(`mpSupplySelect${index}`)?.value||"");
+  if(!id) return;
+  if(!Array.isArray(pumpSupplySelections[index])) pumpSupplySelections[index]=[];
+  if(!pumpSupplySelections[index].some(entry=>String(entry.id)===id)) pumpSupplySelections[index].push({id,quantity:"1"});
+  $(`mpSupplySelect${index}`).value="";renderPumpSupplySelections(index);
+}
+function createSupplyForPump(index){
+  const name=String(prompt("Nombre del nuevo insumo:")||"").trim();if(!name)return;
+  let item=db.supplies.find(x=>normalizedExcelKey(x.name)===normalizedExcelKey(name));
+  if(!item){const unit=String(prompt("Unidad (opcional):")||"").trim();item={id:Date.now()+Math.floor(Math.random()*10000),code:nextSupplyCode(),name,unit};db.supplies.push(item);save();}
+  refreshSupplyOptions();if($(`mpSupplySelect${index}`)){$(`mpSupplySelect${index}`).value=String(item.id);addPumpSupply(index);}
+}
+function updatePumpSupplyQuantity(index,id,value){
+  const entry=(pumpSupplySelections[index]||[]).find(item=>String(item.id)===String(id));
+  if(entry) entry.quantity=String(value||"").trim();
+}
+function removePumpSupply(index,id){
+  pumpSupplySelections[index]=(pumpSupplySelections[index]||[]).filter(item=>String(item.id)!==String(id));
+  renderPumpSupplySelections(index);
+}
+function renderPumpSupplySelections(index){
+  const box=$(`mpSelectedSupplies${index}`);if(!box)return;
+  const rows=(pumpSupplySelections[index]||[]).map(entry=>({entry,item:db.supplies.find(item=>String(item.id)===String(entry.id))})).filter(x=>x.item);
+  box.innerHTML=rows.map(({entry,item})=>`<div class="listrow supply-selected-row"><div class="listvalue"><strong>${esc(item.name)}</strong></div><div><label style="margin:0 0 4px">Cantidad</label><input type="number" min="0" step="any" value="${esc(entry.quantity||'1')}" oninput="updatePumpSupplyQuantity(${index},${Number(item.id)},this.value)"></div><button type="button" class="secondary" onclick="removePumpSupply(${index},${Number(item.id)})">Quitar</button></div>`).join("")||'<div class="small">Sin insumos asignados a esta bomba.</div>';
+}
+function createSupply(){
+  ensureSupplyCatalog();
+  const name=String(prompt("Nombre del nuevo insumo:")||"").trim();
+  if(!name) return;
+  if(db.supplies.some(item=>normalizedExcelKey(item.name)===normalizedExcelKey(name))) return alert("Ese insumo ya existe.");
+  const unit=String(prompt("Unidad (opcional, por ejemplo: unidad, metro, litro):")||"").trim();
+  const item={id:Date.now()+Math.floor(Math.random()*10000),code:nextSupplyCode(),name,unit};
+  db.supplies.push(item);save();refreshSupplyOptions();
+  $("wSupplySelect").value=String(item.id);addSelectedSupply();
+}
+function deleteSupplyFromCatalog(){
+  if(role!=="admin") return alert("Solo Administración puede eliminar insumos.");
+  ensureSupplyCatalog();
+  if(!db.supplies.length) return alert("No hay insumos para eliminar.");
+  const reference=String(prompt("Escribí el código o el nombre del insumo que querés eliminar:")||"").trim();
+  if(!reference) return;
+  const item=db.supplies.find(x=>String(x.code)===reference||normalizedExcelKey(x.name)===normalizedExcelKey(reference));
+  if(!item) return alert("No se encontró ese insumo. Revisá el código o escribí el nombre completo.");
+  if(!confirm(`¿Eliminar ${item.code} · ${item.name} del desplegable?`)) return;
+  if(!Array.isArray(db.deletedSupplyNames)) db.deletedSupplyNames=[];
+  const key=normalizedExcelKey(item.name);
+  if(!db.deletedSupplyNames.includes(key)) db.deletedSupplyNames.push(key);
+  db.supplies=db.supplies.filter(x=>String(x.id)!==String(item.id));
+  selectedWorkSupplies=selectedWorkSupplies.filter(x=>String(x.id)!==String(item.id));
+  save();refreshSupplyOptions();
+  alert(`${item.name} fue eliminado del desplegable. Los trabajos anteriores no se modificaron.`);
+}
+async function importSuppliesFromExcel(event){
+  const input=event.target,file=input.files?.[0];
+  if(!file) return;
+  if(role!=="admin"){input.value="";return alert("Solo Administración puede importar insumos.");}
+  if(!window.XLSX){input.value="";return alert("No se pudo cargar el lector de Excel.");}
+  try{
+    ensureSupplyCatalog();
+    const data=await file.arrayBuffer();
+    const workbook=XLSX.read(data,{type:"array"});
+    const rows=[];
+    const fallbackSheets=[];
+    for(const sheetName of workbook.SheetNames){
+      const matrix=XLSX.utils.sheet_to_json(workbook.Sheets[sheetName],{header:1,defval:"",raw:false});
+      const headerIndex=matrix.findIndex(row=>row.some(cell=>["insumo","insumos","nombre","descripcion","detalle del insumo"].includes(normalizedExcelKey(cell))));
+      if(headerIndex>=0){
+        const headers=matrix[headerIndex];
+        const nameIndex=headers.findIndex(cell=>["insumo","insumos","nombre","descripcion","detalle del insumo"].includes(normalizedExcelKey(cell)));
+        const unitIndex=headers.findIndex(cell=>["unidad","medida","unidad de medida"].includes(normalizedExcelKey(cell)));
+        for(const values of matrix.slice(headerIndex+1)){
+          const name=String(values[nameIndex]??"").trim();
+          if(name) rows.push({Insumo:name,Unidad:unitIndex>=0?String(values[unitIndex]??"").trim():""});
+        }
+      }else{
+        const candidates=matrix.map(values=>({Insumo:String(values[0]??"").trim(),Unidad:String(values[1]??"").trim()})).filter(row=>row.Insumo);
+        if(candidates.length&&!/instru|ayuda|como cargar/i.test(sheetName)) fallbackSheets.push(candidates);
+      }
+    }
+    if(!rows.length&&fallbackSheets.length) rows.push(...fallbackSheets.sort((a,b)=>b.length-a.length)[0]);
+    if(!rows.length) throw new Error("No se encontraron insumos para importar.");
+    let added=0,updated=0,skipped=0;
+    for(const row of rows){
+      const name=excelValue(row,["Insumo","Nombre","Descripción","Descripcion"]);
+      if(!name){skipped++;continue;}
+      db.deletedSupplyNames=(db.deletedSupplyNames||[]).filter(key=>key!==normalizedExcelKey(name));
+      const rawCode=excelValue(row,["Cod","Código","Codigo"]);
+      const code=Number(String(rawCode).match(/\d+/)?.[0]||0);
+      const unit=excelValue(row,["Unidad","Medida","Unidad de medida"]);
+      let item=db.supplies.find(x=>normalizedExcelKey(x.name)===normalizedExcelKey(name))||(code?db.supplies.find(x=>Number(x.code)===code):null);
+      if(item){item.name=name;item.unit=unit||item.unit||"";if(code)item.code=code;updated++;}
+      else{db.supplies.push({id:Date.now()+added,code:code||nextSupplyCode(),name,unit});added++;}
+    }
+    save();refreshSupplyOptions();
+    const preview=db.supplies.slice(-Math.min(added,5)).map(item=>item.name).join(", ");
+    alert(`Importación terminada. Nuevos: ${added}. Actualizados: ${updated}. Omitidos: ${skipped}.${preview?`\n\nÚltimos cargados: ${preview}`:""}`);
+  }catch(err){console.error(err);alert("No se pudo importar el archivo de insumos.");}
+  finally{input.value="";}
+}
+function savePump(){
   if(!$('pNumber').value.trim()) return alert('Ingresá el número de bomba.');
   const p={
     id:Date.now(),
@@ -507,12 +1006,16 @@ function renderClients(){$('clientList').innerHTML=db.clients.filter(c=>c.name!=
     number:$('pNumber').value.trim(),
     clientId:Number($('pClient').value),
     est:$('pEst').value.trim(),
+    gps:$('pGps')?.value.trim()||'',
     status:$('pStatus').value,
     head:$('pHead').value.trim(),
     support:$('pSupport').value.trim(),
     pipes:$('pPipes').value.trim(),
     sleeve:$('pSleeve').value.trim(),
     chambers:$('pChambers').value.trim(),
+    campaign:$('pCampaign')?.value.trim()||'',
+    topRod:$('pTopRod')?.value.trim()||'',
+    others:$('pOthers')?.value.trim()||'',
     date:$('pDate').value,
     obs:$('pObs').value.trim()
   };
@@ -520,7 +1023,7 @@ function renderClients(){$('clientList').innerHTML=db.clients.filter(c=>c.name!=
   save();
   $('pumpForm').classList.add('hidden');
   ensureAutomaticCodes();renderAll();
-  alert('Bomba guardada con código '+p.code);
+  alert('Bomba guardada.');
 }
 function statusClass(s){return s==='Funcionando'?'ok':s==='En reparación'?'warn':'bad'}function renderPumps(){
   const q=($("pumpSearch")?.value||"").toLowerCase();
@@ -535,7 +1038,7 @@ function statusClass(s){return s==='Funcionando'?'ok':s==='En reparación'?'warn
       </summary>
       <div style="margin-top:10px">
         ${pumps.map(p=>`<div class="item" onclick="showPumpDetail(${p.id})" style="cursor:pointer">
-          <div class="toprow"><strong>${esc(p.code)} · Bomba ${esc(p.number)}</strong><span class="pill ${statusClass(p.status)}">${esc(p.status)}</span></div>
+          <div class="toprow"><strong>Bomba ${esc(p.number)}</strong><span class="pill ${statusClass(p.status)}">${esc(p.status)}</span></div>
           <div class="small">${esc(p.est||"Sin establecimiento")}</div>
           <div class="viewhint">Tocar para ver la ficha completa ›</div>
         </div>`).join("")||'<div class="small">Este cliente todavía no tiene bombas registradas.</div>'}
@@ -544,7 +1047,222 @@ function statusClass(s){return s==='Funcionando'?'ok':s==='En reparación'?'warn
   }).join("");
   $("pumpList").innerHTML=groups||'<div class="small">Sin bombas.</div>';
 }
-function extra(){let o={};['fDepth','fDiameter','fFlow','fDynamic','fCasing','fBaseSize','fBaseLocation'].forEach(id=>{let e=$(id);if(e&&e.value.trim())o[id]=e.value.trim()});return o}
+
+function capturePumpGps(){
+  const status=$("pumpGpsStatus");
+  if(!navigator.geolocation){ if(status) status.textContent="El navegador no permite obtener ubicación."; return; }
+  if(status) status.textContent="Obteniendo ubicación...";
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const gps=`${pos.coords.latitude.toFixed(6)}, ${pos.coords.longitude.toFixed(6)}`;
+    if($("pGps")) $("pGps").value=gps;
+    if(status) status.textContent="Ubicación actual cargada.";
+  },()=>{ if(status) status.textContent="No se pudo obtener la ubicación."; },{enableHighAccuracy:true,timeout:10000});
+}
+function openPumpGoogleMaps(){
+  const gps=$("pGps")?.value.trim()||"";
+  const url=gps ? `https://www.google.com/maps?q=${encodeURIComponent(gps)}` : "https://www.google.com/maps";
+  window.open(url,"_blank");
+}
+function resetNewWorkForm(){
+  selectedType="";
+  renderWorkTypeButtons();
+  document.querySelectorAll('#types button').forEach(b=>b.classList.remove('sel'));
+  if($("wDate")) $("wDate").value="";
+  if($("wEventDate")) $("wEventDate").value="";
+  if($("wTech")) $("wTech").value="";
+  if($("wClient")) $("wClient").value="";
+  if($("wOcc")) $("wOcc").value="";
+  if($("wLocation")) $("wLocation").value="";
+  if($("wEst")) $("wEst").value="";
+  ["newLocName","newLocLocality","newLocAddress","newLocGps","newLocObs","wObs",
+   "newPumpNumber","newPumpHead","newPumpSupport","newPumpPipes","newPumpSleeve","newPumpChambers","newPumpObs",
+   "updPumpHead","updPumpSupport","updPumpPipes","updPumpSleeve","updPumpChambers","updPumpCampaign","updPumpTopRod","updPumpOthers","updPumpObs","newPumpCampaign","newPumpTopRod","newPumpOthers","wGps"].forEach(id=>{if($(id))$(id).value="";});
+  if($("wPriority")) $("wPriority").value="";
+  selectedWorkSupplies=[];
+  pumpSupplySelections={};
+  renderSelectedSupplies();
+  positionSupplyBox(false);
+  if($("wPumpQty")) $("wPumpQty").value=1;
+  if($("multiPumpBlocks")) $("multiPumpBlocks").innerHTML="";
+  if($("technicalFields")) $("technicalFields").innerHTML="";
+  if($("pumpArea")) $("pumpArea").classList.add("hidden");
+  if($("occasional")) $("occasional").classList.add("hidden");
+  if($("newLocationBox")) $("newLocationBox").classList.add("hidden");
+  if($("newClientFromWorkBox")) $("newClientFromWorkBox").classList.add("hidden");
+  pendingPhotos=[];
+  if($("photoSelection")) $("photoSelection").innerHTML="";
+  if($("wPhotos")) $("wPhotos").value="";
+  refreshTechnicianField();
+  refreshLocationOptions();
+  refreshPumpOptionsForWork();
+}
+function technicalDetailsHtml(w){
+  const e=w?.extra||{};
+  let rows=[];
+  if(e.fDepth) rows.push(["Profundidad",e.fDepth]);
+  if(e.fDiameter) rows.push(["Diámetro",e.fDiameter]);
+  if(e.fFlow) rows.push(["Caudal",e.fFlow]);
+  if(e.fDynamic) rows.push(["Nivel dinámico",e.fDynamic]);
+  if(e.fCasing) rows.push(["Caño de camisa",e.fCasing]);
+  if(e.fBaseSize) rows.push(["Medidas de la base",e.fBaseSize]);
+  if(e.fBaseLocation) rows.push(["Ubicación de la base",e.fBaseLocation]);
+  if(e.fPumpNumber) rows.push(["Número de bomba / pozo",e.fPumpNumber]);
+  if(e.fDrillingDepth) rows.push(["Profundidad de perforación",e.fDrillingDepth]);
+  if(e.fStaticLevel) rows.push(["Nivel estático",e.fStaticLevel]);
+  if(e.fTransmissionLength) rows.push(["Largo de transmisión",e.fTransmissionLength]);
+  if(e.fDrillingLocation) rows.push(["Ubicación de la perforación",e.fDrillingLocation]);
+  if(e.fMeasurementMethod) rows.push(["Método de medición",e.fMeasurementMethod]);
+  if(Array.isArray(e.tests)){
+    e.tests.forEach((t,i)=>{
+      if(t.flow) rows.push([`Caudal ${i+1}`,t.flow]);
+      if(t.dynamic) rows.push([`Nivel dinámico ${i+1}`,t.dynamic]);
+      if(t.observation) rows.push([`Observaciones ${i+1}`,t.observation]);
+    });
+  }
+  return rows.map(([k,v])=>`<div class="listrow"><div class="listlabel">${esc(k)}</div><div class="listvalue">${esc(v)}</div></div>`).join("");
+}
+async function createPdfFromElement(element,filename="Perforaciones_Ortiz.pdf"){
+  if(!window.html2canvas || !window.jspdf) return alert("No se pudo cargar el generador de PDF.");
+  const hidden=[...element.querySelectorAll("button,.print-hide,.actions.admin,#printPhotoControls")];
+  const states=hidden.map(el=>el.style.display);
+  hidden.forEach(el=>el.style.display="none");
+  try{
+    const canvas=await html2canvas(element,{scale:1.6,useCORS:true,backgroundColor:"#ffffff"});
+    const img=canvas.toDataURL("image/jpeg",0.92);
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF("p","mm","a4");
+    const pageW=210,pageH=297,margin=10,usableW=pageW-margin*2;
+    const imgH=canvas.height*usableW/canvas.width;
+    let y=margin, remaining=imgH;
+    pdf.addImage(img,"JPEG",margin,y,usableW,imgH);
+    remaining-=pageH-margin*2;
+    while(remaining>0){
+      pdf.addPage();
+      y=margin-(imgH-remaining);
+      pdf.addImage(img,"JPEG",margin,y,usableW,imgH);
+      remaining-=pageH-margin*2;
+    }
+    pdf.save(filename);
+  } finally {
+    hidden.forEach((el,i)=>el.style.display=states[i]);
+  }
+}
+async function createWorksPreviewPdf(useLetterhead=false){
+  if(!window.jspdf) return alert("No se pudo cargar el generador de PDF.");
+  const entries=currentWorksPreviewEntries||[];
+  if(!entries.length) return alert("No hay trabajos en la vista previa.");
+  const outputFilename=worksPdfFilename(entries);
+  try{
+    const {jsPDF}=window.jspdf,pdf=new jsPDF("p","mm","a4");
+    const pageW=210,pageH=297,x=18,right=useLetterhead?132:192,startY=useLetterhead?61:28,bottom=useLetterhead?48:16;
+    const letterhead=useLetterhead?await imageToDataUrl("hoja-membretada.jpeg"):"";
+    if(includePumpDataInWorkPdf){
+      let pageNumber=0,y=startY;
+      const addDetailedPage=()=>{
+        if(pageNumber) pdf.addPage();
+        pageNumber++;
+        if(letterhead) pdf.addImage(letterhead,"JPEG",0,0,pageW,pageH);
+        pdf.setTextColor(6,51,77);pdf.setFont("helvetica","bold");pdf.setFontSize(useLetterhead?10.5:13);
+        pdf.text("INFORME DE TRABAJOS — DATOS COMPLETOS",x,useLetterhead?48:16);
+        pdf.setDrawColor(15,78,101);pdf.setLineWidth(.35);pdf.line(x,useLetterhead?51:20,right,useLetterhead?51:20);
+        pdf.setFont("helvetica","normal");pdf.setFontSize(7.5);pdf.setTextColor(80,95,100);
+        pdf.text(`Página ${pageNumber}`,right,pageH-8,{align:"right"});
+        y=startY;
+      };
+      const ensureSpace=h=>{if(y+h>pageH-bottom) addDetailedPage();};
+      const addRow=(label,value)=>{
+        const text=String(value??"").trim()||"-";
+        const labelWidth=useLetterhead?34:43;
+        const lines=pdf.splitTextToSize(text,right-(x+labelWidth));
+        const lineHeight=useLetterhead?3.55:4.2;
+        const height=Math.max(useLetterhead?4.1:5,lines.length*lineHeight);
+        ensureSpace(height+1);
+        pdf.setFontSize(useLetterhead?7.1:8.5);pdf.setTextColor(35,60,68);pdf.setFont("helvetica","bold");pdf.text(label,x,y);
+        pdf.setFont("helvetica","normal");pdf.setTextColor(65,82,88);pdf.text(lines,x+labelWidth,y);
+        y+=height;
+      };
+      addDetailedPage();
+      for(const entry of entries){
+        const {w,pumpNumber}=entry;
+        const pump=Array.isArray(w.pumps)?(w.pumps.find(p=>String(p.pumpNumber)===String(pumpNumber))||w.pumps[0]):null;
+        const snapshot=pump?.snapshot||getEffectivePumpSnapshot(w)||{};
+        const loc=locationById(w.locationId);
+        ensureSpace(18);
+        pdf.setFont("helvetica","bold");pdf.setFontSize(useLetterhead?8.8:11);pdf.setTextColor(7,49,61);pdf.text(String(w.type||"Trabajo"),x,y);y+=useLetterhead?5.5:7;
+        addRow("Fecha",formatDateAR(w.date));addRow("Técnico",w.tech);addRow("Cliente",w.client);
+        addRow("Número de bomba",pumpNumber||w.pumpNumber);addRow("Lugar",w.est);addRow("GPS",loc?.gps||"No registrada");
+        addRow("Insumos y cantidades",pumpSuppliesText(w,pumpNumber));
+        if(["Instalación de bomba","Desmontaje de bomba"].includes(w.type)){
+          addRow("Lugar anterior",pump?.previousPumpLocation?.place||w.previousPumpLocation?.place||"Sin ubicación anterior");
+          addRow("Lugar actual",pump?.newPumpLocation?.place||w.newPumpLocation?.place||w.est);
+        }
+        const technical=[
+          ["Profundidad",w.extra?.fDepth],["Diámetro",w.extra?.fDiameter],["Caudal",w.extra?.fFlow],
+          ["Nivel dinámico",w.extra?.fDynamic],["Caño de camisa",w.extra?.fCasing],
+          ["Medidas de la base",w.extra?.fBaseSize],["Ubicación de la base",w.extra?.fBaseLocation]
+        ];
+        technical.forEach(([label,value])=>{if(value) addRow(label,value)});
+        (w.extra?.tests||[]).forEach((test,index)=>{if(test.flow)addRow(`Caudal ${index+1}`,test.flow);if(test.dynamic)addRow(`Nivel dinámico ${index+1}`,test.dynamic);if(test.observation)addRow(`Observaciones ${index+1}`,test.observation)});
+        [["Cabezal",snapshot.head],["Soporte",snapshot.support],["Caños",snapshot.pipes],["Manguito",snapshot.sleeve],
+          ["Cámaras",snapshot.chambers],["Campaña",snapshot.campaign],["Varilla sup.",snapshot.topRod],
+          ["Otros",snapshot.others],["Observaciones bomba",snapshot.obs]].forEach(([label,value])=>addRow(label,value));
+        addRow("Observaciones trabajo",w.obs||"Sin observaciones");addRow("Prioridad",w.priority||"Informativa");addRow("Fotos",w.photos||0);
+        ensureSpace(7);pdf.setDrawColor(170,185,190);pdf.setLineWidth(.2);pdf.line(x,y+1,right,y+1);y+=7;
+      }
+      pdf.save(outputFilename);
+      return;
+    }
+    const worksPerPage=4,blockH=(pageH-startY-bottom)/worksPerPage,totalPages=Math.ceil(entries.length/worksPerPage);
+    const addPageBase=pageIndex=>{
+      if(pageIndex) pdf.addPage();
+      if(letterhead) pdf.addImage(letterhead,"JPEG",0,0,pageW,pageH);
+      pdf.setTextColor(6,51,77);pdf.setFont("helvetica","bold");pdf.setFontSize(13);
+      pdf.text("INFORME DE TRABAJOS",x,useLetterhead?48:16);
+      pdf.setDrawColor(15,78,101);pdf.setLineWidth(.35);pdf.line(x,useLetterhead?51:20,right,useLetterhead?51:20);
+      pdf.setFont("helvetica","normal");pdf.setFontSize(7.5);pdf.setTextColor(80,95,100);
+      pdf.text(`Página ${pageIndex+1} de ${totalPages}`,right,pageH-8,{align:"right"});
+    };
+    addPageBase(0);
+    for(let i=0;i<entries.length;i++){
+      const pageIndex=Math.floor(i/worksPerPage),slot=i%worksPerPage;
+      if(i&&slot===0) addPageBase(pageIndex);
+      const {w,pumpNumber}=entries[i],y=startY+slot*blockH;
+      pdf.setTextColor(7,49,61);pdf.setFont("helvetica","bold");pdf.setFontSize(10.5);
+      pdf.text(String(w.type||"Trabajo"),x,y);
+      pdf.setFontSize(8.5);pdf.setFont("helvetica","bold");
+      pdf.text("Fecha:",x,y+7);pdf.text("Técnico:",x+47,y+7);pdf.text("Bomba:",x+108,y+7);
+      pdf.setFont("helvetica","normal");
+      pdf.text(String(formatDateAR(w.date)),x+14,y+7);pdf.text(String(w.tech||"-"),x+62,y+7);pdf.text(String(pumpNumber||"-"),x+123,y+7);
+      pdf.setFont("helvetica","bold");pdf.text("Cliente:",x,y+14);pdf.text("Lugar:",x+90,y+14);
+      pdf.setFont("helvetica","normal");pdf.text(String(w.client||"-"),x+16,y+14);pdf.text(String(w.est||"-"),x+104,y+14);
+      pdf.setFont("helvetica","bold");pdf.text("Insumos:",x,y+21);
+      pdf.setFont("helvetica","normal");
+      const supplyLines=pdf.splitTextToSize(String(pumpSuppliesText(w,pumpNumber)),right-(x+19)).slice(0,3);
+      pdf.text(supplyLines,x+19,y+21);
+      pdf.setDrawColor(170,185,190);pdf.setLineWidth(.2);pdf.line(x,y+blockH-5,right,y+blockH-5);
+    }
+    pdf.save(outputFilename);
+  }catch(err){console.error(err);alert("No se pudo crear el PDF de trabajos.");}
+}
+async function createDetailPdf(){
+  if(document.querySelector("#detailBody .printable-work-card")) return createWorksPreviewPdf(false);
+  const workId=Number($("detailBody")?.dataset?.workId||0);
+  const w=db.works.find(x=>Number(x.id)===workId);
+  if(w) return createWorkLetterheadPdf(w);
+  const card=document.querySelector("#detalle .card");
+  if(!card) return;
+  const title=($("detailTitle")?.textContent||"Informe").replace(/[^a-z0-9áéíóúñü _-]/gi,"");
+  createPdfFromElement(card,`${title||"Informe"}_Perforaciones_Ortiz.pdf`);
+}
+async function createDetailLetterheadPdf(){
+  if(document.querySelector("#detailBody .printable-work-card")) return createWorksPreviewPdf(true);
+  const workId=Number($("detailBody")?.dataset?.workId||0);
+  const w=db.works.find(x=>Number(x.id)===workId);
+  if(w) return createWorkLetterheadPdf(w);
+  return createDetailPdf();
+}
+
+function extra(){let o={};['fDepth','fDiameter','fFlow','fDynamic','fCasing','fBaseSize','fBaseLocation','fPumpNumber','fDrillingDepth','fStaticLevel','fTransmissionLength','fDrillingLocation','fMeasurementMethod'].forEach(id=>{let e=$(id);if(e&&e.value.trim())o[id]=e.value.trim()});if(selectedType==='Ensayo de bombeo'){o.tests=[];for(let i=1;i<=5;i++){const flow=$('fFlow'+i)?.value.trim()||'';const dynamic=$('fDynamic'+i)?.value.trim()||'';const observation=$('fTestObs'+i)?.value.trim()||'';o.tests.push({flow,dynamic,observation});}}return o}
 function refreshPumpOptionsForWork(){
   const clientEl=$("wClient"), select=$("wPump");
   if(!clientEl || !select) return;
@@ -586,6 +1304,9 @@ function loadExistingPumpForInstallation(){
     $("updPumpPipes").value=p.pipes||"";
     $("updPumpSleeve").value=p.sleeve||"";
     $("updPumpChambers").value=p.chambers||"";
+    if($("updPumpCampaign")) $("updPumpCampaign").value=p.campaign||"";
+    if($("updPumpTopRod")) $("updPumpTopRod").value=p.topRod||"";
+    if($("updPumpOthers")) $("updPumpOthers").value=p.others||"";
     $("updPumpObs").value=p.obs||"";
   }
 }
@@ -596,6 +1317,9 @@ function applyExistingPumpInstallationUpdate(p,location,eventDate){
   p.pipes=$("updPumpPipes")?.value.trim()||p.pipes||"";
   p.sleeve=$("updPumpSleeve")?.value.trim()||p.sleeve||"";
   p.chambers=$("updPumpChambers")?.value.trim()||p.chambers||"";
+  p.campaign=$("updPumpCampaign")?.value.trim()||p.campaign||"";
+  p.topRod=$("updPumpTopRod")?.value.trim()||p.topRod||"";
+  p.others=$("updPumpOthers")?.value.trim()||p.others||"";
   p.obs=$("updPumpObs")?.value.trim()||p.obs||"";
   p.status="Funcionando";
   p.date=eventDate||p.date;
@@ -628,6 +1352,9 @@ function createPumpFromWork(clientId, location){
     pipes:$("newPumpPipes")?.value.trim()||"",
     sleeve:$("newPumpSleeve")?.value.trim()||"",
     chambers:$("newPumpChambers")?.value.trim()||"",
+    campaign:$("newPumpCampaign")?.value.trim()||"",
+    topRod:$("newPumpTopRod")?.value.trim()||"",
+    others:$("newPumpOthers")?.value.trim()||"",
     date:$("wEventDate")?.value||$("wDate")?.value||"",
     obs:$("newPumpObs")?.value.trim()||""
   };
@@ -759,9 +1486,207 @@ function currentPumpLocationSnapshot(p){
   };
 }
 
+
+function isPumpWorkType(t){
+  return ["Instalación de bomba","Desmontaje de bomba","Reparación de bomba"].includes(t);
+}
+function pumpOptionsForClient(){
+  const clientId=Number($("wClient")?.value||0);
+  return db.pumps.filter(p=>Number(p.clientId)===clientId);
+}
+function renderMultiPumpBlocks(){
+  const box=$("multiPumpBlocks");
+  if(!box || !isPumpWorkType(selectedType)) return;
+  let qty=Math.max(1,Math.min(12,Number($("wPumpQty")?.value||1)));
+  $("wPumpQty").value=qty;
+  Object.keys(pumpSupplySelections).forEach(key=>{if(Number(key)>qty)delete pumpSupplySelections[key];});
+  const pumps=pumpOptionsForClient();
+  let html="";
+  for(let i=1;i<=qty;i++){
+    html+=`<div class="multi-pump-card" data-mp-index="${i}">
+      <h3>Bomba ${i}</h3>
+      <label>¿La bomba ya existe en el sistema?</label>
+      <select id="mpMode${i}" onchange="toggleMultiPumpMode(${i})">
+        <option value="">Seleccionar</option>
+        <option value="existing">Bomba existente</option>
+        <option value="new">Bomba nueva</option>
+      </select>
+      <div id="mpExistingBox${i}" class="hidden">
+        <label>Número de bomba</label>
+        <select id="mpExisting${i}" onchange="loadMultiExistingPump(${i})">
+          <option value="">Seleccionar bomba</option>
+          ${pumps.map(p=>`<option value="${p.id}">Nº ${esc(p.number)}</option>`).join("")}
+        </select>
+      </div>
+      <div id="mpDataBox${i}" class="hidden">
+        <div class="multi-pump-components">
+          <div><label>Número de bomba</label><input id="mpNumber${i}"></div>
+          <div><label>Tipo de carga</label><select id="mpDetailMode${i}" onchange="toggleMultiPumpDetailMode(${i})"><option value="full">Cargar todos los datos</option><option value="basic">Solo número y ubicación</option></select></div>
+        </div>
+        <div id="mpDetailFields${i}">
+          <div class="multi-pump-components">
+            <div><label>Cabezal</label><input id="mpHead${i}"></div>
+            <div><label>Soporte</label><input id="mpSupport${i}"></div>
+            <div><label>Caños</label><input id="mpPipes${i}"></div>
+            <div><label>Manguito</label><input id="mpSleeve${i}"></div>
+            <div><label>Cámaras</label><input id="mpChambers${i}"></div>
+            <div><label>Campaña</label><input id="mpCampaign${i}"></div>
+            <div><label>Varilla sup.</label><input id="mpTopRod${i}"></div>
+            <div><label>Otros</label><input id="mpOthers${i}"></div>
+          </div>
+          <label>Observaciones de la bomba</label><textarea id="mpObs${i}"></textarea>
+        </div>
+      </div>
+      <div class="mapbox" style="margin-top:12px">
+        <label>Insumos utilizados en la Bomba ${i}</label>
+        <select id="mpSupplySelect${i}" onchange="addPumpSupply(${i})">${pumpSupplyOptionsHtml()}</select>
+        <div class="actions"><button type="button" class="secondary" onclick="createSupplyForPump(${i})">＋ Crear insumo</button>${role==="admin"?`<button type="button" class="secondary" onclick="$('supplyExcelInput').click()">Importar Excel</button>`:""}</div>
+        <div id="mpSelectedSupplies${i}" class="listrows" style="margin-top:10px"></div>
+      </div>
+    </div>`;
+  }
+  box.innerHTML=html;
+  for(let i=1;i<=qty;i++) renderPumpSupplySelections(i);
+}
+function toggleMultiPumpMode(i){
+  const mode=$(`mpMode${i}`)?.value||"";
+  $(`mpExistingBox${i}`)?.classList.toggle("hidden",mode!=="existing");
+  $(`mpDataBox${i}`)?.classList.toggle("hidden",!mode);
+  if(mode==="new"){
+    [`mpNumber${i}`,`mpHead${i}`,`mpSupport${i}`,`mpPipes${i}`,`mpSleeve${i}`,`mpChambers${i}`,`mpCampaign${i}`,`mpTopRod${i}`,`mpOthers${i}`,`mpObs${i}`]
+      .forEach(id=>{if($(id)) $(id).value="";});
+  }
+  toggleMultiPumpDetailMode(i);
+}
+function toggleMultiPumpDetailMode(i){
+  const mode=$(`mpDetailMode${i}`)?.value||"full";
+  $(`mpDetailFields${i}`)?.classList.toggle("hidden",mode==="basic");
+}
+function loadMultiExistingPump(i){
+  const p=db.pumps.find(x=>String(x.id)===String($(`mpExisting${i}`)?.value||""));
+  if(!p) return;
+  const vals={
+    Number:p.number,Head:p.head,Support:p.support,Pipes:p.pipes,Sleeve:p.sleeve,
+    Chambers:p.chambers,Campaign:p.campaign,TopRod:p.topRod,Others:p.others,Obs:p.obs
+  };
+  Object.entries(vals).forEach(([k,v])=>{const el=$(`mp${k}${i}`);if(el)el.value=v||"";});
+  if($(`mpDetailMode${i}`)) $(`mpDetailMode${i}`).value="full";
+  toggleMultiPumpDetailMode(i);
+}
+function collectMultiPumps(clientId,location,eventDate){
+  if(!isPumpWorkType(selectedType)) return [];
+  const qty=Math.max(1,Number($("wPumpQty")?.value||1));
+  const result=[];
+  for(let i=1;i<=qty;i++){
+    const mode=$(`mpMode${i}`)?.value||"";
+    if(!mode) throw new Error(`Seleccioná si la Bomba ${i} es existente o nueva.`);
+    let p=null;
+    let previous=null;
+    if(mode==="existing"){
+      p=db.pumps.find(x=>String(x.id)===String($(`mpExisting${i}`)?.value||""));
+      if(!p) throw new Error(`Seleccioná la Bomba ${i}.`);
+      previous=currentPumpLocationSnapshot(p);
+    }else{
+      const number=$(`mpNumber${i}`)?.value.trim();
+      if(!number) throw new Error(`Ingresá el número de la Bomba ${i}.`);
+      p={
+        id:Date.now()+Math.floor(Math.random()*100000)+i,
+        code:nextPumpCode(),
+        number,
+        clientId:Number(clientId),
+        est:location.name||"",
+        locationId:location.id,
+        status:selectedType==="Desmontaje de bomba"?"Desmontada":"Funcionando",
+        head:"",support:"",pipes:"",sleeve:"",chambers:"",
+        campaign:"",topRod:"",others:"",date:eventDate||"",obs:""
+      };
+      db.pumps.push(p);
+    }
+    p.number=$(`mpNumber${i}`)?.value.trim()||p.number||"";
+    p.head=$(`mpHead${i}`)?.value.trim()||"";
+    p.support=$(`mpSupport${i}`)?.value.trim()||"";
+    p.pipes=$(`mpPipes${i}`)?.value.trim()||"";
+    p.sleeve=$(`mpSleeve${i}`)?.value.trim()||"";
+    p.chambers=$(`mpChambers${i}`)?.value.trim()||"";
+    p.campaign=$(`mpCampaign${i}`)?.value.trim()||"";
+    p.topRod=$(`mpTopRod${i}`)?.value.trim()||"";
+    p.others=$(`mpOthers${i}`)?.value.trim()||"";
+    p.obs=$(`mpObs${i}`)?.value.trim()||"";
+    p.date=eventDate||"";
+    if(selectedType==="Instalación de bomba"){
+      p.status="Funcionando"; p.est=location.name; p.locationId=location.id;
+    }else if(selectedType==="Desmontaje de bomba"){
+      p.status="Desmontada"; p.est=location.name;
+    }
+    result.push({
+      pumpId:p.id,
+      pumpNumber:p.number,
+      previousPumpLocation:previous,
+      newPumpLocation:{
+        locationId:location.id,locationCode:location.code||"",place:location.name||"",
+        locality:location.locality||"",gps:location.gps||""
+      },
+      status:p.status||"",
+      supplyItems:(pumpSupplySelections[i]||[]).map(entry=>{
+        const item=db.supplies.find(x=>String(x.id)===String(entry.id));
+        return item?{id:item.id,code:item.code||"",name:item.name||"",unit:item.unit||"",quantity:String(entry.quantity||"1").trim()||"1"}:null;
+      }).filter(Boolean),
+      detailMode:$(`mpDetailMode${i}`)?.value||"full",
+      snapshot:{
+        head:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.head||""),
+        support:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.support||""),
+        pipes:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.pipes||""),
+        sleeve:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.sleeve||""),
+        chambers:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.chambers||""),
+        campaign:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.campaign||""),
+        topRod:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.topRod||""),
+        others:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.others||""),
+        obs:($(`mpDetailMode${i}`)?.value||"full")==="basic"?"":(p.obs||"")
+      }
+    });
+  }
+  return result;
+}
+function workHasPump(w,pumpId){
+  return String(w?.pumpId||"")===String(pumpId) ||
+    (Array.isArray(w?.pumps) && w.pumps.some(x=>String(x.pumpId)===String(pumpId)));
+}
+function pumpsInWorkHtml(w){
+  const items=Array.isArray(w?.pumps)&&w.pumps.length ? w.pumps :
+    (w?.pumpId?[{
+      pumpId:w.pumpId,pumpNumber:w.pumpNumber,previousPumpLocation:w.previousPumpLocation,
+      newPumpLocation:w.newPumpLocation,snapshot:getEffectivePumpSnapshot(w),status:w.pumpStatusAtWork,detailMode:w.detailMode||"full"
+    }]:[]);
+  if(!items.length) return "";
+  return items.map((x,i)=>`<div class="mapbox">
+    <strong>${items.length>1?`Bomba ${i+1} · `:""}Nº ${esc(x.pumpNumber||"-")}</strong>
+    <div class="listrows">
+      ${["Instalación de bomba","Desmontaje de bomba"].includes(w.type)?`<div class="listrow"><div class="listlabel">Lugar anterior</div><div class="listvalue">${esc(x.previousPumpLocation?.place||"Sin ubicación anterior")}</div></div>
+      <div class="listrow"><div class="listlabel">Lugar actual</div><div class="listvalue">${esc(x.newPumpLocation?.place||w.est||"-")}</div></div>`:""}
+      ${Array.isArray(x.supplyItems)&&x.supplyItems.length?`<div class="listrow"><div class="listlabel">Insumos</div><div class="listvalue">${esc(x.supplyItems.map(item=>`${item.name}: ${item.quantity}${item.unit?` ${item.unit}`:""}`).join(", "))}</div></div>`:""}
+      ${(x.detailMode||"full")==="full"?`
+      <div class="listrow"><div class="listlabel">Cabezal</div><div class="listvalue">${esc(x.snapshot?.head||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Soporte</div><div class="listvalue">${esc(x.snapshot?.support||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Caños</div><div class="listvalue">${esc(x.snapshot?.pipes||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Manguito</div><div class="listvalue">${esc(x.snapshot?.sleeve||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Cámaras</div><div class="listvalue">${esc(x.snapshot?.chambers||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Campaña</div><div class="listvalue">${esc(x.snapshot?.campaign||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Varilla sup.</div><div class="listvalue">${esc(x.snapshot?.topRod||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Otros</div><div class="listvalue">${esc(x.snapshot?.others||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Observaciones bomba</div><div class="listvalue">${esc(x.snapshot?.obs||"-")}</div></div>`:""}
+    </div>
+  </div>`).join("");
+}
+
 function saveWork(){
   try{
+    const assignedTechnician=role==="admin"?String($("wTech")?.value||"").trim():String(currentProfile?.nombre||"").trim();
     if(!selectedType) return alert("Elegí el tipo de trabajo.");
+    if(!$("wDate").value) return alert("Ingresá la fecha.");
+    if(!assignedTechnician) return alert("El usuario conectado no tiene nombre asignado.");
+    if(!$("wClient").value) return alert("Seleccioná el cliente.");
+    if(!$("wPriority").value) return alert("Seleccioná la prioridad.");
+
     const clientId=Number($("wClient").value);
     const c=db.clients.find(x=>x.id===clientId);
     if(c?.name==="Cliente Ocasional"&&!$("wOcc").value.trim()) return alert("Ingresá una referencia.");
@@ -772,113 +1697,89 @@ function saveWork(){
     }else if(($("wLocation")?.value||"")){
       location=db.locations.find(l=>String(l.id)===String($("wLocation")?.value||""));
     }
-    if(!location){
-  const typedName=$("wEst")?.value.trim()||$("newLocName")?.value.trim()||"";
-  if(!typedName) return alert("Seleccioná o ingresá el lugar donde se realizó el trabajo.");
-  location={id:Date.now()+Math.floor(Math.random()*10000),code:nextLocationCode(),clientId,name:typedName,locality:$("newLocLocality")?.value.trim()||"",address:$("newLocAddress")?.value.trim()||"",gps:$("newLocGps")?.value.trim()||"",obs:$("newLocObs")?.value.trim()||""};
-  db.locations.push(location);
-}
-    $("wEst").value=location.name;
+    if(!location) throw new Error("Seleccioná o creá el lugar / establecimiento.");
 
-    let p=null;
-    let previousPumpLocation=null;
-    if(["Instalación de bomba","Desmontaje de bomba"].includes(selectedType) && $("wPump").value==="new"){
-      p=createPumpFromWork(clientId,location);
-    }else if($("wPump").value){
-      p=db.pumps.find(x=>String(x.id)===String($("wPump").value));
+    const workGps=$("wGps")?.value.trim()||"";
+    if(workGps){
+      location.gps=workGps;
+      const stored=db.locations.find(l=>String(l.id)===String(location.id));
+      if(stored) stored.gps=workGps;
     }
+    $("wEst").value=location.name||"";
 
-    if(p) previousPumpLocation=currentPumpLocationSnapshot(p);
-
-    if(["Reparación de bomba","Ensayo de bombeo"].includes(selectedType) && !p){
-      return alert("Para este tipo de trabajo debés seleccionar una bomba existente.");
-    }
-
-    // En una instalación de una bomba existente, primero se actualiza su ficha.
-    // Luego se guarda el trabajo con una copia exacta de esos datos.
-    if(p && selectedType==="Instalación de bomba" && $("wPump")?.value!=="new"){
-      applyExistingPumpInstallationUpdate(p,location,$("wEventDate").value);
-    }
+    const eventDate=$("wEventDate")?.value||$("wDate").value;
+    const workPumps=collectMultiPumps(clientId,location,eventDate);
+    const first=workPumps[0]||null;
+    const workSupplyItems=(isPumpWorkType(selectedType)?workPumps.flatMap(p=>p.supplyItems||[]):selectedWorkSupplies.map(entry=>{
+      const item=db.supplies.find(x=>String(x.id)===String(entry.id));
+      if(!item) return null;
+      return {id:item.id,code:item.code||"",name:item.name||"",unit:item.unit||"",quantity:String(entry.quantity||"1").trim()||"1"};
+    }).filter(Boolean));
 
     const w={
-      id:Date.now(),
+      id:Date.now()+Math.floor(Math.random()*10000),
       code:nextWorkCode(),
       date:$("wDate").value,
-      tech:$("wTech").value,
+      tech:assignedTechnician,
       type:selectedType,
-      client:c?.name==="Cliente Ocasional"?$("wOcc").value.trim():c?.name,
+      client:c?.name==="Cliente Ocasional"?$("wOcc").value.trim():(c?.name||""),
       clientId,
       locationId:location.id,
-      locationCode:location.code,
-      est:location.name,
-      pumpId:p?.id||null,
-      pumpCode:p?.code||"",
-      pumpNumber:p?.number||"",
-      previousPumpLocation:previousPumpLocation,
-      newPumpLocation:{
-        locationId:location.id,
-        locationCode:location.code,
-        place:location.name,
-        locality:location.locality||"",
-        gps:location.gps||""
-      },
-      eventDate:$("wEventDate").value,
+      locationCode:location.code||"",
+      est:location.name||"",
+      gps:workGps||location.gps||"",
+      pumpId:first?.pumpId||null,
+      pumpCode:"",
+      pumpNumber:first?.pumpNumber||"",
+      pumps:workPumps,
+      previousPumpLocation:first?.previousPumpLocation||null,
+      newPumpLocation:first?.newPumpLocation||null,
+      eventDate,
+      supplies:workSupplyItems.map(item=>`${item.name}: ${item.quantity}${item.unit?` ${item.unit}`:""}`).join(", "),
+      supplyItems:workSupplyItems,
       obs:$("wObs").value.trim(),
       priority:$("wPriority").value,
       photos:pendingPhotos.length,
-      photoFiles:pendingPhotos.map(p=>({...p})),
+      photoFiles:pendingPhotos.map(ph=>({...ph})),
       extra:extra(),
-      pumpStatusAtWork:p?.status||"",
-      pumpSnapshot:p?{
-        head:p.head||"",support:p.support||"",pipes:p.pipes||"",
-        sleeve:p.sleeve||"",chambers:p.chambers||"",obs:p.obs||""
-      }:null
+      pumpStatusAtWork:first?.status||"",
+      pumpSnapshot:first?.snapshot||null
     };
 
     db.works.unshift(w);
-
-    if(p && selectedType==="Instalación de bomba"){
-      p.status="Funcionando";
-      p.date=w.eventDate;
-      p.est=location.name;
-      p.locationId=location.id;
-    }
-    if(p && selectedType==="Desmontaje de bomba"){
-      p.status="Desmontada";
-      p.date=w.eventDate;
-      p.est=location.name;
-      p.locationId=location.id;
-    }
-
     save();
     pendingPhotos=[];
     if($("photoSelection")) $("photoSelection").innerHTML="";
     if($("wPhotos")) $("wPhotos").value="";
     renderAll();
-    alert(`Trabajo ${w.code} guardado${p?.code?` · Bomba ${p.code}`:""} · Lugar ${location.code}`);
+    alert(`Trabajo guardado${workPumps.length?` · ${workPumps.length} bomba${workPumps.length===1?"":"s"}`:""}.`);
     go("trabajos");
   }catch(err){
-    alert(err.message||"No se pudo guardar el trabajo.");
+    console.error(err);
+    alert(err?.message||"No se pudo guardar el trabajo.");
   }
 }
 function workHtml(w){
-  let pc=w.priority==='Urgente'?'bad':w.priority==='Revisar'?'warn':'ok';
-  return `<div class="listcard" onclick="showWorkDetail(${w.id})" style="cursor:pointer">
-    <div class="toprow"><div class="listtitle">${esc(w.type)}</div><span class="pill ${pc}">${esc(w.priority)}</span></div>
-    <div class="listrows">
-      <div class="listrow"><div class="listlabel">Fecha</div><div class="listvalue">${esc(w.date||'-')}</div></div>
-      <div class="listrow"><div class="listlabel">Técnico</div><div class="listvalue">${esc(w.tech||'-')}</div></div>
-      <div class="listrow"><div class="listlabel">Cliente</div><div class="listvalue">${esc(w.client||'-')}</div></div>
-      <div class="listrow"><div class="listlabel">Lugar del trabajo</div><div class="listvalue"><span class="print-hide">${esc(w.locationCode? w.locationCode+" · ":"")}</span>${esc(w.est||"Sin establecimiento")}</div></div>
-      ${w.pumpNumber?`<div class="listrow"><div class="listlabel">Bomba</div><div class="listvalue">${esc(w.pumpCode||'')} · Nº ${esc(w.pumpNumber)}</div></div>`:''}
-      <div class="listrow"><div class="listlabel">Observaciones</div><div class="listvalue">${esc(w.obs||'Sin observaciones')}</div></div>
-      <div class="listrow print-stop-after-photos"><div class="listlabel">Fotos</div><div class="listvalue">${w.photos||0}</div></div>
-    </div>
-    <div class="viewhint">Tocar para ver la ficha completa ›</div>
+  const client=db.clients.find(c=>String(c.id)===String(w.clientId));
+  return `<div class="work-compact" onclick="showWorkDetail(${w.id})">
+    <strong>${esc(formatWorkListDate(w.date))} — ${esc(client?.code||"-")} — ${esc(w.client||"-")} — ${esc(w.type||"-")}</strong>
   </div>`;
 }
 
+function formatWorkListDate(value){
+  const parts=String(value||"").split("-");
+  if(parts.length!==3) return String(value||"-");
+  return `${String(parts[2]).padStart(2,"0")}/${String(parts[1]).padStart(2,"0")}/${String(parts[0]).slice(-2)}`;
+}
+
+function workMonthLabel(value){
+  const [year,month]=String(value||"").split("-");
+  const names=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  return `${names[Number(month)-1]||month} ${year}`;
+}
+
 let selectedClientWorkIds=new Set();
+let currentWorksPreviewEntries=[];
 
 
 function updateWorkSelectionUi(){
@@ -916,9 +1817,12 @@ function clearClientWorks(clientId){
   updateWorkSelectionUi();
 }
 function selectAllVisibleWorks(){
+  const visible=new Set(getFilteredWorks().map(w=>String(w.id)));
   document.querySelectorAll('input[data-work-select="1"]').forEach(cb=>{
-    cb.checked=true;
-    selectedClientWorkIds.add(String(cb.value));
+    if(visible.has(String(cb.value))){
+      cb.checked=true;
+      selectedClientWorkIds.add(String(cb.value));
+    }
   });
   updateWorkSelectionUi();
 }
@@ -928,61 +1832,68 @@ function clearAllWorkSelection(){
   updateWorkSelectionUi();
 }
 
-let includePumpDataInWorkPdf=true;
-function setIncludePumpDataInWorkPdf(v){includePumpDataInWorkPdf=!!v}
+let includePumpDataInWorkPdf=false;
+function setIncludePumpDataInWorkPdf(v){
+  includePumpDataInWorkPdf=!!v;
+  const status=$("pumpDataPdfStatus");
+  if(status) status.textContent=includePumpDataInWorkPdf
+    ? "Activado: el PDF incluirá toda la información de cada bomba y usará las páginas necesarias."
+    : "Modo resumido: se acomodarán hasta 4 trabajos por hoja.";
+}
 function workPdfOptionsHtml(){
-  if(role!=="admin") return "";
-  return `<label class="print-hide" style="display:flex;gap:8px;align-items:center;margin:8px 0">
-    <input type="checkbox" ${includePumpDataInWorkPdf?"checked":""}
-      onchange="setIncludePumpDataInWorkPdf(this.checked)">
-    Incluir datos de la bomba, movimientos, observaciones y fotos en el PDF
-  </label>`;
+  return "";
 }
 function exportWorksToExcel(clientId=null,mode="selected"){
   if(role!=="admin") return;
-  let works=db.works.slice();
+  let works=(clientId===null && mode==="all" && typeof getFilteredWorks==="function") ? getFilteredWorks() : db.works.slice();
   if(clientId!==null) works=works.filter(w=>String(w.clientId)===String(clientId));
   if(mode==="selected") works=works.filter(w=>selectedClientWorkIds.has(String(w.id)));
   works.sort((a,b)=>String(a.date||"").localeCompare(String(b.date||"")));
   if(!works.length) return alert("No hay trabajos para exportar.");
-  const rows=works.map(w=>{
-    const loc=locationById(w.locationId), s=w.pumpSnapshot||{};
-    return {
-      Fecha:formatDateAR(w.date),"Tipo de trabajo":w.type,Técnico:w.tech,Cliente:w.client,
-      Lugar:w.est,Localidad:loc?.locality||"",Dirección:loc?.address||"",GPS:loc?.gps||"",
-      "Número de bomba":w.pumpNumber||"",
-      "Caudal 1":w.extra?.tests?.[0]?.flow||w.extra?.flow||"",
-      "Nivel dinámico 1":w.extra?.tests?.[0]?.dynamic||w.extra?.dynamic||"",
-      "Caudal 2":w.extra?.tests?.[1]?.flow||"",
-      "Nivel dinámico 2":w.extra?.tests?.[1]?.dynamic||"",
-      "Caudal 3":w.extra?.tests?.[2]?.flow||"",
-      "Nivel dinámico 3":w.extra?.tests?.[2]?.dynamic||"",
-      "Caudal 4":w.extra?.tests?.[3]?.flow||"",
-      "Nivel dinámico 4":w.extra?.tests?.[3]?.dynamic||"",
-      Cabezal:s.head||"",Soporte:s.support||"",
-      Caños:s.pipes||"",Manguito:s.sleeve||"",Cámaras:s.chambers||"",
-      "Observaciones de la bomba":s.obs||"","Observaciones del trabajo":w.obs||"",
-      Prioridad:w.priority||"",Fotos:w.photos||0
-    };
+  if(works.length===1 && works[0].type==="Ensayo de bombeo") return exportPumpTestLetterheadExcel(works[0]);
+  const rows=works.flatMap(w=>{
+    const client=db.clients.find(c=>String(c.id)===String(w.clientId));
+    const pumps=Array.isArray(w.pumps)&&w.pumps.length?w.pumps:[{pumpNumber:w.pumpNumber||"",supplyItems:w.supplyItems||[]}];
+    return pumps.flatMap(pump=>{
+      let supplies=Array.isArray(pump.supplyItems)&&pump.supplyItems.length?pump.supplyItems:[];
+      if(!supplies.length&&pumps.length===1&&w.supplies) supplies=String(w.supplies).split(",").map(part=>{
+        const pieces=part.split(":");return {name:String(pieces[0]||"").trim(),quantity:String(pieces.slice(1).join(":")||"").trim()};
+      }).filter(item=>item.name);
+      const base={Fecha:formatDateAR(w.date),"Código cliente":client?.code||"",Cliente:w.client||"",Trabajo:w.type||"","Número de bomba":pump.pumpNumber||"",Cantidad:1,Insumos:""};
+      const detail=supplies.map(item=>({Fecha:formatDateAR(w.date),"Código cliente":client?.code||"",Cliente:w.client||"",Trabajo:"","Número de bomba":pump.pumpNumber||"",Cantidad:item.quantity||"",Insumos:item.name||""}));
+      return [base,...detail];
+    });
   });
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),"Trabajos");
   XLSX.writeFile(wb,"Trabajos.xlsx");
 }
 
-function printableWorkCard(w){
+function workPumpNumbers(w){
+  const values=Array.isArray(w.pumps)&&w.pumps.length?w.pumps.map(p=>p.pumpNumber):[w.pumpNumber];
+  return values.map(value=>String(value||"").trim()).filter(Boolean);
+}
+function pumpSuppliesText(w,pumpNumber=""){
+  const pump=Array.isArray(w.pumps)?w.pumps.find(p=>String(p.pumpNumber)===String(pumpNumber)):null;
+  const items=Array.isArray(pump?.supplyItems)?pump.supplyItems:[];
+  if(items.length) return items.map(item=>`${item.name}: ${item.quantity}${item.unit?` ${item.unit}`:""}`).join(", ");
+  return w.supplies||"Sin insumos registrados";
+}
+function printableWorkCard(w,pumpNumber=""){
   const loc=locationById(w.locationId);
+  const displayWork=pumpNumber&&Array.isArray(w.pumps)?{...w,pumps:w.pumps.filter(p=>String(p.pumpNumber)===String(pumpNumber))}:w;
   const basicRows=`
     <div class="listrow"><div class="listlabel">Fecha</div><div class="listvalue">${esc(formatDateAR(w.date))}</div></div>
     <div class="listrow"><div class="listlabel">Técnico</div><div class="listvalue">${esc(w.tech||"-")}</div></div>
     <div class="listrow"><div class="listlabel">Cliente</div><div class="listvalue">${esc(w.client||"-")}</div></div>
-    ${w.pumpNumber?`<div class="listrow"><div class="listlabel">Número de bomba</div><div class="listvalue">${esc(w.pumpNumber)}</div></div>`:""}
+    <div class="listrow"><div class="listlabel">Número de bomba</div><div class="listvalue">${esc(pumpNumber||workPumpNumbers(w).join(", ")||"-")}</div></div>
+    
     <div class="listrow"><div class="listlabel">Lugar</div><div class="listvalue">${esc(w.est||"-")}</div></div>
-    <div class="listrow"><div class="listlabel">GPS</div><div class="listvalue">${esc(loc?.gps||"No registrada")}</div></div>`;
+    <div class="listrow"><div class="listlabel">Insumos y cantidades</div><div class="listvalue">${esc(pumpSuppliesText(w,pumpNumber))}</div></div>`;
 
   const pumpDetails=includePumpDataInWorkPdf ? `
-    ${pumpMovementHtml(w)}
-    ${pumpSnapshotHtml(w)}
+    <div class="listrow"><div class="listlabel">GPS</div><div class="listvalue">${esc(loc?.gps||"No registrada")}</div></div>
+    ${pumpsInWorkHtml(displayWork)}
     <div class="listrow"><div class="listlabel">Observaciones</div><div class="listvalue">${esc(w.obs||"Sin observaciones")}</div></div>
     <div class="listrow"><div class="listlabel">Prioridad</div><div class="listvalue">${esc(w.priority||"Informativa")}</div></div>
     <div class="listrow"><div class="listlabel">Fotos</div><div class="listvalue">${w.photos||0}</div></div>
@@ -990,8 +1901,8 @@ function printableWorkCard(w){
 
   return `<div class="listcard printable-work-card">
     <h3>${esc(w.type||"Trabajo")}</h3>
-    <div class="listrows">${basicRows}${pumpDetails}</div>
-    ${includePumpDataInWorkPdf?workPhotosHtml(w):""}
+    <div class="listrows">${basicRows}${includePumpDataInWorkPdf?technicalDetailsHtml(w):""}${pumpDetails}</div>
+    ${includePumpDataInWorkPdf?workPhotosHtml(displayWork):""}
   </div>`;
 }
 
@@ -1016,114 +1927,103 @@ function openWorksPrintPreview(clientId=null, mode="selected"){
     ? (db.clients.find(c=>String(c.id)===String(clientId))?.name||"Cliente")
     : "Todos los clientes";
 
+  const previewEntries=works.flatMap(w=>{
+    const numbers=workPumpNumbers(w);
+    return numbers.length>1?numbers.map(number=>({w,pumpNumber:number})):[{w,pumpNumber:numbers[0]||""}];
+  });
+  currentWorksPreviewEntries=previewEntries;
   $("detailTitle").textContent="Vista previa de trabajos";
+  delete $("detailBody").dataset.workId;
   $("detailBody").innerHTML=`
     <h2>HISTORIAL DE TRABAJOS</h2>
     <p><strong>Cliente:</strong> ${esc(clientTitle)}</p>
-    <p><strong>Cantidad de trabajos:</strong> ${works.length}</p>${workPdfOptionsHtml()}
-    ${works.map(printableWorkCard).join("")}
+    <p><strong>Cantidad de trabajos:</strong> ${previewEntries.length}</p>${workPdfOptionsHtml()}
+    ${previewEntries.map(entry=>printableWorkCard(entry.w,entry.pumpNumber)).join("")}
   `;
 
   if($("printPhotoControls")) $("printPhotoControls").innerHTML="";
   const genericPrint=document.querySelector("#detalle .actions.admin");
   if(genericPrint){
     genericPrint.style.display="";
-    const btn=genericPrint.querySelector("button");
-    if(btn) btn.textContent="Crear PDF / Imprimir";
   }
   go("detalle");
 }
 
 function renderWorks(){
-  const openClients=new Set(
-    [...document.querySelectorAll("#workList details[open]")]
-      .map(d=>String(d.dataset.clientId||""))
-  );
-
-  const q=($("workSearch")?.value||"").toLowerCase();
+  const q=($("workSearch")?.value||"").toLowerCase().trim();
+  const clientFilter=$("workClientFilter")?.value||"";
+  const monthFilter=$("workMonthFilter")?.value||"";
   let works=db.works.slice();
-  if(role==="tech") works=works.filter(w=>w.tech===$("wTech").value);
-  works=works.filter(w=>([w.type,w.tech,w.client,w.pumpNumber,w.est,w.obs].join(" ").toLowerCase().includes(q)));
 
-  const grouped=new Map();
-  for(const w of works){
-    const key=String(w.clientId||w.client||"sin-cliente");
-    if(!grouped.has(key)) grouped.set(key,[]);
-    grouped.get(key).push(w);
+  if(clientFilter) works=works.filter(w=>String(w.clientId)===String(clientFilter));
+  if(monthFilter) works=works.filter(w=>String(w.date||"").slice(0,7)===monthFilter);
+  if(q) works=works.filter(w=>[w.type,w.tech,w.client,w.est,w.obs,w.supplies].join(" ").toLowerCase().includes(q));
+
+  works.sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")) || Number(b.id||0)-Number(a.id||0));
+
+  const clients=db.clients.filter(c=>c.name!=="Cliente Ocasional");
+  const cf=$("workClientFilter");
+  if(cf){
+    const current=cf.value;
+    cf.innerHTML='<option value="">Todos los clientes</option>'+clients.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join("");
+    cf.value=current;
   }
 
-  let htmlGroups="";
-  for(const [key,items] of grouped.entries()){
-    items.sort((a,b)=>String(a.date||"").localeCompare(String(b.date||"")));
-    const clientId=String(items[0]?.clientId||"");
-    const clientNameText=items[0]?.client||"Sin cliente";
-    const selectedCount=items.filter(w=>selectedClientWorkIds.has(String(w.id))).length;
-    const shouldOpen=!!q || openClients.has(clientId);
-
-    htmlGroups+=`<details class="listcard" data-client-id="${clientId}" ${shouldOpen?"open":""}>
-      <summary style="cursor:pointer;font-weight:850;font-size:17px;display:flex;justify-content:space-between;align-items:center">
-        <span>${esc(clientNameText)}</span>
-        <span class="pill">${items.length} trabajo${items.length===1?"":"s"}</span>
-      </summary>
-
-      ${role==="admin"?`<div class="notice print-hide" style="margin:12px 0">
-        <strong>PDF o Excel de este cliente</strong>
-        <div class="small">Seleccioná uno, varios o todos los trabajos.</div>
-        <div class="actions" style="margin-top:8px">
-          <button type="button" class="secondary" onclick="selectClientWorks('${clientId}')">Seleccionar todos</button>
-          <button type="button" class="secondary" onclick="clearClientWorks('${clientId}')">Quitar selección</button>
-          <button type="button" class="primary" data-client-print-button="${clientId}"
-            onclick="openWorksPrintPreview('${clientId}','selected')" ${selectedCount?"":"disabled"}>
-            Crear PDF seleccionados (${selectedCount})
-          </button>
-          <button type="button" class="primary" onclick="openWorksPrintPreview('${clientId}','all')">
-            PDF historial completo
-          </button>
-          <button type="button" class="secondary" onclick="exportWorksToExcel('${clientId}','selected')">
-            Excel seleccionados
-          </button>
-          <button type="button" class="secondary" onclick="exportWorksToExcel('${clientId}','all')">
-            Excel historial completo
-          </button>
-        </div>
-      </div>`:""}
-
-      <div>
-        ${items.map(w=>`<div class="listcard" style="margin:8px 0">
-          ${role==="admin"?`<label style="display:flex;align-items:center;gap:8px;margin-bottom:8px" onclick="event.stopPropagation()">
-            <input type="checkbox" value="${w.id}" data-work-select="1" data-work-client="${clientId}"
-              ${selectedClientWorkIds.has(String(w.id))?"checked":""}
-              onchange="toggleClientWorkSelection(${w.id},this.checked,event)">
-            Seleccionar para PDF
-          </label>`:""}
-          ${workHtml(w)}
-        </div>`).join("")}
-      </div>
-    </details>`;
+  const mf=$("workMonthFilter");
+  if(mf){
+    const current=mf.value;
+    const months=[...new Set(db.works.map(w=>String(w.date||"").slice(0,7)).filter(x=>/^\d{4}-\d{2}$/.test(x)))].sort().reverse();
+    mf.innerHTML='<option value="">Todos los meses</option>'+months.map(m=>`<option value="${m}">${esc(workMonthLabel(m))}</option>`).join("");
+    mf.value=current;
   }
 
-  const globalControls=role==="admin"?`<div class="notice print-hide" style="margin:12px 0">
-    <strong>Crear PDF o Excel de trabajos</strong>${workPdfOptionsHtml()}
-    <div class="actions" style="margin-top:8px">
+  const globalControls=role==="admin"?`<div class="notice print-hide works-actions-panel">
+    <strong>PDF o Excel de trabajos</strong>
+    <div class="vertical-actions" style="margin-top:10px">
+      <label style="margin:0">Incluir datos completos de cada bomba</label>
+      <select id="pumpDataPdfMode" onchange="setIncludePumpDataInWorkPdf(this.value==='si')">
+        <option value="no" ${includePumpDataInWorkPdf?"":"selected"}>No — solo datos del trabajo e insumos</option>
+        <option value="si" ${includePumpDataInWorkPdf?"selected":""}>Sí — incluir toda la información de las bombas</option>
+      </select>
+      <small id="pumpDataPdfStatus">${includePumpDataInWorkPdf?"Activado: el PDF incluirá toda la información de cada bomba y usará las páginas necesarias.":"Modo resumido: se acomodarán hasta 4 trabajos por hoja."}</small>
       <button type="button" class="secondary" onclick="selectAllVisibleWorks()">Seleccionar todos los visibles</button>
       <button type="button" class="secondary" onclick="clearAllWorkSelection()">Quitar toda la selección</button>
-      <button type="button" id="printSelectedWorksBtn" class="primary"
-        onclick="openWorksPrintPreview(null,'selected')" ${selectedClientWorkIds.size?"":"disabled"}>
-        Crear PDF seleccionados (${selectedClientWorkIds.size})
-      </button>
-      <button type="button" class="primary" onclick="openWorksPrintPreview(null,'all')">
-        Crear PDF del historial completo
-      </button>
-      <button type="button" class="secondary" onclick="exportWorksToExcel(null,'selected')">
-        Crear Excel seleccionados
-      </button>
-      <button type="button" class="secondary" onclick="exportWorksToExcel(null,'all')">
-        Crear Excel del historial completo
-      </button>
+      <button type="button" class="primary" id="printSelectedWorksBtn" onclick="openWorksPrintPreview(null,'selected')" ${selectedClientWorkIds.size?"":"disabled"}>Crear PDF seleccionados (${selectedClientWorkIds.size})</button>
+      <button type="button" class="primary" onclick="openWorksPrintPreview(null,'all')">Crear PDF del historial filtrado</button>
+      <button type="button" class="secondary" onclick="exportWorksToExcel(null,'selected')">Crear Excel seleccionados</button>
+      <button type="button" class="secondary" onclick="exportFilteredWorksExcel()">Crear Excel del historial filtrado</button>
     </div>
   </div>`:"";
 
-  $("workList").innerHTML=globalControls+(htmlGroups||'<div class="small">Sin trabajos.</div>');
+  const list=works.map(w=>`<div class="work-select-row">
+    ${workHtml(w)}
+    ${role==="admin"?`<label class="print-hide work-select-label" onclick="event.stopPropagation()">
+      <input type="checkbox" value="${w.id}" data-work-select="1"
+       ${selectedClientWorkIds.has(String(w.id))?"checked":""}
+       onchange="toggleClientWorkSelection(${w.id},this.checked,event)"> Seleccionar
+    </label>`:""}
+  </div>`).join("");
+
+  const listHtml=list||'<div class="small">No hay trabajos con estos filtros.</div>';
+  $("workList").innerHTML=role==="admin"?`<div class="works-layout"><div>${listHtml}</div>${globalControls}</div>`:listHtml;
+  updateWorkSelectionUi();
+}
+function getFilteredWorks(){
+  const q=($("workSearch")?.value||"").toLowerCase().trim();
+  const clientFilter=$("workClientFilter")?.value||"";
+  const monthFilter=$("workMonthFilter")?.value||"";
+  let works=db.works.slice();
+  if(clientFilter) works=works.filter(w=>String(w.clientId)===String(clientFilter));
+  if(monthFilter) works=works.filter(w=>String(w.date||"").slice(0,7)===monthFilter);
+  if(q) works=works.filter(w=>[w.type,w.tech,w.client,w.est,w.obs,w.supplies].join(" ").toLowerCase().includes(q));
+  return works.sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+}
+function exportFilteredWorksExcel(){
+  if(role!=="admin") return;
+  const old=new Set(selectedClientWorkIds);
+  selectedClientWorkIds=new Set(getFilteredWorks().map(w=>String(w.id)));
+  exportWorksToExcel(null,"selected");
+  selectedClientWorkIds=old;
   updateWorkSelectionUi();
 }
 function typeCount(t){return db.works.filter(w=>w.type===t).length}
@@ -1132,7 +2032,19 @@ function operatorStats(name){
  return {total:a.length,inst:c("Instalación de bomba"),des:c("Desmontaje de bomba"),rep:c("Reparación de bomba"),perf:a.filter(w=>w.type.includes("Perforación")).length,ens:c("Ensayo de bombeo"),base:c("Base de hormigón"),cam:c("Caño de camisa")};
 }
 function renderOperators(){
- $("operatorList").innerHTML=USERS.map(u=>{let s=operatorStats(u.name),r=u.role==="owner"?"Dueño":u.role==="admin"?"Administrativa":"Técnico";return `<div class="item" style="cursor:pointer" onclick="showOperatorDetail('${u.name}')"><div class="toprow"><strong>${esc(u.name)}</strong><span class="pill">${r}</span></div><div class="small">Total: ${s.total} · Instalaciones: ${s.inst} · Desmontajes: ${s.des} · Perforaciones: ${s.perf}</div></div>`}).join("");
+ $("operatorList").innerHTML=USERS.map(u=>{let s=operatorStats(u.name),r=u.role==="owner"?"Dueño":u.role==="admin"?"Administrativa":"Técnico";return `<div class="item"><div class="toprow"><strong>${esc(u.name)}</strong><span class="pill">${r}</span></div><div class="small">Total: ${s.total} · Instalaciones: ${s.inst} · Desmontajes: ${s.des} · Perforaciones: ${s.perf}</div><div class="actions"><button class="secondary" onclick="showOperatorDetail('${esc(u.name)}')">Ver trabajos</button><button class="secondary" onclick="renameOperator('${u.id}')">Editar nombre y apellido</button></div></div>`}).join("");
+}
+async function renameOperator(userId){
+  if(role!=="admin") return;
+  const user=USERS.find(item=>String(item.id)===String(userId));if(!user)return;
+  const name=String(prompt("Nombre y apellido del usuario:",user.name)||"").trim();if(!name||name===user.name)return;
+  const {error}=await poCloud.from("profiles").update({nombre:name}).eq("id",userId);
+  if(error){console.error(error);return alert("No se pudo cambiar el nombre del usuario.");}
+  const previousName=user.name;
+  db.works.forEach(work=>{if(work.tech===previousName)work.tech=name;});
+  if(currentProfile?.id===userId) currentProfile.nombre=name;
+  await loadCloudUsers();refreshTechnicianField();renderAll();scheduleCloudSave();
+  alert("Nombre actualizado correctamente.");
 }
 function showOperatorDetail(name){
  let s=operatorStats(name),a=db.works.filter(w=>w.tech===name);
@@ -1185,7 +2097,7 @@ function exportCurrentPumpExcel(id){
     "Fecha instalación/desmontaje":p.date,
     "Observaciones":p.obs
   }];
-  const history=db.works.filter(w=>String(w.pumpId)===String(id)).map(w=>({
+  const history=db.works.filter(w=>workHasPump(w,id)).map(w=>({
     "Código trabajo":w.code,"Fecha":w.date,"Tipo":w.type,"Técnico":w.tech,"Cliente":w.client,
     "Lugar":w.est,"Código lugar":w.locationCode,"Observaciones":w.obs,"Fotos":w.photos
   }));
@@ -1194,16 +2106,170 @@ function exportCurrentPumpExcel(id){
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(history),"Historial");
   XLSX.writeFile(wb,`${p.code}_Bomba.xlsx`);
 }
+function safeExportName(value){return String(value||"").replace(/[\\/:*?"<>|]+/g," ").replace(/\s+/g," ").trim()||"Sin nombre"}
+function splitGps(value){const parts=String(value||"").split(",").map(x=>x.trim());return {lat:parts[0]||"",lng:parts[1]||""}}
+function localizedNumber(value){
+  const clean=String(value??"").trim().replace(/\s/g,"");
+  const match=clean.match(/^-?\d+(?:[.,]\d+)?/);
+  if(!match) return null;
+  const n=Number(match[0].replace(",","."));
+  return Number.isFinite(n)?n:null;
+}
+function setXlsxCell(xmlDoc,ref,value,kind="text"){
+  const ns="http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+  const rowNumber=Number(ref.match(/\d+/)?.[0]||0);
+  const sheetData=xmlDoc.getElementsByTagNameNS(ns,"sheetData")[0];
+  let row=[...sheetData.getElementsByTagNameNS(ns,"row")].find(r=>Number(r.getAttribute("r"))===rowNumber);
+  if(!row){row=xmlDoc.createElementNS(ns,"row");row.setAttribute("r",String(rowNumber));sheetData.appendChild(row)}
+  let cell=[...row.getElementsByTagNameNS(ns,"c")].find(c=>c.getAttribute("r")===ref);
+  if(!cell){cell=xmlDoc.createElementNS(ns,"c");cell.setAttribute("r",ref);row.appendChild(cell)}
+  [...cell.childNodes].forEach(node=>cell.removeChild(node));
+  if(kind==="formula"){
+    const f=xmlDoc.createElementNS(ns,"f");f.textContent=String(value||"").replace(/^=/,"");cell.appendChild(f);cell.removeAttribute("t");return;
+  }
+  const numeric=kind==="number"?localizedNumber(value):null;
+  if(numeric!==null){cell.setAttribute("t","n");const v=xmlDoc.createElementNS(ns,"v");v.textContent=String(numeric);cell.appendChild(v);return}
+  cell.setAttribute("t","inlineStr");const is=xmlDoc.createElementNS(ns,"is");const t=xmlDoc.createElementNS(ns,"t");t.textContent=String(value??"");is.appendChild(t);cell.appendChild(is);
+}
+async function configurePumpTestPrint(zip,sheetXmlDoc){
+  const ns="http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+  const worksheet=sheetXmlDoc.documentElement;
+  let sheetPr=sheetXmlDoc.getElementsByTagNameNS(ns,"sheetPr")[0];
+  if(!sheetPr){sheetPr=sheetXmlDoc.createElementNS(ns,"sheetPr");worksheet.insertBefore(sheetPr,worksheet.firstChild)}
+  let setupPr=sheetPr.getElementsByTagNameNS(ns,"pageSetUpPr")[0];
+  if(!setupPr){setupPr=sheetXmlDoc.createElementNS(ns,"pageSetUpPr");sheetPr.appendChild(setupPr)}
+  setupPr.setAttribute("fitToPage","1");
+  let pageSetup=sheetXmlDoc.getElementsByTagNameNS(ns,"pageSetup")[0];
+  if(!pageSetup){pageSetup=sheetXmlDoc.createElementNS(ns,"pageSetup");const drawing=sheetXmlDoc.getElementsByTagNameNS(ns,"drawing")[0];drawing?worksheet.insertBefore(pageSetup,drawing):worksheet.appendChild(pageSetup)}
+  pageSetup.setAttribute("paperSize","9");pageSetup.setAttribute("orientation","portrait");pageSetup.setAttribute("fitToWidth","1");pageSetup.setAttribute("fitToHeight","1");
+  let pageMargins=sheetXmlDoc.getElementsByTagNameNS(ns,"pageMargins")[0];
+  if(!pageMargins){pageMargins=sheetXmlDoc.createElementNS(ns,"pageMargins");worksheet.insertBefore(pageMargins,pageSetup)}
+  pageMargins.setAttribute("left","0.25");pageMargins.setAttribute("right","0.25");pageMargins.setAttribute("top","0.35");pageMargins.setAttribute("bottom","0.35");pageMargins.setAttribute("header","0");pageMargins.setAttribute("footer","0");
+
+  const workbookPath="xl/workbook.xml",workbookXml=await zip.file(workbookPath).async("string");
+  const workbookDoc=new DOMParser().parseFromString(workbookXml,"application/xml"),workbook=workbookDoc.documentElement;
+  let names=workbookDoc.getElementsByTagNameNS(ns,"definedNames")[0];
+  if(!names){names=workbookDoc.createElementNS(ns,"definedNames");const calcPr=workbookDoc.getElementsByTagNameNS(ns,"calcPr")[0];calcPr?workbook.insertBefore(names,calcPr):workbook.appendChild(names)}
+  let printArea=[...names.getElementsByTagNameNS(ns,"definedName")].find(x=>x.getAttribute("name")==="_xlnm.Print_Area");
+  if(!printArea){printArea=workbookDoc.createElementNS(ns,"definedName");printArea.setAttribute("name","_xlnm.Print_Area");printArea.setAttribute("localSheetId","0");names.appendChild(printArea)}
+  printArea.textContent="'Modelo (2)'!$B$4:$F$23";
+  zip.file(workbookPath,new XMLSerializer().serializeToString(workbookDoc));
+}
+function downloadGeneratedFile(blob,filename){
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),2500);
+}
+async function createPumpTestLetterheadPdfBlob(w){
+  if(!window.jspdf) throw new Error("No se pudo cargar el generador del PDF.");
+  const bg=await imageToDataUrl("hoja-membretada.jpeg");
+  const {jsPDF}=window.jspdf,pdf=new jsPDF("p","mm","a4");
+  pdf.addImage(bg,"JPEG",0,0,210,297);
+  const loc=locationById(w.locationId)||{},gps=splitGps(w.gps||loc.gps||"");
+  const e=w.extra||{},tests=Array.isArray(e.tests)?e.tests:[];
+  const pumpNumber=e.fPumpNumber||w.pumpNumber||((w.pumps||[]).map(p=>p.pumpNumber).filter(Boolean).join(", "))||"1";
+  // Diseño ancho y transparente aprobado en la Prueba 57.
+  const x=16,right=194,width=right-x;
+  pdf.setTextColor(12,57,82);pdf.setFont("helvetica","bold");pdf.setFontSize(13);
+  pdf.text("ENSAYO DE BOMBEO",x,49);
+  pdf.setDrawColor(28,93,143);pdf.setLineWidth(.45);pdf.line(x,52,right,52);
+  const meta=[
+    ["Cliente",w.client||"-"],["Fecha",formatDateAR(w.date)],
+    ["Campo",w.est||"-"],["Ensayado por",w.tech||"-"],
+    ["Lugar",loc.locality||loc.address||w.est||"-"],["Bomba",pumpNumber?`Nº ${pumpNumber}`:"-"],
+    ["Prof. perforación",e.fDrillingDepth||e.fDepth||"-"],["Largo transmisión",e.fTransmissionLength||"-"],
+    ["Diámetro",e.fDiameter||"-"],["Ubicación perf.",e.fDrillingLocation||w.est||"-"],
+    ["Nivel estático",e.fStaticLevel||"-"],["GPS",gps.lat&&gps.lng?`${gps.lat}, ${gps.lng}`:"No registrado"],
+    ["Tipo de camisa",e.fCasing||"-"],["Método",e.fMeasurementMethod||"Caudal variable y constante"]
+  ];
+  const colW=width/2,labelW=25,rowH=5.2,startY=58;
+  pdf.setFontSize(6.6);
+  meta.forEach((item,i)=>{
+    const col=i%2,row=Math.floor(i/2),cx=x+col*colW,cy=startY+row*rowH;
+    pdf.setFont("helvetica","bold");pdf.setTextColor(22,61,78);pdf.text(`${item[0]}:`,cx,cy);
+    pdf.setFont("helvetica","normal");pdf.setTextColor(45,63,70);
+    const value=pdf.splitTextToSize(String(item[1]),colW-labelW-2)[0]||"-";
+    pdf.text(value,cx+labelW,cy);
+  });
+  const tableY=99,headerH=9,unitH=7,dataH=17;
+  const widths=[16,30,32,35,65],headers=[`Pozo ${pumpNumber}`,"Caudal","Nivel dinámico","Caudal específico","Tiempo y observaciones"],units=["","m3/h","mts","m3/h/m",""];
+  let cx=x;
+  pdf.setDrawColor(18,56,79);pdf.setLineWidth(.3);
+  widths.forEach((cw,i)=>{
+    pdf.rect(cx,tableY,cw,headerH,"S");
+    pdf.setTextColor(12,57,82);pdf.setFont("helvetica","bold");pdf.setFontSize(6.8);
+    pdf.text(headers[i],cx+cw/2,tableY+5.8,{align:"center"});
+    pdf.rect(cx,tableY+headerH,cw,unitH,"S");
+    pdf.setTextColor(25,45,55);pdf.setFontSize(6.2);pdf.text(units[i],cx+cw/2,tableY+headerH+4.8,{align:"center"});cx+=cw;
+  });
+  for(let i=0;i<5;i++){
+    const test=tests[i]||{},rowY=tableY+headerH+unitH+i*dataH;
+    const flow=localizedNumber(test.flow),dynamic=localizedNumber(test.dynamic),staticLevel=localizedNumber(e.fStaticLevel);
+    const specific=flow!==null&&dynamic!==null&&staticLevel!==null&&dynamic!==staticLevel?flow/(dynamic-staticLevel):null;
+    const vals=[String(i+1),test.flow||"",test.dynamic||"",specific===null?"":specific.toFixed(2),test.observation||""];
+    cx=x;
+    widths.forEach((cw,j)=>{
+      pdf.rect(cx,rowY,cw,dataH,"S");
+      pdf.setTextColor(20,45,58);pdf.setFont("helvetica",j===0?"bold":"normal");pdf.setFontSize(j===4?6.5:7.2);
+      const lines=pdf.splitTextToSize(String(vals[j]),cw-3).slice(0,4);
+      pdf.text(lines,cx+cw/2,rowY+7,{align:"center"});cx+=cw;
+    });
+  }
+  pdf.setFont("helvetica","normal");pdf.setFontSize(6.5);pdf.setTextColor(75,88,94);
+  pdf.text("Documento generado por Perforaciones Ortiz",x,228);
+  return pdf.output("blob");
+}
+async function exportPumpTestLetterheadExcel(w){
+  if(!window.JSZip) return alert("No se pudo cargar el generador de la planilla membretada.");
+  try{
+    const response=await fetch("ensayo-bombeo-plantilla.xlsx",{cache:"no-store"});
+    if(!response.ok) throw new Error("No se encontró la plantilla del ensayo.");
+    const zip=await JSZip.loadAsync(await response.arrayBuffer());
+    const path="xl/worksheets/sheet1.xml";
+    const xmlText=await zip.file(path).async("string");
+    const xmlDoc=new DOMParser().parseFromString(xmlText,"application/xml");
+    if(xmlDoc.querySelector("parsererror")) throw new Error("La plantilla Excel no pudo leerse.");
+    const loc=locationById(w.locationId)||{};
+    const gps=splitGps(w.gps||loc.gps||"");
+    const e=w.extra||{};
+    const pumpNumber=e.fPumpNumber||w.pumpNumber||((w.pumps||[]).map(p=>p.pumpNumber).filter(Boolean).join(", "));
+    const values={
+      C5:w.client||"",F5:formatDateAR(w.date),C7:w.est||"",C8:loc.locality||loc.address||w.est||"",
+      C9:e.fDrillingDepth||e.fDepth||"",C10:e.fDiameter||"",C11:e.fStaticLevel||"",C12:e.fDepth||e.fDrillingDepth||"",C13:e.fCasing||"",
+      C14:e.fMeasurementMethod||"Caudal variable y constante",F8:w.tech||"",F9:pumpNumber?`Nº ${pumpNumber}`:"",F10:e.fTransmissionLength||"",
+      F11:e.fDrillingLocation||w.est||"",F12:gps.lat,F13:gps.lng,B16:`Pozo ${pumpNumber||"1"}${e.fDepth?` · ${e.fDepth}`:""}`
+    };
+    Object.entries(values).forEach(([ref,value])=>setXlsxCell(xmlDoc,ref,value));
+    setXlsxCell(xmlDoc,"C11",e.fStaticLevel||"","number");
+    const tests=Array.isArray(e.tests)?e.tests:[];
+    for(let i=0;i<5;i++){
+      const row=18+i,test=tests[i]||{};
+      setXlsxCell(xmlDoc,`C${row}`,test.flow||"","number");
+      setXlsxCell(xmlDoc,`D${row}`,test.dynamic||"","number");
+      setXlsxCell(xmlDoc,`E${row}`,`IF(C${row}="","",IFERROR(C${row}/(D${row}-$C$11),""))`,"formula");
+      setXlsxCell(xmlDoc,`F${row}`,test.observation||"");
+    }
+    await configurePumpTestPrint(zip,xmlDoc);
+    zip.file(path,new XMLSerializer().serializeToString(xmlDoc));
+    const excelBlob=await zip.generateAsync({type:"blob",mimeType:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+    const pdfBlob=await createPumpTestLetterheadPdfBlob(w);
+    const baseName=`Ensayo de bombeo (${safeExportName(w.client)}) ${formatDateAR(w.date).replaceAll("/","-")}`;
+    downloadGeneratedFile(excelBlob,`${baseName}.xlsx`);
+    setTimeout(()=>downloadGeneratedFile(pdfBlob,`${baseName}.pdf`),450);
+    setTimeout(()=>alert("Se crearon el Excel y el PDF membretado del ensayo. Si el navegador pregunta, permití la descarga de varios archivos."),700);
+  }catch(err){console.error(err);alert(err?.message||"No se pudieron crear el Excel y el PDF membretado del ensayo.")}
+}
 function exportCurrentWorkExcel(id){
   if(role!=="admin") return alert("Solo administración puede descargar Excel.");
   const w=db.works.find(x=>String(x.id)===String(id)); if(!w) return;
+  if(w.type==="Ensayo de bombeo") return exportPumpTestLetterheadExcel(w);
   const loc=locationById(w.locationId);
   const rows=[{
     "Código trabajo":w.code,"Fecha":w.date,"Tipo de trabajo":w.type,"Técnico":w.tech,
     "Cliente":w.client,"Código lugar":w.locationCode,"Establecimiento":w.est,
     "Localidad":loc?.locality||"","Dirección":loc?.address||"","GPS":loc?.gps||"",
     "Google Maps":googleMapsUrl(loc?.gps),"Código bomba":w.pumpCode||"",
-    "Número de bomba":w.pumpNumber||"",
+    "Número de bomba":Array.isArray(w.pumps)&&w.pumps.length?w.pumps.map(p=>p.pumpNumber).join(", "):(w.pumpNumber||""),
     "Lugar anterior":w.previousPumpLocation?.place||"",
     "Lugar de instalación/desmontaje":w.newPumpLocation?.place||w.est||"",
     "Fecha instalación/desmontaje":w.eventDate||"",
@@ -1225,8 +2291,8 @@ function pumpTestResultsHtml(w){
     tests=[{flow:w.extra.flow||"",dynamic:w.extra.dynamic||""}];
   }
   const rows=tests
-    .map((t,i)=>({i:i+1,flow:t?.flow||"",dynamic:t?.dynamic||""}))
-    .filter(t=>t.flow!==""||t.dynamic!=="");
+    .map((t,i)=>({i:i+1,flow:t?.flow||"",dynamic:t?.dynamic||"",observation:t?.observation||""}))
+    .filter(t=>t.flow!==""||t.dynamic!==""||t.observation!=="");
   if(!rows.length) return "";
   return `<div class="mapbox">
     <strong>Resultados del ensayo de bombeo</strong>
@@ -1234,6 +2300,7 @@ function pumpTestResultsHtml(w){
       ${rows.map(t=>`
         <div class="listrow"><div class="listlabel">Caudal ${t.i}</div><div class="listvalue">${esc(t.flow||"-")}</div></div>
         <div class="listrow"><div class="listlabel">Nivel dinámico ${t.i}</div><div class="listvalue">${esc(t.dynamic||"-")}</div></div>
+        <div class="listrow"><div class="listlabel">Observaciones ${t.i}</div><div class="listvalue">${esc(t.observation||"-")}</div></div>
       `).join("")}
     </div>
   </div>`;
@@ -1269,6 +2336,9 @@ function pumpSnapshotHtml(w){
       <div class="listrow"><div class="listlabel">Caños</div><div class="listvalue">${esc(s.pipes||"-")}</div></div>
       <div class="listrow"><div class="listlabel">Manguito</div><div class="listvalue">${esc(s.sleeve||"-")}</div></div>
       <div class="listrow"><div class="listlabel">Cámaras</div><div class="listvalue">${esc(s.chambers||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Campaña</div><div class="listvalue">${esc(s.campaign||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Varilla sup.</div><div class="listvalue">${esc(s.topRod||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Otros</div><div class="listvalue">${esc(s.others||"-")}</div></div>
     </div>
   </div>`;
 }
@@ -1290,6 +2360,9 @@ function editPump(id){
     <label>Caños</label><input id="epPipes" value="${esc(p.pipes||"")}">
     <label>Manguito</label><input id="epSleeve" value="${esc(p.sleeve||"")}">
     <label>Cámaras</label><input id="epChambers" value="${esc(p.chambers||"")}">
+    <label>Campaña</label><input id="epCampaign" value="${esc(p.campaign||"")}">
+    <label>Varilla sup.</label><input id="epTopRod" value="${esc(p.topRod||"")}">
+    <label>Otros</label><input id="epOthers" value="${esc(p.others||"")}">
     <label>Fecha instalación/desmontaje</label><input id="epDate" type="date" value="${esc(p.date||"")}">
     <label>Observaciones</label><textarea id="epObs">${esc(p.obs||"")}</textarea>
     <div class="actions"><button class="primary" onclick="savePumpEdit(${p.id})">Guardar cambios</button><button class="secondary" onclick="$('editPumpBox').classList.add('hidden')">Cancelar</button></div>`;
@@ -1298,7 +2371,7 @@ function savePumpEdit(id){
   const p=db.pumps.find(x=>String(x.id)===String(id)); if(!p) return;
   p.number=$("epNumber").value.trim(); p.est=$("epEst").value.trim(); p.status=$("epStatus").value;
   p.head=$("epHead").value.trim(); p.support=$("epSupport").value.trim(); p.pipes=$("epPipes").value.trim();
-  p.sleeve=$("epSleeve").value.trim(); p.chambers=$("epChambers").value.trim(); p.date=$("epDate").value; p.obs=$("epObs").value.trim();
+  p.sleeve=$("epSleeve").value.trim(); p.chambers=$("epChambers").value.trim(); p.campaign=$("epCampaign")?.value.trim()||""; p.topRod=$("epTopRod")?.value.trim()||""; p.others=$("epOthers")?.value.trim()||""; p.date=$("epDate").value; p.obs=$("epObs").value.trim();
   save(); renderAll(); showPumpDetail(id); alert("Bomba actualizada.");
 }
 function editWork(id){
@@ -1325,28 +2398,28 @@ function saveWorkEdit(id){
 }
 
 function showWorkDetail(id){
+ const genericPrint=document.querySelector("#detalle .actions.admin");
+ if(genericPrint) genericPrint.style.display="";
  let w=db.works.find(x=>String(x.id)===String(id));if(!w)return;
  const loc=locationById(w.locationId);
  $("detailTitle").textContent=w.type;
- $("detailBody").innerHTML=`<h3>Perforaciones Ortiz</h3>
- 
- <p><strong>Fecha:</strong> ${esc(w.date)}</p>
+ $("detailBody").dataset.workId=String(w.id);
+ $("detailBody").innerHTML=`
+ <div class="letterhead-print-spacer"></div>
+ <p><strong>Fecha:</strong> ${esc(formatDateAR(w.date))}</p>
  <p><strong>Técnico:</strong> ${esc(w.tech)}</p>
  <p><strong>Cliente:</strong> ${esc(w.client)}</p>
  <p><strong>Lugar:</strong> ${esc(w.est||"-")}</p>
- ${mapHtml(loc)}
- ${w.pumpNumber?`<p><strong>Número de bomba:</strong> ${esc(w.pumpNumber)}</p>`:""}
- ${pumpMovementHtml(w)}
- ${includePumpDataInWorkPdf?(pumpTestResultsHtml(w)+pumpSnapshotHtml(w)):""}
- 
+ ${mapHtml((w.gps&&!loc?.gps)?{...(loc||{}),gps:w.gps}:loc)}
+ ${technicalDetailsHtml(w)}
+ ${pumpsInWorkHtml(w)}
+ ${w.supplies?`<div class="mapbox"><strong>Insumos utilizados</strong><div style="margin-top:8px;white-space:pre-wrap">${esc(w.supplies)}</div></div>`:""}
  <p><strong>Observaciones:</strong> ${esc(w.obs||"-")}</p>
  <p><strong>Prioridad:</strong> ${esc(w.priority)}</p>
  ${workPhotosHtml(w)}
-    <div class="print-signatures">
-      <div class="signature-line">Firma del cliente</div>
-      <div class="signature-line">Firma del técnico</div>
-    </div>
- ${role==="admin"?`<button class="secondary" style="width:100%;margin-top:12px" onclick="editWork(${w.id})">Editar trabajo</button><button class="secondary" style="width:100%;margin-top:12px" onclick="exportCurrentWorkExcel(${w.id})">Exportar este trabajo a Excel</button>`:""}`;
+ <div class="print-hide">
+   ${role==="admin"?`<button class="secondary" style="width:100%;margin-top:12px" onclick="editWork(${w.id})">Editar trabajo</button><button class="secondary" style="width:100%;margin-top:12px" onclick="exportCurrentWorkExcel(${w.id})">${w.type==="Ensayo de bombeo"?"Crear Excel y PDF membretado":"Exportar este trabajo a Excel"}</button>`:""}
+ </div>`;
  go("detalle");
 }
 
@@ -1354,7 +2427,7 @@ function showWorkDetail(id){
 function completeMissingPumpHistory(id){
   if(role!=="admin") return;
   const p=db.pumps.find(x=>String(x.id)===String(id)); if(!p) return;
-  const works=db.works.filter(w=>String(w.pumpId)===String(id));
+  const works=db.works.filter(w=>workHasPump(w,id));
   let changed=0;
   for(const w of works){
     if(!w.pumpSnapshot){
@@ -1382,7 +2455,7 @@ function syncLatestPumpHistory(id){
   if(role!=="admin") return;
   const p=db.pumps.find(x=>String(x.id)===String(id)); if(!p) return;
   const latest=db.works
-    .filter(w=>String(w.pumpId)===String(id))
+    .filter(w=>workHasPump(w,id))
     .sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")))[0];
   if(!latest) return alert("La bomba no tiene trabajos registrados.");
   latest.pumpSnapshot={
@@ -1410,7 +2483,7 @@ function togglePumpHistorySelection(workId,checked){
 
 function selectAllPumpHistory(pumpId){
   selectedPumpHistoryIds.clear();
-  db.works.filter(w=>String(w.pumpId)===String(pumpId))
+  db.works.filter(w=>workHasPump(w,pumpId))
     .forEach(w=>selectedPumpHistoryIds.add(String(w.id)));
   showPumpDetail(pumpId);
 }
@@ -1439,6 +2512,28 @@ function preparePumpPrint(pumpId,mode){
   },500);
 }
 
+
+async function preparePumpPdf(pumpId,mode){
+  pumpPrintMode=mode;
+  const cards=[...document.querySelectorAll(".pump-history-full")];
+  cards.forEach(card=>{
+    const id=String(card.dataset.workId||"");
+    let hide=false;
+    if(mode==="current") hide=true;
+    if(mode==="selected") hide=!selectedPumpHistoryIds.has(id);
+    card.classList.toggle("print-excluded",hide);
+    if(hide) card.style.display="none";
+  });
+  const historyTitle=document.querySelector(".pump-history-title");
+  const prev=historyTitle?.style.display||"";
+  if(historyTitle && mode==="current") historyTitle.style.display="none";
+  const card=document.querySelector("#detalle .card");
+  const pump=db.pumps.find(p=>String(p.id)===String(pumpId));
+  await createPdfFromElement(card,`Bomba_${pump?.number||pumpId}_${mode}.pdf`);
+  cards.forEach(card=>{card.classList.remove("print-excluded");card.style.display="";});
+  if(historyTitle) historyTitle.style.display=prev;
+}
+
 function pumpPrintControlsHtml(pumpId,history){
   if(role!=="admin") return "";
   const selected=selectedPumpHistoryIds.size;
@@ -1446,9 +2541,12 @@ function pumpPrintControlsHtml(pumpId,history){
     <strong>Elegir qué imprimir o guardar como PDF</strong>
     <div class="small">Podés imprimir la ficha actual, uno o varios trabajos seleccionados, o el historial completo.</div>
     <div class="actions" style="margin-top:10px">
-      <button class="primary" onclick="preparePumpPrint(${pumpId},'current')">Imprimir/PDF ficha actual</button>
-      <button class="secondary" onclick="preparePumpPrint(${pumpId},'selected')" ${selected?"":"disabled"}>Trabajos seleccionados (${selected})</button>
-      <button class="primary" onclick="preparePumpPrint(${pumpId},'all')">Imprimir/PDF historial completo</button>
+      <button class="primary" onclick="preparePumpPdf(${pumpId},'current')">Crear PDF planilla de control</button>
+      <button class="secondary" onclick="preparePumpPrint(${pumpId},'current')">Imprimir ficha actual</button>
+      <button class="primary" onclick="preparePumpPdf(${pumpId},'selected')" ${selected?"":"disabled"}>Crear PDF seleccionados (${selected})</button>
+      <button class="secondary" onclick="preparePumpPrint(${pumpId},'selected')" ${selected?"":"disabled"}>Imprimir seleccionados (${selected})</button>
+      <button class="primary" onclick="preparePumpPdf(${pumpId},'all')">Crear PDF historial completo</button>
+      <button class="secondary" onclick="preparePumpPrint(${pumpId},'all')">Imprimir historial completo</button>
       <button class="secondary" onclick="selectAllPumpHistory(${pumpId})">Seleccionar todos</button>
       <button class="secondary" onclick="clearPumpHistorySelection(${pumpId})">Quitar selección</button>
     </div>
@@ -1496,14 +2594,13 @@ function fullPumpHistoryHtml(w,p){
 
 function showPumpDetail(id){
  let p=db.pumps.find(x=>String(x.id)===String(id));if(!p)return;
- let h=db.works.filter(w=>String(w.pumpId)===String(id)).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+ let h=db.works.filter(w=>workHasPump(w,id)).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
  const loc=locationById(p.locationId);
- $("detailTitle").textContent=p.code+" · Bomba "+p.number;
+ $("detailTitle").textContent="Ficha de bomba";
  $("detailBody").innerHTML=`
- <h3>FICHA DE BOMBA</h3><p class="print-hide"><strong>Código interno:</strong> ${esc(p.code||"-")}</p>
- <h2><span class="print-hide">${esc(p.code)} · </span>${esc(p.number)}</h2><p><strong>Número de bomba del cliente:</strong> ${esc(p.number||"-")}</p>
+ <p><strong>Número de bomba:</strong> ${esc(p.number||"-")}</p>
  <p><strong>Cliente:</strong> ${esc(clientName(p.clientId))}</p>
- <p><strong>Establecimiento:</strong> ${esc(p.est||"-")}</p>
+ <p><strong>Establecimiento:</strong> ${esc(p.est||"-")}</p><p><strong>GPS:</strong> ${esc(p.gps||locationById(p.locationId)?.gps||"No registrada")}</p>
  ${mapHtml(loc)}
  <p><strong>Estado:</strong> ${esc(p.status)}</p>
  <p><strong>Cabezal:</strong> ${esc(p.head||"-")}</p>
@@ -1517,23 +2614,339 @@ function showPumpDetail(id){
     <h3 class="pump-history-title">Historial completo</h3>
     ${h.map(w=>fullPumpHistoryHtml(w,p)).join("")||'<div class="small">Sin movimientos.</div>'}
     ${pumpPrintControlsHtml(p.id,h)}
- ${role==="admin"?`<button class="secondary" style="width:100%;margin-top:12px" onclick="editPump(${p.id})">Editar bomba</button><button class="secondary" style="width:100%;margin-top:12px" onclick="syncLatestPumpHistory(${p.id})">Sincronizar último trabajo con esta ficha</button><button class="secondary" style="width:100%;margin-top:12px" onclick="completeMissingPumpHistory(${p.id})">Completar historial antiguo</button><button class="secondary" style="width:100%;margin-top:12px" onclick="exportCurrentPumpExcel(${p.id})">Exportar esta bomba a Excel</button>`:""}`;
+ ${role==="admin"?`<div class="print-hide"><button class="secondary" style="width:100%;margin-top:12px" onclick="editPump(${p.id})">Editar bomba</button><button class="secondary" style="width:100%;margin-top:12px" onclick="syncLatestPumpHistory(${p.id})">Sincronizar último trabajo con esta ficha</button><button class="secondary" style="width:100%;margin-top:12px" onclick="completeMissingPumpHistory(${p.id})">Completar historial antiguo</button><button class="secondary" style="width:100%;margin-top:12px" onclick="exportCurrentPumpExcel(${p.id})">Exportar esta bomba a Excel</button></div>`:""}`;
  if($("printPhotoControls")) $("printPhotoControls").innerHTML="";
  const genericPrint=document.querySelector("#detalle .actions.admin");
  if(genericPrint) genericPrint.style.display="none";
  go("detalle");
 }
 
-function renderHome(){$("latest").innerHTML=db.works.slice(0,5).map(workHtml).join("")||'<div class="small">Sin trabajos.</div>';let tipos=TYPES.map(t=>`<div class="notice">${esc(t)}: <strong>${typeCount(t)}</strong></div>`).join(""),ops=USERS.map(u=>{let s=operatorStats(u.name);return `<div class="notice">${esc(u.name)}: <strong>${s.total}</strong> trabajos</div>`}).join("");$("stats").innerHTML=`<div class="notice">Trabajos: <strong>${db.works.length}</strong></div><div class="notice">Bombas: <strong>${db.pumps.length}</strong></div><div class="notice">Clientes: <strong>${Math.max(0,db.clients.length-1)}</strong></div><div class="notice">Urgentes: <strong>${db.works.filter(w=>w.priority==="Urgente").length}</strong></div><h3 style="grid-column:1/-1">Cantidad por tipo</h3>${tipos}<h3 style="grid-column:1/-1">Cantidad por operario</h3>${ops}`;}function renderAll(){ensureLocations();refreshSelects();renderClients();renderPumps();renderWorks();renderHome();renderOperators();refreshLocationOptions();refreshPumpOptionsForWork();toggleInstallPumpMode()}function exportExcel(){if(role!=='admin')return alert('Solo administración puede descargar Excel.');let rows=db.works.map(w=>{const loc=locationById(w.locationId);return ({"Código trabajo":w.code,Fecha:w.date,Técnico:w.tech,Cliente:w.client,"Código lugar":w.locationCode,Establecimiento:w.est,'Tipo de trabajo':w.type,'Número de bomba':w.pumpNumber,'Fecha instalación/desmontaje':w.eventDate,Prioridad:w.priority,Observaciones:w.obs,Fotos:w.photos,Profundidad:w.extra?.fDepth||'',Diámetro:w.extra?.fDiameter||'',Caudal:w.extra?.fFlow||'','Nivel dinámico':w.extra?.fDynamic||'','Caño de camisa':w.extra?.fCasing||'','Medidas base':w.extra?.fBaseSize||'','Ubicación base':w.extra?.fBaseLocation||'','Localidad':loc?.locality||'','Dirección':loc?.address||'','GPS':loc?.gps||'','Google Maps':googleMapsUrl(loc?.gps)});});let wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),'Trabajos');
+
+
+async function createWorkLetterheadPdf(w){
+  if(!window.jspdf) return alert("No se pudo cargar el generador de PDF.");
+  try{
+    const bg=await imageToDataUrl("hoja-membretada.jpeg");
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF("p","mm","a4");
+    const addPage=()=>pdf.addImage(bg,"JPEG",0,0,210,297);
+    addPage();
+    pdf.setTextColor(16,45,70);
+    let y=48;
+    const x=18, max=120;
+    const line=(label,value)=>{
+      const text=`${label}: ${value??"-"}`;
+      pdf.setFont("helvetica","bold");
+      pdf.setFontSize(11.5);
+      const lines=pdf.splitTextToSize(text,max);
+      if(y+lines.length*6>262){ pdf.addPage(); addPage(); y=48; }
+      pdf.text(lines,x,y);
+      y+=lines.length*6+2;
+    };
+    pdf.setFont("helvetica","bold");
+    pdf.setFontSize(16);
+    pdf.text(w.type||"Informe de trabajo",x,y); y+=11;
+
+    const pumps=Array.isArray(w.pumps)&&w.pumps.length?w.pumps:(w.pumpId?[{
+      pumpNumber:w.pumpNumber,previousPumpLocation:w.previousPumpLocation,newPumpLocation:w.newPumpLocation,
+      snapshot:getEffectivePumpSnapshot(w),detailMode:w.detailMode||"full"
+    }]:[]);
+
+    line("Cliente",w.client||"-");
+    line(`Número${pumps.length>1?"s":""}`, pumps.length?pumps.map(pm=>`Nº ${pm.pumpNumber||"-"}`).join(", "):"-");
+    line("Fecha",formatDateAR(w.date));
+    line("Técnico",w.tech||"-");
+    line("Lugar",w.est||"-");
+    line("GPS",w.gps||locationById(w.locationId)?.gps||"No registrada");
+    if(w.supplies) line("Insumos utilizados",w.supplies);
+
+    const e=w.extra||{};
+    const techFields=[
+      ["Profundidad",e.fDepth],["Diámetro",e.fDiameter],["Caudal",e.fFlow],
+      ["Nivel dinámico",e.fDynamic],["Caño de camisa",e.fCasing],
+      ["Medidas de la base",e.fBaseSize],["Ubicación de la base",e.fBaseLocation]
+    ].filter(([,v])=>v);
+    techFields.forEach(([a,b])=>line(a,b));
+    if(Array.isArray(e.tests)) e.tests.forEach((t,i)=>{
+      if(t.flow) line(`Caudal ${i+1}`,t.flow);
+      if(t.dynamic) line(`Nivel dinámico ${i+1}`,t.dynamic);
+      if(t.observation) line(`Observaciones ${i+1}`,t.observation);
+    });
+
+    pumps.forEach((pm,i)=>{
+      if(y>225){ pdf.addPage(); addPage(); y=48; }
+      pdf.setFont("helvetica","bold"); pdf.setFontSize(13);
+      pdf.text(`${pumps.length>1?`Bomba ${i+1} · `:""}Nº ${pm.pumpNumber||"-"}`,x,y); y+=8;
+      if(pm.previousPumpLocation?.place) line("Ubicación anterior",pm.previousPumpLocation.place);
+      line("Ubicación actual",pm.newPumpLocation?.place||w.est||"-");
+      if((pm.detailMode||"full")==="full"){
+        const s=pm.snapshot||{};
+        line("Cabezal",s.head||"-");
+        line("Soporte",s.support||"-");
+        line("Caños",s.pipes||"-");
+        line("Manguito",s.sleeve||"-");
+        line("Cámaras",s.chambers||"-");
+        line("Campaña",s.campaign||"-");
+        line("Varilla sup.",s.topRod||"-");
+        line("Otros",s.others||"-");
+        if(s.obs) line("Observaciones bomba",s.obs);
+      }
+    });
+
+    line("Observaciones",w.obs||"-");
+    line("Prioridad",w.priority||"-");
+    pdf.save(`${(w.type||"Trabajo").replace(/\s+/g,"_")}_${formatDateAR(w.date).replace(/\//g,"-")}.pdf`);
+  }catch(err){console.error(err);alert("No se pudo crear el PDF del trabajo.");}
+}
+function printWorkOnPhysicalLetterhead(){
+  document.querySelectorAll("#detailBody .print-signatures,#detailBody .signature-line").forEach(el=>el.remove());
+  document.body.classList.add("print-work-one-page");
+  const clearPrintMode=()=>document.body.classList.remove("print-work-one-page");
+  window.addEventListener("afterprint",clearPrintMode,{once:true});
+  window.print();
+}
+
+function captureWorkGps(){
+  const status=$("workGpsStatus");
+  if(!navigator.geolocation){
+    if(status) status.textContent="El navegador no permite obtener la ubicación.";
+    return;
+  }
+  if(status) status.textContent="Obteniendo ubicación...";
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const gps=`${pos.coords.latitude.toFixed(6)}, ${pos.coords.longitude.toFixed(6)}`;
+    if($("wGps")) $("wGps").value=gps;
+    if($("newLocGps") && $("wLocation")?.value==="new") $("newLocGps").value=gps;
+    if(status) status.textContent="Ubicación actual cargada.";
+  },()=>{
+    if(status) status.textContent="No se pudo obtener la ubicación.";
+  },{enableHighAccuracy:true,timeout:12000});
+}
+function openWorkGoogleMaps(){
+  const gps=$("wGps")?.value.trim()||"";
+  window.open(gps?`https://www.google.com/maps?q=${encodeURIComponent(gps)}`:"https://www.google.com/maps","_blank");
+}
+function getEffectivePumpSnapshot(w){
+  if(w?.pumpSnapshot) return w.pumpSnapshot;
+  const p=db.pumps.find(x=>String(x.id)===String(w?.pumpId));
+  if(!p) return null;
+  return {
+    head:p.head||"",support:p.support||"",pipes:p.pipes||"",sleeve:p.sleeve||"",
+    chambers:p.chambers||"",campaign:p.campaign||"",topRod:p.topRod||"",others:p.others||"",obs:p.obs||""
+  };
+}
+// Reemplazo del resumen de datos de bomba: usa snapshot histórico y, si falta, la ficha actual.
+pumpSnapshotHtml=function(w){
+  const s=getEffectivePumpSnapshot(w);
+  if(!s) return "";
+  return `<div class="mapbox">
+    <strong>Datos de la bomba en este trabajo</strong>
+    <div class="listrows">
+      <div class="listrow"><div class="listlabel">Cabezal</div><div class="listvalue">${esc(s.head||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Soporte</div><div class="listvalue">${esc(s.support||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Caños</div><div class="listvalue">${esc(s.pipes||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Manguito</div><div class="listvalue">${esc(s.sleeve||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Cámaras</div><div class="listvalue">${esc(s.chambers||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Campaña</div><div class="listvalue">${esc(s.campaign||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Varilla sup.</div><div class="listvalue">${esc(s.topRod||"-")}</div></div>
+      <div class="listrow"><div class="listlabel">Otros</div><div class="listvalue">${esc(s.others||"-")}</div></div>
+    </div>
+  </div>`;
+}
+function latestPumpContext(pumpId){
+  const hist=db.works.filter(w=>workHasPump(w,pumpId))
+    .sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+  const latest=hist[0]||null;
+  const repair=hist.find(w=>w.type==="Reparación de bomba")||null;
+  return {
+    latest,
+    previousLocation:latest?.previousPumpLocation?.place||"",
+    previousRepair:repair?.obs||"",
+    technician:latest?.tech||""
+  };
+}
+function imageToDataUrl(src){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const c=document.createElement("canvas");
+      c.width=img.naturalWidth; c.height=img.naturalHeight;
+      c.getContext("2d").drawImage(img,0,0);
+      try{ resolve(c.toDataURL("image/jpeg",0.94)); }catch(e){ reject(e); }
+    };
+    img.onerror=reject;
+    img.src=src;
+  });
+}
+async function createPumpControlPdf(pumpId){
+  if(!window.jspdf) return alert("No se pudo cargar el generador de PDF.");
+  const p=db.pumps.find(x=>String(x.id)===String(pumpId));
+  if(!p) return;
+  try{
+    const bg=await imageToDataUrl("planilla-control.jpeg");
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF("p","mm","a4");
+    pdf.addImage(bg,"JPEG",0,0,210,297);
+    pdf.setTextColor(0,55,105);
+    pdf.setFont("helvetica","bold");
+    const ctx=latestPumpContext(p.id);
+    const client=clientName(p.clientId);
+    const loc=locationById(p.locationId);
+    const put=(txt,x,y,max=70,size=11,align='left')=>{
+      const v=String(txt||"").trim();
+      if(!v) return;
+      pdf.setFontSize(size);
+      const lines=pdf.splitTextToSize(v,max);
+      pdf.text(lines,x,y,{baseline:"top",align});
+    };
+    const putCenter=(txt,x,y,max=18,size=11)=>{
+      const v=String(txt||"").trim();
+      if(!v) return;
+      pdf.setFontSize(size);
+      const lines=pdf.splitTextToSize(v,max);
+      pdf.text(lines,x,y,{baseline:"middle",align:"center"});
+    };
+
+    put(client,34.5,42.4,151,12.5);
+    put(p.campaign||"",34,58.0,66,11.5);
+    put(p.est||loc?.name||"",132,56.4,50,11.5);
+
+    // Fecha en los tres cuadros superiores derechos: día / mes / año.
+    const rawDate=String(p.date||"").trim();
+    let dd="", mm="", yyyy="";
+    if(rawDate.includes("-")){
+      const parts=rawDate.split("-");
+      if(parts[0].length===4){ yyyy=parts[0]||""; mm=parts[1]||""; dd=parts[2]||""; }
+      else { dd=parts[0]||""; mm=parts[1]||""; yyyy=parts[2]||""; }
+    }else if(rawDate.includes("/")){
+      const parts=rawDate.split("/");
+      if(parts[2] && parts[2].length===4){ dd=parts[0]||""; mm=parts[1]||""; yyyy=parts[2]||""; }
+    }
+    pdf.setFont(undefined,'bold');
+    pdf.setFontSize(10.5);
+    if(dd) pdf.text(String(dd),157.4,22.6,{align:"center",baseline:"middle"});
+    if(mm) pdf.text(String(mm),173.8,22.6,{align:"center",baseline:"middle"});
+    if(yyyy) pdf.text(String(yyyy),190.2,22.6,{align:"center",baseline:"middle"});
+    pdf.setFont(undefined,'normal');
+
+    // Número de bomba en su renglón propio.
+    pdf.setFont(undefined,'bold');
+    pdf.setFontSize(12.5);
+    pdf.text(String(p.number||""),34.2,72.9,{baseline:"middle"});
+    pdf.setFont(undefined,'normal');
+
+    putCenter(p.chambers||"",25.5,98.5,18,11.5);
+    putCenter(p.pipes||"",53.5,98.5,18,11.5);
+    putCenter(p.support||"",79.5,98.5,18,11.5);
+    putCenter(p.head||"",106.5,98.5,18,11.5);
+    putCenter(p.topRod||"",132.8,98.5,18,11.5);
+    putCenter(p.sleeve||"",159.8,98.5,18,11.5);
+    putCenter(p.others||"",186.7,98.5,18,10.5);
+
+    const gps=p.gps||loc?.gps||"";
+    const obs=[p.obs||"",gps?`GPS: ${gps}`:""] .filter(Boolean).join("\n");
+    put(obs,13,124.5,168,11);
+
+    put(ctx.previousLocation,13,232,82,11);
+    put(ctx.previousRepair,108,232,82,11);
+    put(ctx.technician,13,266,170,11);
+    const safeClient=String(client||"Cliente").replace(/[\\/:*?"<>|]+/g," ").replace(/\s+/g," ").trim();
+    const safeNumber=String(p.number||"sin_numero").replace(/[\\/:*?"<>|]+/g," ").trim();
+    pdf.save(`Bomba ${safeNumber} ${safeClient}.pdf`);
+  }catch(err){
+    console.error(err);
+    alert("No se pudo crear la planilla PDF.");
+  }
+}
+// El PDF de ficha actual usa la planilla de control; historial mantiene el formato normal.
+const _preparePumpPdfBase=preparePumpPdf;
+preparePumpPdf=async function(pumpId,mode){
+  if(mode==="current") return createPumpControlPdf(pumpId);
+  return _preparePumpPdfBase(pumpId,mode);
+};
+
+function renderHome(){
+  $("latest").innerHTML=db.works.slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))).slice(0,5).map(workHtml).join("")||'<div class="small">Sin trabajos.</div>';
+  const tipos=TYPES.map(t=>`<div class="notice">${esc(t)}: <strong>${typeCount(t)}</strong></div>`).join("");
+  const ops=USERS.map(u=>{
+    const s=operatorStats(u.name);
+    return `<div class="notice"><div>${esc(u.name)}: <strong>${s.total}</strong> trabajos</div><button type="button" class="secondary" style="margin-top:10px;width:100%" onclick="renameOperator('${u.id}')">Editar nombre y apellido</button></div>`;
+  }).join("");
+  $("stats").innerHTML=`<div class="notice">Trabajos: <strong>${db.works.length}</strong></div><div class="notice">Bombas: <strong>${db.pumps.length}</strong></div><div class="notice">Clientes: <strong>${Math.max(0,db.clients.length-1)}</strong></div><div class="notice">Urgentes: <strong>${db.works.filter(w=>w.priority==="Urgente").length}</strong></div><h3 style="grid-column:1/-1">Cantidad por tipo</h3>${tipos}<h3 style="grid-column:1/-1">Cantidad por operario</h3>${ops}`;
+}
+function renderAll(){ensureLocations();refreshSelects();renderClients();renderPumps();renderWorks();renderHome();renderOperators();refreshLocationOptions();refreshPumpOptionsForWork();toggleInstallPumpMode()}function exportExcel(){if(role!=='admin')return alert('Solo administración puede descargar Excel.');let rows=db.works.map(w=>{const loc=locationById(w.locationId);return ({"Código trabajo":w.code,Fecha:w.date,Técnico:w.tech,Cliente:w.client,"Código lugar":w.locationCode,Establecimiento:w.est,'Tipo de trabajo':w.type,'Número de bomba':w.pumpNumber,'Fecha instalación/desmontaje':w.eventDate,Prioridad:w.priority,Observaciones:w.obs,Fotos:w.photos,Profundidad:w.extra?.fDepth||'',Diámetro:w.extra?.fDiameter||'',Caudal:w.extra?.fFlow||'','Nivel dinámico':w.extra?.fDynamic||'','Caño de camisa':w.extra?.fCasing||'','Medidas base':w.extra?.fBaseSize||'','Ubicación base':w.extra?.fBaseLocation||'','Localidad':loc?.locality||'','Dirección':loc?.address||'','GPS':loc?.gps||'','Google Maps':googleMapsUrl(loc?.gps)});});let wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),'Trabajos');
 let rt=TYPES.map(t=>({'Tipo de trabajo':t,Cantidad:typeCount(t)}));
 let ro=USERS.map(u=>{let s=operatorStats(u.name);return {Operario:u.name,Total:s.total,Instalaciones:s.inst,Desmontajes:s.des,Perforaciones:s.perf,Reparaciones:s.rep,Ensayos:s.ens,'Bases de hormigón':s.base,'Caños de camisa':s.cam}});
 XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rt),'Resumen por tipo');
 XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(ro),'Resumen operarios');
-XLSX.writeFile(wb,'Perforaciones_Ortiz_Trabajos.xlsx')}init();
+XLSX.writeFile(wb,'Perforaciones_Ortiz_Trabajos.xlsx')}
+
+function dataHasRecords(value){return !!(value&&(value.works?.length||value.pumps?.length||(value.clients?.length||0)>1));}
+function setSyncState(text){if($('syncState')) $('syncState').textContent=text;}
+function scheduleCloudSave(){
+  if(!cloudReady||!currentUser) return;
+  clearTimeout(cloudSaveTimer);setSyncState('Guardando cambios…');
+  cloudSaveTimer=setTimeout(saveCloudState,550);
+}
+async function saveCloudState(){
+  if(!cloudReady||!currentUser) return;
+  const {error}=await poCloud.from('app_state').update({data:db,updated_by:currentUser.id,updated_at:new Date().toISOString()}).eq('id',1);
+  setSyncState(error?'Error de sincronización':'Datos sincronizados');
+  if(error) console.error('Supabase save:',error);
+}
+async function cloudLogin(event){
+  event.preventDefault();$('loginError').textContent='';$('loginButton').disabled=true;$('loginButton').textContent='Ingresando…';
+  const {error}=await poCloud.auth.signInWithPassword({email:$('loginEmail').value.trim(),password:$('loginPassword').value});
+  if(error){$('loginError').textContent='No se pudo ingresar. Revisá el correo y la contraseña.';$('loginButton').disabled=false;$('loginButton').textContent='Ingresar';return;}
+  $('loginPassword').value='';await cloudBoot();
+}
+async function cloudLogout(){
+  if(!confirm('¿Cerrar la sesión de este equipo?')) return;
+  cloudReady=false;if(cloudSubscription) await poCloud.removeChannel(cloudSubscription);await poCloud.auth.signOut();
+  currentUser=null;currentProfile=null;document.body.classList.add('cloud-locked');$('loginButton').disabled=false;$('loginButton').textContent='Ingresar';
+}
+async function loadCloudUsers(){
+  const {data}=await poCloud.from('profiles').select('id,nombre,role,activo').eq('activo',true).order('nombre');
+  USERS=(data||[]).map(p=>({id:p.id,name:p.nombre||'Usuario',role:p.role}));TECHS=USERS.map(u=>u.name);
+}
+async function cloudBoot(){
+  setSyncState('Conectando…');const {data:{session}}=await poCloud.auth.getSession();
+  if(!session){document.body.classList.add('cloud-locked');return;}
+  currentUser=session.user;
+  const {data:profile,error:profileError}=await poCloud.from('profiles').select('id,nombre,role,activo').eq('id',currentUser.id).single();
+  if(profileError||!profile||!profile.activo){await poCloud.auth.signOut();$('loginError').textContent='Este usuario no tiene acceso activo.';document.body.classList.add('cloud-locked');return;}
+  currentProfile=profile;role=profile.role==='admin'?'admin':'tech';await loadCloudUsers();
+  const localDb=JSON.parse(localStorage.po_db||'null');
+  const {data:state,error:stateError}=await poCloud.from('app_state').select('data,updated_by,updated_at').eq('id',1).single();
+  if(stateError){$('loginError').textContent='Falta activar la sincronización de la base de datos.';document.body.classList.add('cloud-locked');return;}
+  const cloudDb=state?.data||{clients:[{id:1,name:'Cliente Ocasional',obs:''}],pumps:[],works:[]};
+  if(dataHasRecords(localDb)&&!dataHasRecords(cloudDb)){
+    db=localDb;const {error}=await poCloud.from('app_state').update({data:db,updated_by:currentUser.id,updated_at:new Date().toISOString()}).eq('id',1);
+    if(error){console.error(error);db=cloudDb;}
+  }else db=cloudDb;
+  localStorage.po_db=JSON.stringify(db);cloudReady=true;document.body.classList.remove('cloud-locked');applyRole();
+  if(!appStarted){appStarted=true;init();}else renderAll();
+  setSyncState('Datos sincronizados · '+(profile.nombre||currentUser.email));
+  if(cloudSubscription) await poCloud.removeChannel(cloudSubscription);
+  cloudSubscription=poCloud.channel('po-app-state').on('postgres_changes',{event:'UPDATE',schema:'public',table:'app_state',filter:'id=eq.1'},payload=>{
+    if(payload.new.updated_by===currentUser?.id) return;
+    db=payload.new.data;localStorage.po_db=JSON.stringify(db);renderAll();setSyncState('Datos actualizados');
+  }).subscribe();
+}
+poCloud.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT') document.body.classList.add('cloud-locked');});
+cloudBoot();
 </script>
 <script>
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));
+  window.addEventListener("load", async () => {
+    try {
+      const registration=await navigator.serviceWorker.register("./service-worker.js?v=61",{updateViaCache:"none"});
+      await registration.update();
+    } catch(e) {}
+  });
+}
+if ("caches" in window) {
+  caches.keys().then(keys=>Promise.all(keys.map(key=>caches.delete(key)))).catch(()=>{});
 }
 </script>
 </body></html>
