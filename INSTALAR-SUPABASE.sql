@@ -1,4 +1,4 @@
--- Perforaciones Ortiz · V27 Prueba 61
+-- Perforaciones Ortiz · V27 Prueba 62
 -- Estructura inicial para usuarios, roles y datos compartidos.
 
 create extension if not exists pgcrypto;

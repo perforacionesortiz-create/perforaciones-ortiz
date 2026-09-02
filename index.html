@@ -306,7 +306,7 @@ nav button{display:flex;flex-direction:column;align-items:center;justify-content
 .bottom-nav-icon{display:block;width:46px;height:42px;object-fit:contain;border-radius:7px;background:#fff}
 .bottom-nav-home{display:block;width:54px;height:42px;border-radius:7px;background:#073d62 url("icono-inicio-invertido.png") center/contain no-repeat}
 @media(max-width:500px){nav{min-height:72px}.bottom-nav-icon{width:42px;height:38px}.bottom-nav-home{width:48px;height:38px;background-size:contain}}
-.auth-screen{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#0f4c5c,#173b53);display:flex;align-items:center;justify-content:center;padding:22px}.auth-card{width:min(430px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 20px 60px #00182055}.auth-brand{display:flex;align-items:center;gap:14px;margin-bottom:20px}.auth-brand img{width:74px;height:74px;object-fit:contain;border-radius:16px}.auth-brand h1{font-size:22px;margin:0}.auth-card .primary{width:100%;margin-top:16px}.auth-error{color:#a62d2d;font-size:13px;margin-top:10px}.sync-state{font-size:11px;opacity:.82;margin-top:3px}body:not(.cloud-locked) .auth-screen{display:none}body.cloud-locked>header,body.cloud-locked>main,body.cloud-locked>nav{display:none}
+.auth-screen{position:fixed;inset:0;z-index:100;background:linear-gradient(160deg,#0f4c5c,#173b53);display:flex;align-items:center;justify-content:center;padding:22px}.auth-card{width:min(430px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 20px 60px #00182055}.auth-brand{display:flex;align-items:center;gap:14px;margin-bottom:20px}.auth-brand img{width:74px;height:74px;object-fit:contain;border-radius:16px}.auth-brand h1{font-size:22px;margin:0}.auth-card .primary{width:100%;margin-top:16px}.auth-error{color:#a62d2d;font-size:13px;margin-top:10px}.auth-success{color:#16784b;font-size:13px;margin-top:10px}.sync-state{font-size:11px;opacity:.82;margin-top:3px}body:not(.cloud-locked):not(.password-recovery) .auth-screen{display:none}body.cloud-locked>header,body.cloud-locked>main,body.cloud-locked>nav,body.password-recovery>header,body.password-recovery>main,body.password-recovery>nav{display:none}
 
 </style>
   <link rel="manifest" href="manifest.webmanifest">
@@ -316,8 +316,8 @@ nav button{display:flex;flex-direction:column;align-items:center;justify-content
   <meta name="apple-mobile-web-app-title" content="Perforaciones Ortiz">
 </head>
 <body class="cloud-locked">
-<section id="authScreen" class="auth-screen"><form class="auth-card" onsubmit="cloudLogin(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Perforaciones Ortiz</h1><div class="small">Sistema conectado</div></div></div><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="username" required><label>Contraseña</label><input id="loginPassword" type="password" autocomplete="current-password" required><button id="loginButton" class="primary" type="submit">Ingresar</button><div id="loginError" class="auth-error"></div></form></section>
-<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 61</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
+<section id="authScreen" class="auth-screen"><form id="loginForm" class="auth-card" onsubmit="cloudLogin(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Perforaciones Ortiz</h1><div class="small">Sistema conectado</div></div></div><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="username" required><label>Contraseña</label><input id="loginPassword" type="password" autocomplete="current-password" required><button id="loginButton" class="primary" type="submit">Ingresar</button><div id="loginError" class="auth-error"></div><div id="loginSuccess" class="auth-success"></div></form><form id="recoveryForm" class="auth-card hidden" onsubmit="saveRecoveredPassword(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Nueva contraseña</h1><div class="small">Elegí una contraseña nueva para tu cuenta</div></div></div><label>Nueva contraseña</label><input id="recoveryPassword" type="password" autocomplete="new-password" minlength="8" required><label>Repetir contraseña</label><input id="recoveryPasswordRepeat" type="password" autocomplete="new-password" minlength="8" required><button id="recoveryButton" class="primary" type="submit">Guardar nueva contraseña</button><div id="recoveryError" class="auth-error"></div></form></section>
+<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 62</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
 <main>
 <section id="inicio" class="screen"><div class="card home-hero"><div class="home-hero-inner"><div class="home-logo"><img src="hoja-membretada.jpeg" alt="Perforaciones Ortiz"></div><div class="home-welcome"><span class="home-kicker">Panel de gestión</span><h2>Bienvenido</h2><p>Trabajos, clientes y bombas organizados en un solo lugar.</p></div></div><div class="home-actions"><button class="home-action primary-action" onclick="go('nuevo')"><span class="home-action-symbol">＋</span><span class="home-action-title">Nuevo trabajo</span><span class="home-action-desc">Registrar una nueva tarea</span></button><button class="home-action" onclick="go('bombas')"><img class="home-action-logo" src="icono-bombas.png" alt="Bombas"><span class="home-action-title">Bombas</span><span class="home-action-desc">Consultar historial y ubicación</span></button><button class="home-action admin" onclick="go('clientes')"><span class="home-action-symbol">👥</span><span class="home-action-title">Clientes</span><span class="home-action-desc">Ver y administrar clientes</span></button><button class="home-action" onclick="go('trabajos')"><img class="home-action-logo" src="icono-trabajos.png" alt="Trabajos"><span class="home-action-title">Trabajos</span><span class="home-action-desc">Filtrar, imprimir y exportar</span></button></div></div><div class="card admin dashboard-card"><h2>Resumen de administración</h2><div id="stats" class="grid grid2"></div><div class="actions"><button class="primary" onclick="exportExcel()">Descargar Excel</button><button class="secondary" onclick="window.print()">Generar PDF</button></div><div class="notice" style="margin-top:16px"><strong>Copia de seguridad y traslado</strong><div class="small" style="margin-top:6px">Guardá todos los datos para usarlos en otra computadora o restaurarlos después de instalar una versión nueva.</div><div class="actions"><button class="primary" onclick="downloadBackup()">Guardar copia de seguridad</button><button class="secondary" onclick="$('backupFileInput').click()">Restaurar copia de seguridad</button></div><input id="backupFileInput" class="hidden" type="file" accept=".json,application/json" onchange="restoreBackup(event)"><div id="backupStatus" class="small"></div></div></div><div class="card"><h2>Últimos trabajos</h2><div id="latest"></div></div></section>
 <section id="nuevo" class="screen hidden"><div class="card"><h2>Nuevo trabajo</h2><label>Tipo de trabajo</label><div class="worktype" id="types"></div><div class="grid grid2"><div><label>Fecha</label><input id="wDate" type="date" onchange="if($('wEventDate')) $('wEventDate').value=this.value"></div><div><label>Técnico</label><select id="wTech"></select></div></div><label>Cliente</label><select id="wClient" onchange="clientChanged()"></select>
@@ -726,7 +726,7 @@ function downloadBackup(){
   if(role!=="admin") return;
   try{
     save();
-    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 61",exportedAt:new Date().toISOString(),data:db};
+    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 62",exportedAt:new Date().toISOString(),data:db};
     const blob=new Blob([JSON.stringify(packageData,null,2)],{type:"application/json"});
     const url=URL.createObjectURL(blob),link=document.createElement("a");
     link.href=url;link.download=backupFileName();document.body.appendChild(link);link.click();link.remove();
@@ -2895,10 +2895,35 @@ async function saveCloudState(){
   if(error) console.error('Supabase save:',error);
 }
 async function cloudLogin(event){
-  event.preventDefault();$('loginError').textContent='';$('loginButton').disabled=true;$('loginButton').textContent='Ingresando…';
+  event.preventDefault();$('loginError').textContent='';$('loginSuccess').textContent='';$('loginButton').disabled=true;$('loginButton').textContent='Ingresando…';
   const {error}=await poCloud.auth.signInWithPassword({email:$('loginEmail').value.trim(),password:$('loginPassword').value});
   if(error){$('loginError').textContent='No se pudo ingresar. Revisá el correo y la contraseña.';$('loginButton').disabled=false;$('loginButton').textContent='Ingresar';return;}
   $('loginPassword').value='';await cloudBoot();
+}
+function showPasswordRecovery(){
+  document.body.classList.add('password-recovery','cloud-locked');
+  $('loginForm').classList.add('hidden');$('recoveryForm').classList.remove('hidden');
+  $('recoveryPassword').value='';$('recoveryPasswordRepeat').value='';$('recoveryError').textContent='';
+}
+async function saveRecoveredPassword(event){
+  event.preventDefault();
+  const password=$('recoveryPassword').value;
+  const repeat=$('recoveryPasswordRepeat').value;
+  $('recoveryError').textContent='';
+  if(password.length<8){$('recoveryError').textContent='La contraseña debe tener al menos 8 caracteres.';return;}
+  if(password!==repeat){$('recoveryError').textContent='Las dos contraseñas no coinciden.';return;}
+  $('recoveryButton').disabled=true;$('recoveryButton').textContent='Guardando…';
+  const {error}=await poCloud.auth.updateUser({password});
+  if(error){
+    $('recoveryError').textContent='No se pudo cambiar la contraseña. Solicitá un enlace nuevo e intentá nuevamente.';
+    $('recoveryButton').disabled=false;$('recoveryButton').textContent='Guardar nueva contraseña';return;
+  }
+  await poCloud.auth.signOut();
+  history.replaceState({},document.title,location.pathname+location.search);
+  document.body.classList.remove('password-recovery');document.body.classList.add('cloud-locked');
+  $('recoveryForm').classList.add('hidden');$('loginForm').classList.remove('hidden');
+  $('loginSuccess').textContent='Contraseña actualizada. Ya podés ingresar con la nueva contraseña.';
+  $('recoveryButton').disabled=false;$('recoveryButton').textContent='Guardar nueva contraseña';
 }
 async function cloudLogout(){
   if(!confirm('¿Cerrar la sesión de este equipo?')) return;
@@ -2933,14 +2958,18 @@ async function cloudBoot(){
     db=payload.new.data;localStorage.po_db=JSON.stringify(db);renderAll();setSyncState('Datos actualizados');
   }).subscribe();
 }
-poCloud.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT') document.body.classList.add('cloud-locked');});
+poCloud.auth.onAuthStateChange(event=>{
+  if(event==='PASSWORD_RECOVERY') showPasswordRecovery();
+  if(event==='SIGNED_OUT'&&!document.body.classList.contains('password-recovery')) document.body.classList.add('cloud-locked');
+});
+if(location.hash.includes('type=recovery')||new URLSearchParams(location.search).get('type')==='recovery') showPasswordRecovery();
 cloudBoot();
 </script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
-      const registration=await navigator.serviceWorker.register("./service-worker.js?v=61",{updateViaCache:"none"});
+      const registration=await navigator.serviceWorker.register("./service-worker.js?v=62",{updateViaCache:"none"});
       await registration.update();
     } catch(e) {}
   });
