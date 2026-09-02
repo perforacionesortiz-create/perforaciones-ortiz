@@ -216,6 +216,14 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
 .vertical-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
 .vertical-actions button{width:100%!important;min-width:0!important}
+.quantity-stepper{display:grid;grid-template-columns:64px 1fr 64px;gap:8px;align-items:stretch}
+.quantity-stepper button{min-height:58px;font-size:32px;line-height:1;padding:6px}
+.quantity-stepper input{text-align:center;font-size:22px;font-weight:800;margin:0}
+.maintenance-panel{margin-top:14px;padding:14px;border:2px solid #c9dfe5;border-radius:16px;background:#f5fafb}
+.maintenance-check{display:flex;align-items:flex-start;gap:12px;padding:12px;margin:8px 0;border:1px solid #d8e5e8;border-radius:12px;background:#fff;font-weight:700}
+.maintenance-check input{width:24px;height:24px;min-width:24px;margin:0}
+.maintenance-evidence{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:620px){.maintenance-evidence{grid-template-columns:1fr}.quantity-stepper{grid-template-columns:60px 1fr 60px}}
 .work-filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
 .work-compact{padding:12px 14px;border:1px solid #e1e9eb;border-radius:12px;margin:8px 0;background:#fff;cursor:pointer}
 .work-compact strong{font-size:15px}
@@ -317,7 +325,7 @@ nav button{display:flex;flex-direction:column;align-items:center;justify-content
 </head>
 <body class="cloud-locked">
 <section id="authScreen" class="auth-screen"><form id="loginForm" class="auth-card" onsubmit="cloudLogin(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Perforaciones Ortiz</h1><div class="small">Sistema conectado</div></div></div><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="username" required><label>Contraseña</label><input id="loginPassword" type="password" autocomplete="current-password" required><button id="loginButton" class="primary" type="submit">Ingresar</button><div id="loginError" class="auth-error"></div><div id="loginSuccess" class="auth-success"></div></form><form id="recoveryForm" class="auth-card hidden" onsubmit="saveRecoveredPassword(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Nueva contraseña</h1><div class="small">Elegí una contraseña nueva para tu cuenta</div></div></div><label>Nueva contraseña</label><input id="recoveryPassword" type="password" autocomplete="new-password" minlength="8" required><label>Repetir contraseña</label><input id="recoveryPasswordRepeat" type="password" autocomplete="new-password" minlength="8" required><button id="recoveryButton" class="primary" type="submit">Guardar nueva contraseña</button><div id="recoveryError" class="auth-error"></div></form></section>
-<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 63</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
+<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 64</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
 <main>
 <section id="inicio" class="screen"><div class="card home-hero"><div class="home-hero-inner"><div class="home-logo"><img src="hoja-membretada.jpeg" alt="Perforaciones Ortiz"></div><div class="home-welcome"><span class="home-kicker">Panel de gestión</span><h2>Bienvenido</h2><p>Trabajos, clientes y bombas organizados en un solo lugar.</p></div></div><div class="home-actions"><button class="home-action primary-action" onclick="go('nuevo')"><span class="home-action-symbol">＋</span><span class="home-action-title">Nuevo trabajo</span><span class="home-action-desc">Registrar una nueva tarea</span></button><button class="home-action" onclick="go('bombas')"><img class="home-action-logo" src="icono-bombas.png" alt="Bombas"><span class="home-action-title">Bombas</span><span class="home-action-desc">Consultar historial y ubicación</span></button><button class="home-action admin" onclick="go('clientes')"><span class="home-action-symbol">👥</span><span class="home-action-title">Clientes</span><span class="home-action-desc">Ver y administrar clientes</span></button><button class="home-action" onclick="go('trabajos')"><img class="home-action-logo" src="icono-trabajos.png" alt="Trabajos"><span class="home-action-title">Trabajos</span><span class="home-action-desc">Filtrar, imprimir y exportar</span></button></div></div><div class="card admin dashboard-card"><h2>Resumen de administración</h2><div id="stats" class="grid grid2"></div><div class="actions"><button class="primary" onclick="exportExcel()">Descargar Excel</button><button class="secondary" onclick="window.print()">Generar PDF</button></div><div class="notice" style="margin-top:16px"><strong>Copia de seguridad y traslado</strong><div class="small" style="margin-top:6px">Guardá todos los datos para usarlos en otra computadora o restaurarlos después de instalar una versión nueva.</div><div class="actions"><button class="primary" onclick="downloadBackup()">Guardar copia de seguridad</button><button class="secondary" onclick="$('backupFileInput').click()">Restaurar copia de seguridad</button></div><input id="backupFileInput" class="hidden" type="file" accept=".json,application/json" onchange="restoreBackup(event)"><div id="backupStatus" class="small"></div></div></div><div class="card"><h2>Últimos trabajos</h2><div id="latest"></div></div></section>
 <section id="nuevo" class="screen hidden"><div class="card"><h2>Nuevo trabajo</h2><label>Tipo de trabajo</label><div class="worktype" id="types"></div><div class="grid grid2"><div><label>Fecha</label><input id="wDate" type="date" onchange="if($('wEventDate')) $('wEventDate').value=this.value"></div><div><label>Técnico</label><select id="wTech"></select></div></div><label>Cliente</label><select id="wClient" onchange="clientChanged()"></select>
@@ -368,10 +376,14 @@ nav button{display:flex;flex-direction:column;align-items:center;justify-content
     <div class="small">Indicá cuántas bombas intervienen. Cada una puede ser existente o nueva.</div>
   </div>
   <label>Cantidad de bombas</label>
-  <input id="wPumpQty" type="number" min="1" max="12" value="1" oninput="renderMultiPumpBlocks()">
+  <div class="quantity-stepper">
+    <button type="button" class="secondary" aria-label="Quitar una bomba" onclick="changePumpQuantity(-1)">−</button>
+    <input id="wPumpQty" type="number" min="1" max="12" value="1" inputmode="numeric" oninput="renderMultiPumpBlocks()">
+    <button type="button" class="secondary" aria-label="Agregar una bomba" onclick="changePumpQuantity(1)">＋</button>
+  </div>
   <div id="multiPumpBlocks"></div>
 </div>
-<input id="wEventDate" type="hidden"><div id="technicalFields"></div><div id="workSuppliesBox"><label>Insumos utilizados</label><div class="mapbox"><select id="wSupplySelect" onchange="addSelectedSupply()"><option value="">Seleccionar insumo</option></select><div id="supplyCatalogStatus" class="small" style="margin-top:6px"></div><div class="actions"><button type="button" class="secondary" onclick="createSupply()">＋ Crear insumo</button><button type="button" class="secondary admin" onclick="deleteSupplyFromCatalog()" style="color:#a62d2d">Eliminar insumo</button><button type="button" class="secondary admin" onclick="$('supplyExcelInput').click()">Importar Excel</button></div><input id="supplyExcelInput" class="hidden" type="file" accept=".xlsx,.xls,.csv" onchange="importSuppliesFromExcel(event)"><div id="selectedSupplies" class="listrows" style="margin-top:10px"></div></div></div><label>Observaciones del trabajo</label><textarea id="wObs"></textarea><label>Prioridad</label><select id="wPriority"><option value="">Seleccionar prioridad</option><option>Informativa</option><option>Revisar</option><option>Urgente</option></select><label>Fotos</label>
+<input id="wEventDate" type="hidden"><div id="technicalFields"></div><div id="maintenancePanel" class="maintenance-panel hidden"></div><div id="workSuppliesBox"><label>Insumos utilizados</label><div class="mapbox"><select id="wSupplySelect" onchange="addSelectedSupply()"><option value="">Seleccionar insumo</option></select><div id="supplyCatalogStatus" class="small" style="margin-top:6px"></div><div class="actions"><button type="button" class="secondary" onclick="createSupply()">＋ Crear insumo</button><button type="button" class="secondary admin" onclick="deleteSupplyFromCatalog()" style="color:#a62d2d">Eliminar insumo</button><button type="button" class="secondary admin" onclick="$('supplyExcelInput').click()">Importar Excel</button></div><input id="supplyExcelInput" class="hidden" type="file" accept=".xlsx,.xls,.csv" onchange="importSuppliesFromExcel(event)"><div id="selectedSupplies" class="listrows" style="margin-top:10px"></div></div></div><label>Observaciones del trabajo</label><textarea id="wObs"></textarea><label>Prioridad</label><select id="wPriority"><option value="">Seleccionar prioridad</option><option>Informativa</option><option>Revisar</option><option>Urgente</option></select><label>Fotos</label>
     <input id="wPhotos" type="file" accept="image/*" multiple onchange="preparePhotos(event)">
     <div class="small" style="margin-top:6px">Podés elegir imágenes de la fototeca o sacar una foto.</div>
     <div id="photoSelection"></div><div class="actions"><button class="primary" onclick="saveWork()">Guardar trabajo</button><button class="secondary" onclick="go('inicio')">Cancelar</button></div></div></section>
@@ -431,7 +443,17 @@ const SUPABASE_URL="https://feegfzldvepfgpybvdxu.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_GaDc2rtzpOMp6f_xpVa_yQ_YsXElZ58";
 const poCloud=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
 let currentUser=null,currentProfile=null,cloudReady=false,cloudSaveTimer=null,cloudSubscription=null,appStarted=false;
-const TYPES=["Instalación de bomba","Desmontaje de bomba","Reparación de bomba","Ensayo de bombeo","Perforación de riego","Perforación de riego con aforo","Perforación encamisada"];let USERS=[];let TECHS=[];let role="tech",selectedType="";let db=JSON.parse(localStorage.po_db||"null")||{clients:[{id:1,name:"Cliente Ocasional",obs:""}],pumps:[],works:[]};const $=id=>document.getElementById(id);function save(){localStorage.po_db=JSON.stringify(db);scheduleCloudSave()}function esc(s){return String(s??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]))}function go(id){
+const TYPES=["Instalación de bomba","Desmontaje de bomba","Reparación de bomba","Ensayo de bombeo","Perforación de riego","Perforación de riego con aforo","Perforación encamisada"];
+const DRILLING_TYPES=["Perforación de riego","Perforación de riego con aforo","Perforación encamisada"];
+const MAINTENANCE_ITEMS=[
+  "Engrase de la bomba de lodo",
+  "Engrase de mesa rotary",
+  "Engrase de cabeza de inyección",
+  "Control de aceite del motor de la máquina de perforar",
+  "Control de aceite del camión de perforadora",
+  "Control de aceite del motor del camión de agua"
+];
+let USERS=[];let TECHS=[];let role="tech",selectedType="";let db=JSON.parse(localStorage.po_db||"null")||{clients:[{id:1,name:"Cliente Ocasional",obs:""}],pumps:[],works:[]};const $=id=>document.getElementById(id);function save(){localStorage.po_db=JSON.stringify(db);scheduleCloudSave()}function esc(s){return String(s??"").replace(/[&<>\"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[m]))}function go(id){
   document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));
   $(id).classList.remove('hidden');
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.go===id));
@@ -497,7 +519,47 @@ function chooseType(t){
   if(t==='Perforación encamisada'||t==='Caño de camisa') h+='<label>Tipo y cantidad de caño de camisa</label><input id="fCasing">';
   if(t==='Base de hormigón') h+='<div class="grid grid2"><div><label>Medidas de la base</label><input id="fBaseSize"></div><div><label>Ubicación</label><input id="fBaseLocation"></div></div>';
   $('technicalFields').innerHTML=h;
+  renderMaintenancePanel();
   positionSupplyBox(pump);
+}
+function changePumpQuantity(delta){
+  const input=$("wPumpQty");
+  if(!input) return;
+  const current=Number(input.value)||1;
+  input.value=Math.max(1,Math.min(12,current+Number(delta||0)));
+  renderMultiPumpBlocks();
+}
+function renderMaintenancePanel(){
+  const panel=$("maintenancePanel");
+  if(!panel) return;
+  const required=DRILLING_TYPES.includes(selectedType);
+  panel.classList.toggle("hidden",!required);
+  if(!required){panel.innerHTML="";return;}
+  panel.innerHTML=`
+    <div class="notice"><strong>Controles de mantenimiento obligatorios</strong><div class="small">Marcá los seis controles y adjuntá una foto y un video para poder guardar el trabajo.</div></div>
+    ${MAINTENANCE_ITEMS.map((name,index)=>`<label class="maintenance-check"><input id="maintenanceCheck${index}" type="checkbox"><span>${esc(name)}</span></label>`).join("")}
+    <div class="maintenance-evidence">
+      <div><label>Foto obligatoria</label><input id="maintenancePhoto" type="file" accept="image/*" capture="environment"><div class="small">Sacá una foto o elegí una existente.</div></div>
+      <div><label>Video obligatorio</label><input id="maintenanceVideo" type="file" accept="video/*" capture="environment"><div class="small">Grabá un video o elegí uno existente.</div></div>
+    </div>`;
+}
+function maintenanceDataIsComplete(){
+  if(!DRILLING_TYPES.includes(selectedType)) return true;
+  return MAINTENANCE_ITEMS.every((_,index)=>$("maintenanceCheck"+index)?.checked) &&
+    Boolean($("maintenancePhoto")?.files?.[0]) && Boolean($("maintenanceVideo")?.files?.[0]);
+}
+function safeStorageName(name){return String(name||"archivo").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-zA-Z0-9._-]+/g,"-");}
+async function uploadMaintenanceEvidence(workId){
+  if(!DRILLING_TYPES.includes(selectedType)) return null;
+  const photo=$("maintenancePhoto")?.files?.[0],video=$("maintenanceVideo")?.files?.[0];
+  const prefix=`${currentUser.id}/${workId}`;
+  const photoPath=`${prefix}/mantenimiento-foto-${safeStorageName(photo.name)}`;
+  const videoPath=`${prefix}/mantenimiento-video-${safeStorageName(video.name)}`;
+  const photoResult=await poCloud.storage.from("trabajos-fotos").upload(photoPath,photo,{upsert:true,contentType:photo.type||"image/jpeg"});
+  if(photoResult.error) throw new Error("No se pudo guardar la foto de mantenimiento.");
+  const videoResult=await poCloud.storage.from("trabajos-fotos").upload(videoPath,video,{upsert:true,contentType:video.type||"video/mp4"});
+  if(videoResult.error){await poCloud.storage.from("trabajos-fotos").remove([photoPath]);throw new Error("No se pudo guardar el video de mantenimiento.");}
+  return {checks:MAINTENANCE_ITEMS.map(name=>({name,completed:true})),photoPath,photoName:photo.name,videoPath,videoName:video.name};
 }
 function positionSupplyBox(isPump){
   const box=$("workSuppliesBox");
@@ -728,7 +790,7 @@ function downloadBackup(){
   if(role!=="admin") return;
   try{
     save();
-    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 63",exportedAt:new Date().toISOString(),data:db};
+    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 64",exportedAt:new Date().toISOString(),data:db};
     const blob=new Blob([JSON.stringify(packageData,null,2)],{type:"application/json"});
     const url=URL.createObjectURL(blob),link=document.createElement("a");
     link.href=url;link.download=backupFileName();document.body.appendChild(link);link.click();link.remove();
@@ -1087,6 +1149,7 @@ function resetNewWorkForm(){
   if($("wPumpQty")) $("wPumpQty").value=1;
   if($("multiPumpBlocks")) $("multiPumpBlocks").innerHTML="";
   if($("technicalFields")) $("technicalFields").innerHTML="";
+  if($("maintenancePanel")){ $("maintenancePanel").innerHTML=""; $("maintenancePanel").classList.add("hidden"); }
   if($("pumpArea")) $("pumpArea").classList.add("hidden");
   if($("occasional")) $("occasional").classList.add("hidden");
   if($("newLocationBox")) $("newLocationBox").classList.add("hidden");
@@ -1122,6 +1185,14 @@ function technicalDetailsHtml(w){
     });
   }
   return rows.map(([k,v])=>`<div class="listrow"><div class="listlabel">${esc(k)}</div><div class="listvalue">${esc(v)}</div></div>`).join("");
+}
+function maintenanceDetailsHtml(w){
+  if(!w?.maintenance) return "";
+  return `<div class="mapbox"><strong>Controles de mantenimiento</strong><div class="listrows" style="margin-top:8px">
+    ${(w.maintenance.checks||[]).map(item=>`<div class="listrow"><div class="listlabel">✓</div><div class="listvalue">${esc(item.name)}</div></div>`).join("")}
+    <div class="listrow"><div class="listlabel">Foto</div><div class="listvalue">${esc(w.maintenance.photoName||"Adjuntada")}</div></div>
+    <div class="listrow"><div class="listlabel">Video</div><div class="listvalue">${esc(w.maintenance.videoName||"Adjuntado")}</div></div>
+  </div></div>`;
 }
 async function createPdfFromElement(element,filename="Perforaciones_Ortiz.pdf"){
   if(!window.html2canvas || !window.jspdf) return alert("No se pudo cargar el generador de PDF.");
@@ -1680,7 +1751,7 @@ function pumpsInWorkHtml(w){
   </div>`).join("");
 }
 
-function saveWork(){
+async function saveWork(){
   try{
     const assignedTechnician=role==="admin"?String($("wTech")?.value||"").trim():String(currentProfile?.nombre||"").trim();
     if(!selectedType) return alert("Elegí el tipo de trabajo.");
@@ -1688,6 +1759,7 @@ function saveWork(){
     if(!assignedTechnician) return alert("El usuario conectado no tiene nombre asignado.");
     if(!$("wClient").value) return alert("Seleccioná el cliente.");
     if(!$("wPriority").value) return alert("Seleccioná la prioridad.");
+    if(!maintenanceDataIsComplete()) return alert("Para guardar este trabajo debés completar los seis controles de mantenimiento y adjuntar una foto y un video.");
 
     const clientId=Number($("wClient").value);
     const c=db.clients.find(x=>x.id===clientId);
@@ -1718,8 +1790,10 @@ function saveWork(){
       return {id:item.id,code:item.code||"",name:item.name||"",unit:item.unit||"",quantity:String(entry.quantity||"1").trim()||"1"};
     }).filter(Boolean));
 
+    const workId=Date.now()+Math.floor(Math.random()*10000);
+    const maintenance=await uploadMaintenanceEvidence(workId);
     const w={
-      id:Date.now()+Math.floor(Math.random()*10000),
+      id:workId,
       code:nextWorkCode(),
       date:$("wDate").value,
       tech:assignedTechnician,
@@ -1743,6 +1817,7 @@ function saveWork(){
       priority:$("wPriority").value,
       photos:pendingPhotos.length,
       photoFiles:pendingPhotos.map(ph=>({...ph})),
+      maintenance,
       extra:extra(),
       pumpStatusAtWork:first?.status||"",
       pumpSnapshot:first?.snapshot||null
@@ -2416,6 +2491,7 @@ function showWorkDetail(id){
  ${technicalDetailsHtml(w)}
  ${pumpsInWorkHtml(w)}
  ${w.supplies?`<div class="mapbox"><strong>Insumos utilizados</strong><div style="margin-top:8px;white-space:pre-wrap">${esc(w.supplies)}</div></div>`:""}
+ ${maintenanceDetailsHtml(w)}
  <p><strong>Observaciones:</strong> ${esc(w.obs||"-")}</p>
  <p><strong>Prioridad:</strong> ${esc(w.priority)}</p>
  ${workPhotosHtml(w)}
@@ -2971,7 +3047,7 @@ cloudBoot();
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
-      const registration=await navigator.serviceWorker.register("./service-worker.js?v=63",{updateViaCache:"none"});
+      const registration=await navigator.serviceWorker.register("./service-worker.js?v=64",{updateViaCache:"none"});
       await registration.update();
     } catch(e) {}
   });

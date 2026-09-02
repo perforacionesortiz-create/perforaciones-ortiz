@@ -1,4 +1,10 @@
-# Perforaciones Ortiz — V27 Prueba 63 conectada
+# Perforaciones Ortiz — V27 Prueba 64 conectada
+
+## Cambios de la Prueba 64
+
+- Cantidad de bombas con botones grandes para usar desde el celular.
+- En los tres trabajos de perforación se muestran seis controles de mantenimiento obligatorios.
+- Es obligatorio completar los seis controles y adjuntar una foto y un video antes de guardar.
 
 ## Versión móvil instalable
 
