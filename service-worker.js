@@ -1,4 +1,4 @@
-const CACHE_VERSION="perforaciones-ortiz-v27-prueba64";
+const CACHE_VERSION="perforaciones-ortiz-v27-prueba75";
 const APP_ASSETS=[
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const APP_ASSETS=[
   "./icono-bombas.png",
   "./icono-clientes.png",
   "./icono-trabajos.png",
+  "./icono-mantenimiento.png",
   "./hoja-membretada.jpeg",
   "./planilla-control.jpeg",
   "./ensayo-bombeo-plantilla.xlsx",

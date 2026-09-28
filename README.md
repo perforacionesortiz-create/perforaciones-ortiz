@@ -1,10 +1,47 @@
-# Perforaciones Ortiz — V27 Prueba 64 conectada
+# Perforaciones Ortiz — V27 Prueba 75 conectada
 
-## Cambios de la Prueba 64
+## Cambios de la Prueba 75
+
+- La base compartida es ahora la única fuente de datos al iniciar sesión.
+- Una copia antigua guardada en un celular o computadora ya no puede volver a cargar automáticamente información eliminada.
+
+- Las fotos adjuntadas se muestran como miniaturas al abrir un control de mantenimiento guardado.
+- Cada control guardado permite elegir si sus fotos se incluyen o no en el PDF.
+- La elección se respeta tanto en el PDF común como en el PDF con hoja membretada.
+
+- El informe de mantenimiento usa texto más grande manteniéndose en una sola hoja.
+- Las fotografías adjuntas se incorporan al PDF debajo del listado.
+
+- Se aumentó el tamaño de letra del PDF de Mantenimiento Preventivo.
+- Se mantiene el informe completo en una sola hoja y dentro de la zona segura del membrete.
+
+- Texto más pequeño en el informe de mantenimiento membretado.
+- Todo el contenido queda por encima de los datos de contacto inferiores.
+- Se eliminó del PDF membretado el texto adicional del pie para no tapar la papelería.
+
+- El PDF de Mantenimiento Preventivo ahora distribuye los controles en dos columnas compactas.
+- El título, la fecha, el técnico y todo el listado quedan contenidos en una sola hoja A4.
+- El ajuste se aplica al PDF común, al membretado, a controles guardados y al formulario en blanco.
+
+- Mantenimiento Preventivo ahora genera un PDF real con vista previa dentro de la aplicación.
+- El PDF puede descargarse o imprimirse desde la vista previa.
+- Disponible con hoja membretada, sin membrete y como formulario en blanco.
+
+- El control diario se llama **Control de pérdida de agua en vástago de bomba lodo**.
+- Los controles guardados se muestran una sola vez por fecha y se despliegan para consultar el detalle.
+- Cada fecha guardada puede imprimirse en formato normal o en hoja membretada.
+- El control actual puede imprimirse antes de guardarlo.
+- Se puede imprimir el formulario completo en blanco, normal o sobre hoja membretada, para completarlo a mano.
+
+- Se corrigió el error de fecha que impedía guardar mantenimiento.
+- El módulo ahora se llama **Mantenimiento Preventivo**.
+- Se actualizaron los controles diarios y semanales solicitados.
+- Se puede imprimir la selección en hoja común o membretada.
 
 - Cantidad de bombas con botones grandes para usar desde el celular.
-- En los tres trabajos de perforación se muestran seis controles de mantenimiento obligatorios.
-- Es obligatorio completar los seis controles y adjuntar una foto y un video antes de guardar.
+- El mantenimiento se quitó de la carga de trabajos y ahora tiene un módulo propio en Inicio.
+- Incluye listas de control diario y semanal, observaciones y adjuntos de foto o video.
+- Cada elemento de mantenimiento se puede imprimir por separado.
 
 ## Versión móvil instalable
 
