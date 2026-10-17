@@ -1,4 +1,10 @@
-# Perforaciones Ortiz — V27 Prueba 83 conectada
+# Perforaciones Ortiz — V27 Prueba 84 conectada
+
+## Cambios de la Prueba 84
+
+- Corrige la asignación del código 1 a un cliente real.
+- El registro interno **Cliente Ocasional** deja de ocupar un código visible.
+- La validación de códigos duplicados ignora correctamente ese registro interno.
 
 ## Cambios de la Prueba 83
 
