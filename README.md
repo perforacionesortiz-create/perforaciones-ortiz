@@ -1,4 +1,10 @@
-# Perforaciones Ortiz — V27 Prueba 79 conectada
+# Perforaciones Ortiz — V27 Prueba 80 conectada
+
+## Cambios de la Prueba 80
+
+- Evita el error **The operation is insecure** al crear el PDF del ensayo.
+- El membrete se carga de forma segura sin utilizar un lienzo restringido por el navegador.
+- El PDF se muestra primero en una vista previa, con botones explícitos para descargarlo o imprimirlo.
 
 ## Cambios de la Prueba 79
 
