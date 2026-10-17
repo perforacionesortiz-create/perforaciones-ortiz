@@ -1,4 +1,11 @@
-# Perforaciones Ortiz — V27 Prueba 82 conectada
+# Perforaciones Ortiz — V27 Prueba 83 conectada
+
+## Cambios de la Prueba 83
+
+- Cada ficha de cliente incorpora el botón **Editar cliente**.
+- Se pueden modificar código, nombre o razón social, CUIT/DNI, teléfono, correo, localidad, dirección y observaciones.
+- Se valida que no existan dos clientes con el mismo código o nombre.
+- Al cambiar el nombre de un cliente también se actualiza ese nombre en sus trabajos existentes.
 
 ## Cambios de la Prueba 82
 
