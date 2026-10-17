@@ -1,4 +1,11 @@
-# Perforaciones Ortiz — V27 Prueba 84 conectada
+# Perforaciones Ortiz — V27 Prueba 85 conectada
+
+## Cambios de la Prueba 85
+
+- La consulta de trabajos muestra un bloque separado para cada cliente.
+- Cada bloque identifica código, nombre y cantidad de trabajos del cliente.
+- Los clientes se ordenan por código y sus trabajos permanecen ordenados por fecha.
+- Los filtros por cliente, mes y búsqueda continúan funcionando sobre la lista agrupada.
 
 ## Cambios de la Prueba 84
 
