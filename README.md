@@ -1,4 +1,11 @@
-# Perforaciones Ortiz — V27 Prueba 81 conectada
+# Perforaciones Ortiz — V27 Prueba 82 conectada
+
+## Cambios de la Prueba 82
+
+- El editor de un ensayo de bombeo permite modificar todos sus datos técnicos.
+- Se pueden corregir número de pozo, profundidades, diámetro, nivel estático, camisa, transmisión, ubicación y método.
+- Se pueden editar las cinco mediciones de caudal, nivel dinámico y observaciones.
+- Los cambios se reflejan en el detalle, el PDF membretado y el Excel.
 
 ## Cambios de la Prueba 81
 
