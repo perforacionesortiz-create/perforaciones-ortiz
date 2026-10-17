@@ -1,6 +1,13 @@
-# Perforaciones Ortiz — V27 Prueba 75 conectada
+# Perforaciones Ortiz — V27 Prueba 76 conectada
 
-## Cambios de la Prueba 75
+## Cambios de la Prueba 76
+
+- Se agregó una tarea diaria gratuita de Vercel para generar actividad real en la base de datos.
+- La tarea solo acepta invocaciones del programador de Vercel y escribe un único registro por día.
+
+### Activación de la tarea diaria
+
+Ejecutar una sola vez `ACTIVAR-MANTENIMIENTO-AUTOMATICO.sql` en el SQL Editor de Supabase y publicar todos los archivos de esta carpeta en Vercel.
 
 - La base compartida es ahora la única fuente de datos al iniciar sesión.
 - Una copia antigua guardada en un celular o computadora ya no puede volver a cargar automáticamente información eliminada.
