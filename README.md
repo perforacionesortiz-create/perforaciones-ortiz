@@ -1,4 +1,10 @@
-# Perforaciones Ortiz — V27 Prueba 76 conectada
+# Perforaciones Ortiz — V27 Prueba 77 conectada
+
+## Cambios de la Prueba 77
+
+- Restaura la creación directa del PDF membretado de los ensayos de bombeo.
+- Agrega un botón independiente **Crear PDF membretado**, evitando que el navegador bloquee el PDF como segunda descarga después del Excel.
+- Conserva el formato A4 aprobado: membrete, datos del ensayo, cinco mediciones, caudal específico y observaciones.
 
 ## Cambios de la Prueba 76
 
