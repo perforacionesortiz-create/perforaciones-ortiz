@@ -1,4 +1,11 @@
-# Perforaciones Ortiz — V27 Prueba 80 conectada
+# Perforaciones Ortiz — V27 Prueba 81 conectada
+
+## Cambios de la Prueba 81
+
+- Incorpora el membrete y la plantilla del ensayo dentro de la propia aplicación.
+- La creación del PDF y del Excel ya no depende de volver a cargar esos archivos desde la red.
+- Corrige el error **Load failed** observado en algunos navegadores.
+- Separa completamente los botones **Crear PDF membretado** y **Crear Excel**: un fallo en uno ya no puede impedir el otro.
 
 ## Cambios de la Prueba 80
 
