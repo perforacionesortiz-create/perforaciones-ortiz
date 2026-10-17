@@ -1,4 +1,9 @@
-# Perforaciones Ortiz — V27 Prueba 78 conectada
+# Perforaciones Ortiz — V27 Prueba 79 conectada
+
+## Cambios de la Prueba 79
+
+- Corrige la creación del PDF desde **Vista previa de trabajos**.
+- Si la vista previa contiene un solo ensayo de bombeo, los dos botones de PDF usan automáticamente la plantilla técnica especial del ensayo.
 
 ## Cambios de la Prueba 78
 

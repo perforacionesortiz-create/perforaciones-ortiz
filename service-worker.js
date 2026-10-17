@@ -1,4 +1,4 @@
-const CACHE_VERSION="perforaciones-ortiz-v27-prueba78";
+const CACHE_VERSION="perforaciones-ortiz-v27-prueba79";
 const APP_ASSETS=[
   "./",
   "./index.html",
