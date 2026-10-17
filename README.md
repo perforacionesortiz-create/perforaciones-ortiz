@@ -1,4 +1,9 @@
-# Perforaciones Ortiz — V27 Prueba 77 conectada
+# Perforaciones Ortiz — V27 Prueba 78 conectada
+
+## Cambios de la Prueba 78
+
+- Todos los botones de PDF detectan automáticamente los trabajos de tipo **Ensayo de bombeo**.
+- Los ensayos ya no pueden descargarse con el informe genérico: siempre usan la plantilla A4 especial con datos técnicos y tabla de cinco mediciones.
 
 ## Cambios de la Prueba 77
 

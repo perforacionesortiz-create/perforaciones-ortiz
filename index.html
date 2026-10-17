@@ -331,7 +331,7 @@ nav button{display:flex;flex-direction:column;align-items:center;justify-content
 </head>
 <body class="cloud-locked">
 <section id="authScreen" class="auth-screen"><form id="loginForm" class="auth-card" onsubmit="cloudLogin(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Perforaciones Ortiz</h1><div class="small">Sistema conectado</div></div></div><label>Correo electrónico</label><input id="loginEmail" type="email" autocomplete="username" required><label>Contraseña</label><input id="loginPassword" type="password" autocomplete="current-password" required><button id="loginButton" class="primary" type="submit">Ingresar</button><div id="loginError" class="auth-error"></div><div id="loginSuccess" class="auth-success"></div></form><form id="recoveryForm" class="auth-card hidden" onsubmit="saveRecoveredPassword(event)"><div class="auth-brand"><img src="icono-inicio-invertido.png" alt="Perforaciones Ortiz"><div><h1>Nueva contraseña</h1><div class="small">Elegí una contraseña nueva para tu cuenta</div></div></div><label>Nueva contraseña</label><input id="recoveryPassword" type="password" autocomplete="new-password" minlength="8" required><label>Repetir contraseña</label><input id="recoveryPasswordRepeat" type="password" autocomplete="new-password" minlength="8" required><button id="recoveryButton" class="primary" type="submit">Guardar nueva contraseña</button><div id="recoveryError" class="auth-error"></div></form></section>
-<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 77</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
+<header><div class="toprow"><div class="header-brand"><div class="header-logo"><img src="hoja-membretada.jpeg" alt="Logo Perforaciones Ortiz"></div><div class="header-copy"><h1>Perforaciones Ortiz</h1><div class="sub">Gestión de trabajos y bombas · Versión 27 · Prueba 78</div><div id="syncState" class="sync-state">Conectando…</div></div></div><button id="roleBtn" class="role" onclick="cloudLogout()">Modo: Administración</button></div></header>
 <main>
 <section id="inicio" class="screen"><div class="card home-hero"><div class="home-hero-inner"><div class="home-logo"><img src="hoja-membretada.jpeg" alt="Perforaciones Ortiz"></div><div class="home-welcome"><span class="home-kicker">Panel de gestión</span><h2>Bienvenido</h2><p>Trabajos, clientes y bombas organizados en un solo lugar.</p></div></div><div class="home-actions"><button class="home-action primary-action" onclick="go('nuevo')"><span class="home-action-symbol">＋</span><span class="home-action-title">Nuevo trabajo</span><span class="home-action-desc">Registrar una nueva tarea</span></button><button class="home-action" onclick="go('bombas')"><img class="home-action-logo" src="icono-bombas.png" alt="Bombas"><span class="home-action-title">Bombas</span><span class="home-action-desc">Consultar historial y ubicación</span></button><button class="home-action admin" onclick="go('clientes')"><span class="home-action-symbol">👥</span><span class="home-action-title">Clientes</span><span class="home-action-desc">Ver y administrar clientes</span></button><button class="home-action" onclick="go('trabajos')"><img class="home-action-logo" src="icono-trabajos.png" alt="Trabajos"><span class="home-action-title">Trabajos</span><span class="home-action-desc">Filtrar, imprimir y exportar</span></button></div></div><div class="card admin dashboard-card"><h2>Resumen de administración</h2><div id="stats" class="grid grid2"></div><div class="actions"><button class="primary" onclick="exportExcel()">Descargar Excel</button><button class="secondary" onclick="window.print()">Generar PDF</button></div><div class="notice" style="margin-top:16px"><strong>Copia de seguridad y traslado</strong><div class="small" style="margin-top:6px">Guardá todos los datos para usarlos en otra computadora o restaurarlos después de instalar una versión nueva.</div><div class="actions"><button class="primary" onclick="downloadBackup()">Guardar copia de seguridad</button><button class="secondary" onclick="$('backupFileInput').click()">Restaurar copia de seguridad</button></div><input id="backupFileInput" class="hidden" type="file" accept=".json,application/json" onchange="restoreBackup(event)"><div id="backupStatus" class="small"></div></div></div><div class="card"><h2>Últimos trabajos</h2><div id="latest"></div></div></section>
 <section id="nuevo" class="screen hidden"><div class="card"><h2>Nuevo trabajo</h2><label>Tipo de trabajo</label><div class="worktype" id="types"></div><div class="grid grid2"><div><label>Fecha</label><input id="wDate" type="date" onchange="if($('wEventDate')) $('wEventDate').value=this.value"></div><div><label>Técnico</label><select id="wTech"></select></div></div><label>Cliente</label><select id="wClient" onchange="clientChanged()"></select>
@@ -550,7 +550,7 @@ function safeStorageName(name){return String(name||"archivo").normalize("NFD").r
 function installMaintenanceModule(){
   if(!Array.isArray(db.maintenanceRecords)) db.maintenanceRecords=[];
   const subtitle=document.querySelector(".header-copy .sub");
-  if(subtitle) subtitle.textContent="Gestión de trabajos y bombas · Versión 27 · Prueba 77";
+  if(subtitle) subtitle.textContent="Gestión de trabajos y bombas · Versión 27 · Prueba 78";
   const actions=document.querySelector("#inicio .home-actions");
   if(actions&&!actions.querySelector(".maintenance-home-action")) actions.insertAdjacentHTML("beforeend",`<button class="home-action maintenance-home-action" onclick="go('mantenimiento')"><img class="home-action-logo" src="icono-mantenimiento.png" alt="Mantenimiento Preventivo"><span class="home-action-title">Mantenimiento Preventivo</span><span class="home-action-desc">Controles diarios y semanales</span></button>`);
   const main=document.querySelector("main");
@@ -906,7 +906,7 @@ function downloadBackup(){
   if(role!=="admin") return;
   try{
     save();
-    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 77",exportedAt:new Date().toISOString(),data:db};
+    const packageData={application:"Perforaciones Ortiz",formatVersion:1,appVersion:"V27 Prueba 78",exportedAt:new Date().toISOString(),data:db};
     const blob=new Blob([JSON.stringify(packageData,null,2)],{type:"application/json"});
     const url=URL.createObjectURL(blob),link=document.createElement("a");
     link.href=url;link.download=backupFileName();document.body.appendChild(link);link.click();link.remove();
@@ -1437,6 +1437,7 @@ async function createDetailPdf(){
   if(document.querySelector("#detailBody .printable-work-card")) return createWorksPreviewPdf(false);
   const workId=Number($("detailBody")?.dataset?.workId||0);
   const w=db.works.find(x=>Number(x.id)===workId);
+  if(w?.type==="Ensayo de bombeo") return exportPumpTestLetterheadPdf(w);
   if(w) return createWorkLetterheadPdf(w);
   const card=document.querySelector("#detalle .card");
   if(!card) return;
@@ -1447,6 +1448,7 @@ async function createDetailLetterheadPdf(){
   if(document.querySelector("#detailBody .printable-work-card")) return createWorksPreviewPdf(true);
   const workId=Number($("detailBody")?.dataset?.workId||0);
   const w=db.works.find(x=>Number(x.id)===workId);
+  if(w?.type==="Ensayo de bombeo") return exportPumpTestLetterheadPdf(w);
   if(w) return createWorkLetterheadPdf(w);
   return createDetailPdf();
 }
